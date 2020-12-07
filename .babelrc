@@ -21,7 +21,7 @@
           "pages": "./src/pages",
           "routers": "./src/routers",
           "services": "./src/services",
-          "static": "./src/static",
+          "static": "./src/public/static",
           "store": "./src/store",
           "templates": "./src/templates",
           "theme": "./src/theme",

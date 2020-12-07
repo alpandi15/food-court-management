@@ -32,7 +32,8 @@ export default async function renderAndCache (app, req, res, pagePath, queryPara
       req, res, pagePath,
       queryParams ? req[queryParams] : { ...req.query, ...req.params }
     )
-
+    console.log('INI RENDERING ', res.statusCode)
+    console.log('HTML ', html)
     // Something is wrong with the request, let's skip the cache
     if (res.statusCode !== 200) {
       res.send(html)

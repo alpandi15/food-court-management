@@ -51,6 +51,10 @@ module.exports = {
       ]
     }
 
+    config.node = {
+      fs: 'empty'
+    }
+
     if (!isServer && !dev) {
       config.plugins.push(
         new NextWorkboxPlugin({
@@ -58,7 +62,7 @@ module.exports = {
           ...workboxOptions
         }),
         new WebpackPwaManifest({
-          filename: '/static/manifest.json',
+          filename: 'static/manifest.json',
           name: 'FCM',
           short_name: 'FCM',
           lang: 'id-ID',
@@ -73,12 +77,12 @@ module.exports = {
           icons: [
             {
               // src: path.resolve('static/favicon/ms-icon-310x310.png'),
-              src: path.resolve('src/static/logo512.png'),
+              src: path.resolve('src/public/logo512.png'),
               sizes: [72, 96, 120, 128, 144, 152, 167, 180, 192, 384, 512]
             },
             {
               // src: path.resolve('static/favicon/ms-icon-310x310.png'),
-              src: path.resolve('src/static/logo192.png'),
+              src: path.resolve('src/public/logo192.png'),
               sizes: [120, 152, 167, 180],
               ios: true
             }
@@ -91,10 +95,6 @@ module.exports = {
           publicPath: '..'
         })
       )
-
-      config.node = {
-        fs: 'empty'
-      }
     }
 
     return config

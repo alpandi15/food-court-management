@@ -1,35 +1,11 @@
-import React from 'react'
+import express from 'express'
+import renderAndCache from '../../utils/cache'
 
-const Login = React.lazy(() => import('../../pages/auth/Login'))
-const Register = React.lazy(() => import('../../pages/auth/Register'))
-const ForgotPassword = React.lazy(() => import('../../pages/forgotPassword/ForgotPassword'))
-const VerificationCode = React.lazy(() => import('../../pages/forgotPassword/Verification'))
-const ResetPassword = React.lazy(() => import('../../pages/forgotPassword/ResetPassword'))
+const router = express.Router()
 
-export default [
-  {
-    path: '/login',
-    exact: true,
-    component: Login
-  },
-  {
-    path: '/register',
-    exact: true,
-    component: Register
-  },
-  {
-    path: '/forgot-password',
-    exact: true,
-    component: ForgotPassword
-  },
-  {
-    path: '/forgot-password/verification',
-    exact: false,
-    component: VerificationCode
-  },
-  {
-    path: '/reset-password',
-    exact: true,
-    component: ResetPassword
-  }
-]
+const routes = (app) => {
+  return router
+    .get('/auth/register', (req, res) => renderAndCache(app, req, res, '/auth'))
+}
+
+export default routes

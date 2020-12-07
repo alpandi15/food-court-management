@@ -3,6 +3,7 @@ import helmet from 'helmet'
 import next from 'next'
 import { join } from 'path'
 import cookieParser from 'cookie-parser'
+import routes from './src/routers'
 
 const port = parseInt(process.env.PORT, 10) || 7000
 const dev = process.env.NODE_ENV !== 'production'
@@ -29,13 +30,13 @@ app.prepare()
         res.removeHeader('x-powered-by')
         next()
       })
-      .get('/info', (req, res) => res.send('INi Data'))
-    // routes(server, app)
+      .get('/info', (req, res) => res.send('INi Data Render SSR'))
+    routes(server, app)
 
     server
       .get('*', (req, res) => {
         if (req.url.includes('/sw')) {
-          const filePath = join(__dirname, 'static', 'workbox', 'sw.js')
+          const filePath = join(__dirname, 'static', 'workbox', 'service-worker.js')
           app.serveStatic(req, res, filePath)
         } else if (req.url.startsWith('static/workbox/')) {
           app.serveStatic(req, res, join(__dirname, req.url))

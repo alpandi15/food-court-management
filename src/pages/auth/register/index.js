@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
-import { toastify } from '../../components/Toast/Toastify'
-import Header from '../../components/Header'
-import TextInput from '../../components/Form/Input'
+import { toastify } from '../../../components/Toast/Toastify'
+import Header from '../../../components/Header'
+import TextInput from '../../../components/Form/Input'
 
-import { registerUser } from '../../actions/auth/authAction'
+import { registerUser } from '../../../actions/auth/authAction'
 
 const Background = 'static/Image/bg.svg'
 
@@ -146,7 +146,7 @@ const Register = ({
               <button disabled={invalid || submitting || loading} className="waves-effect waves-light btn btn-app bg-grey">Daftar</button>
               <div className="forgot-password">
                 <span>Sudah punya akun ? </span>
-                <Link to="/login" className="color-primary waves-effect">
+                <Link href="/login" className="color-primary waves-effect">
                   Silahkan Masuk
                 </Link>
               </div>
