@@ -121,6 +121,10 @@ var external_react_redux_ = __webpack_require__("h74D");
 
 // EXTERNAL MODULE: external "next-redux-wrapper"
 var external_next_redux_wrapper_ = __webpack_require__("JMOJ");
+var external_next_redux_wrapper_default = /*#__PURE__*/__webpack_require__.n(external_next_redux_wrapper_);
+
+// EXTERNAL MODULE: external "redux-devtools-extension"
+var external_redux_devtools_extension_ = __webpack_require__("ufKq");
 
 // EXTERNAL MODULE: external "redux-thunk"
 var external_redux_thunk_ = __webpack_require__("ZSx1");
@@ -652,13 +656,13 @@ var __jsx = external_react_default.a.createElement;
 
 
 
+
 const theme = {
   colors: {
     primary: '#0070f3'
   }
 };
-const _app_store = Object(external_redux_["createStore"])(store, Object(external_redux_["compose"])(Object(external_redux_["applyMiddleware"])(external_redux_thunk_default.a)));
-const wrapper = Object(external_next_redux_wrapper_["createWrapper"])(_app_store);
+const _app_store = Object(external_redux_["createStore"])(store, Object(external_redux_devtools_extension_["composeWithDevTools"])(Object(external_redux_["applyMiddleware"])(external_redux_thunk_default.a)));
 
 class _app_MyApp extends app_default.a {
   constructor() {
@@ -701,7 +705,11 @@ class _app_MyApp extends app_default.a {
 
 }
 
-/* harmony default export */ var _app = __webpack_exports__["default"] = (wrapper.withRedux(_app_MyApp));
+const makeStore = () => {
+  return _app_store;
+};
+
+/* harmony default export */ var _app = __webpack_exports__["default"] = (external_next_redux_wrapper_default()(makeStore)(_app_MyApp));
 
 /***/ }),
 
@@ -1020,6 +1028,13 @@ module.exports = __webpack_require__("6jsY")
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
+
+/***/ }),
+
+/***/ "ufKq":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-extension");
 
 /***/ }),
 

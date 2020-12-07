@@ -1,9 +1,10 @@
 import React from 'react'
 import App from 'next/app'
 import { Provider } from 'react-redux'
-import { createWrapper } from 'next-redux-wrapper'
+import withRedux from 'next-redux-wrapper'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import CustomHelmet from 'components/CustomHelmet'
 import reducer from '../store'
 
@@ -15,12 +16,8 @@ const theme = {
 
 const store = createStore(
   reducer,
-  compose(
-    applyMiddleware(thunk)
-  )
+  composeWithDevTools(applyMiddleware(thunk))
 )
-
-const wrapper = createWrapper(store)
 
 class MyApp extends App {
   constructor () {
@@ -58,4 +55,8 @@ class MyApp extends App {
   }
 }
 
-export default wrapper.withRedux(MyApp)
+const makeStore = () => {
+  return store
+}
+
+export default withRedux(makeStore)(MyApp)

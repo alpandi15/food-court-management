@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 next build ./src",
-    "dev": "cross-env NODE_ENV=development NEXT_TELEMETRY_DISABLED=1 nodemon -w server.js -r esm server.js",
+    "dev": "cross-env NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 nodemon -w server.js -r esm server.js",
     "lint": "eslint --fix --ext .js src",
     "start": "cross-env NODE_ENV=production node -r esm server.js",
     "test": "npm run lint",
@@ -30,7 +30,7 @@
     "moment": "^2.29.1",
     "next": "latest",
     "next-cookies": "^2.0.3",
-    "next-redux-wrapper": "^6.0.2",
+    "next-redux-wrapper": "^4.0.1",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
