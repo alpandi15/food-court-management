@@ -10,6 +10,7 @@ const CustomHelmet = ({
   children,
   ...props
 }) => {
+  console.log('CUstomer Helment ', title)
   return (
     <Helmet
       htmlAttributes={{ lang: 'en' }}

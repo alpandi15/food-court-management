@@ -1,17 +1,11 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import React from 'react'
+import App from 'next/app'
 import { Provider } from 'react-redux'
+import { createWrapper } from 'next-redux-wrapper'
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { createStore, applyMiddleware, compose } from 'redux'
+import CustomHelmet from 'components/CustomHelmet'
 import reducer from '../store'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
 
 const theme = {
   colors: {
@@ -21,18 +15,47 @@ const theme = {
 
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  compose(
+    applyMiddleware(thunk)
+  )
 )
 
-export default function App ({ Component, pageProps }) {
-  return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
+const wrapper = createWrapper(store)
+
+class MyApp extends App {
+  constructor () {
+    super()
+  }
+
+  static async getInitialProps ({ Component, ctx }) {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return { pageProps }
+  }
+
+  componentDidMount () {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side')
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles)
+    }
+  }
+
+  render () {
+    const { Component, pageProps } = this.props
+    return (
+      <>
         <Provider store={store}>
+          <CustomHelmet />
           <Component {...pageProps} />
         </Provider>
-      </ThemeProvider>
-    </>
-  )
+      </>
+    )
+  }
 }
+
+export default wrapper.withRedux(MyApp)

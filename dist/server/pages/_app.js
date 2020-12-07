@@ -93,224 +93,940 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./actions/types.js":
-/*!**************************!*\
-  !*** ./actions/types.js ***!
-  \**************************/
-/*! exports provided: FETCH_AUTH, RECEIVE_AUTH, FAILED_AUTH, FETCH_LOGOUT_USER, FETCH_CHANGE_ACCOUNT, RECEIVE_CHANGE_ACCOUNT, FAILED_CHANGE_ACCOUNT, FETCH_FORGOT_PASSWORD, RECEIVE_ITEM_FORGOT_PASSWORD, FAILED_FORGOT_PASSWORD, FETCH_IMAGE, SUCCESS_IMAGE, FAILED_IMAGE, FETCH_CURRENT_TIME, FAILED_CURRENT_TIME, RECEIVE_CURRENT_TIME, FETCH_FOODCOURT, FAILED_FOODCOURT, RECEIVE_FOODCOURT, RECEIVE_ITEM_FOODCOURT, FETCH_STAND, FAILED_STAND, RECEIVE_STAND, RECEIVE_ITEM_STAND, FETCH_CATEGORY_STAND, FAILED_CATEGORY_STAND, RECEIVE_CATEGORY_STAND, RECEIVE_ITEM_CATEGORY_STAND, FETCH_HOME_STAND, FAILED_HOME_STAND, RECEIVE_HOME_STAND, RECEIVE_ITEM_HOME_STAND, FETCH_PRODUCT, FAILED_PRODUCT, RECEIVE_PRODUCT, RECEIVE_ITEM_PRODUCT, FETCH_USER, FAILED_USER, RECEIVE_USER, RECEIVE_ITEM_USER */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_AUTH\", function() { return FETCH_AUTH; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_AUTH\", function() { return RECEIVE_AUTH; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_AUTH\", function() { return FAILED_AUTH; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_LOGOUT_USER\", function() { return FETCH_LOGOUT_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_CHANGE_ACCOUNT\", function() { return FETCH_CHANGE_ACCOUNT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_CHANGE_ACCOUNT\", function() { return RECEIVE_CHANGE_ACCOUNT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_CHANGE_ACCOUNT\", function() { return FAILED_CHANGE_ACCOUNT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_FORGOT_PASSWORD\", function() { return FETCH_FORGOT_PASSWORD; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_FORGOT_PASSWORD\", function() { return RECEIVE_ITEM_FORGOT_PASSWORD; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_FORGOT_PASSWORD\", function() { return FAILED_FORGOT_PASSWORD; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_IMAGE\", function() { return FETCH_IMAGE; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SUCCESS_IMAGE\", function() { return SUCCESS_IMAGE; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_IMAGE\", function() { return FAILED_IMAGE; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_CURRENT_TIME\", function() { return FETCH_CURRENT_TIME; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_CURRENT_TIME\", function() { return FAILED_CURRENT_TIME; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_CURRENT_TIME\", function() { return RECEIVE_CURRENT_TIME; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_FOODCOURT\", function() { return FETCH_FOODCOURT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_FOODCOURT\", function() { return FAILED_FOODCOURT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_FOODCOURT\", function() { return RECEIVE_FOODCOURT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_FOODCOURT\", function() { return RECEIVE_ITEM_FOODCOURT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_STAND\", function() { return FETCH_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_STAND\", function() { return FAILED_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_STAND\", function() { return RECEIVE_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_STAND\", function() { return RECEIVE_ITEM_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_CATEGORY_STAND\", function() { return FETCH_CATEGORY_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_CATEGORY_STAND\", function() { return FAILED_CATEGORY_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_CATEGORY_STAND\", function() { return RECEIVE_CATEGORY_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_CATEGORY_STAND\", function() { return RECEIVE_ITEM_CATEGORY_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_HOME_STAND\", function() { return FETCH_HOME_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_HOME_STAND\", function() { return FAILED_HOME_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_HOME_STAND\", function() { return RECEIVE_HOME_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_HOME_STAND\", function() { return RECEIVE_ITEM_HOME_STAND; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_PRODUCT\", function() { return FETCH_PRODUCT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_PRODUCT\", function() { return FAILED_PRODUCT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_PRODUCT\", function() { return RECEIVE_PRODUCT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_PRODUCT\", function() { return RECEIVE_ITEM_PRODUCT; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_USER\", function() { return FETCH_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FAILED_USER\", function() { return FAILED_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_USER\", function() { return RECEIVE_USER; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_ITEM_USER\", function() { return RECEIVE_ITEM_USER; });\n// AUTH\nconst FETCH_AUTH = 'FETCH_AUTH';\nconst RECEIVE_AUTH = 'RECEIVE_AUTH';\nconst FAILED_AUTH = 'FAILED_AUTH';\nconst FETCH_LOGOUT_USER = 'FETCH_LOGOUT_USER'; // ACCOUNT UPDATE\n\nconst FETCH_CHANGE_ACCOUNT = 'FETCH_CHANGE_ACCOUNT';\nconst RECEIVE_CHANGE_ACCOUNT = 'RECEIVE_CHANGE_ACCOUNT';\nconst FAILED_CHANGE_ACCOUNT = 'FAILED_CHANGE_ACCOUNT'; // FORGOT PASSWORD\n\nconst FETCH_FORGOT_PASSWORD = 'FETCH_FORGOT_PASSWORD';\nconst RECEIVE_ITEM_FORGOT_PASSWORD = 'RECEIVE_ITEM_FORGOT_PASSWORD';\nconst FAILED_FORGOT_PASSWORD = 'FAILED_FORGOT_PASSWORD'; // IMAGE\n\nconst FETCH_IMAGE = 'FETCH_IMAGE';\nconst SUCCESS_IMAGE = 'SUCCESS_IMAGE';\nconst FAILED_IMAGE = 'FAILED_IMAGE'; // CURRENT TIME\n\nconst FETCH_CURRENT_TIME = 'FETCH_CURRENT_TIME';\nconst FAILED_CURRENT_TIME = 'FAILED_CURRENT_TIME';\nconst RECEIVE_CURRENT_TIME = 'RECEIVE_CURRENT_TIME'; // FOOD COURT\n\nconst FETCH_FOODCOURT = 'FETCH_FOODCOURT';\nconst FAILED_FOODCOURT = 'FAILED_FOODCOURT';\nconst RECEIVE_FOODCOURT = 'RECEIVE_FOODCOURT';\nconst RECEIVE_ITEM_FOODCOURT = 'RECEIVE_ITEM_FOODCOURT'; // STAND\n\nconst FETCH_STAND = 'FETCH_STAND';\nconst FAILED_STAND = 'FAILED_STAND';\nconst RECEIVE_STAND = 'RECEIVE_STAND';\nconst RECEIVE_ITEM_STAND = 'RECEIVE_ITEM_STAND'; // CATEGORY_STAND\n\nconst FETCH_CATEGORY_STAND = 'FETCH_CATEGORY_STAND';\nconst FAILED_CATEGORY_STAND = 'FAILED_CATEGORY_STAND';\nconst RECEIVE_CATEGORY_STAND = 'RECEIVE_CATEGORY_STAND';\nconst RECEIVE_ITEM_CATEGORY_STAND = 'RECEIVE_ITEM_CATEGORY_STAND'; // HOME_STAND\n\nconst FETCH_HOME_STAND = 'FETCH_HOME_STAND';\nconst FAILED_HOME_STAND = 'FAILED_HOME_STAND';\nconst RECEIVE_HOME_STAND = 'RECEIVE_HOME_STAND';\nconst RECEIVE_ITEM_HOME_STAND = 'RECEIVE_ITEM_HOME_STAND'; // PRODUCT\n\nconst FETCH_PRODUCT = 'FETCH_PRODUCT';\nconst FAILED_PRODUCT = 'FAILED_PRODUCT';\nconst RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';\nconst RECEIVE_ITEM_PRODUCT = 'RECEIVE_ITEM_PRODUCT'; // USER\n\nconst FETCH_USER = 'FETCH_USER';\nconst FAILED_USER = 'FAILED_USER';\nconst RECEIVE_USER = 'RECEIVE_USER';\nconst RECEIVE_ITEM_USER = 'RECEIVE_ITEM_USER'; // GENERATED TYPES//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hY3Rpb25zL3R5cGVzLmpzPzY1ZmMiXSwibmFtZXMiOlsiRkVUQ0hfQVVUSCIsIlJFQ0VJVkVfQVVUSCIsIkZBSUxFRF9BVVRIIiwiRkVUQ0hfTE9HT1VUX1VTRVIiLCJGRVRDSF9DSEFOR0VfQUNDT1VOVCIsIlJFQ0VJVkVfQ0hBTkdFX0FDQ09VTlQiLCJGQUlMRURfQ0hBTkdFX0FDQ09VTlQiLCJGRVRDSF9GT1JHT1RfUEFTU1dPUkQiLCJSRUNFSVZFX0lURU1fRk9SR09UX1BBU1NXT1JEIiwiRkFJTEVEX0ZPUkdPVF9QQVNTV09SRCIsIkZFVENIX0lNQUdFIiwiU1VDQ0VTU19JTUFHRSIsIkZBSUxFRF9JTUFHRSIsIkZFVENIX0NVUlJFTlRfVElNRSIsIkZBSUxFRF9DVVJSRU5UX1RJTUUiLCJSRUNFSVZFX0NVUlJFTlRfVElNRSIsIkZFVENIX0ZPT0RDT1VSVCIsIkZBSUxFRF9GT09EQ09VUlQiLCJSRUNFSVZFX0ZPT0RDT1VSVCIsIlJFQ0VJVkVfSVRFTV9GT09EQ09VUlQiLCJGRVRDSF9TVEFORCIsIkZBSUxFRF9TVEFORCIsIlJFQ0VJVkVfU1RBTkQiLCJSRUNFSVZFX0lURU1fU1RBTkQiLCJGRVRDSF9DQVRFR09SWV9TVEFORCIsIkZBSUxFRF9DQVRFR09SWV9TVEFORCIsIlJFQ0VJVkVfQ0FURUdPUllfU1RBTkQiLCJSRUNFSVZFX0lURU1fQ0FURUdPUllfU1RBTkQiLCJGRVRDSF9IT01FX1NUQU5EIiwiRkFJTEVEX0hPTUVfU1RBTkQiLCJSRUNFSVZFX0hPTUVfU1RBTkQiLCJSRUNFSVZFX0lURU1fSE9NRV9TVEFORCIsIkZFVENIX1BST0RVQ1QiLCJGQUlMRURfUFJPRFVDVCIsIlJFQ0VJVkVfUFJPRFVDVCIsIlJFQ0VJVkVfSVRFTV9QUk9EVUNUIiwiRkVUQ0hfVVNFUiIsIkZBSUxFRF9VU0VSIiwiUkVDRUlWRV9VU0VSIiwiUkVDRUlWRV9JVEVNX1VTRVIiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUNPLE1BQU1BLFVBQVUsR0FBRyxZQUFuQjtBQUNBLE1BQU1DLFlBQVksR0FBRyxjQUFyQjtBQUNBLE1BQU1DLFdBQVcsR0FBRyxhQUFwQjtBQUNBLE1BQU1DLGlCQUFpQixHQUFHLG1CQUExQixDLENBRVA7O0FBQ08sTUFBTUMsb0JBQW9CLEdBQUcsc0JBQTdCO0FBQ0EsTUFBTUMsc0JBQXNCLEdBQUcsd0JBQS9CO0FBQ0EsTUFBTUMscUJBQXFCLEdBQUcsdUJBQTlCLEMsQ0FFUDs7QUFDTyxNQUFNQyxxQkFBcUIsR0FBRyx1QkFBOUI7QUFDQSxNQUFNQyw0QkFBNEIsR0FBRyw4QkFBckM7QUFDQSxNQUFNQyxzQkFBc0IsR0FBRyx3QkFBL0IsQyxDQUVQOztBQUNPLE1BQU1DLFdBQVcsR0FBRyxhQUFwQjtBQUNBLE1BQU1DLGFBQWEsR0FBRyxlQUF0QjtBQUNBLE1BQU1DLFlBQVksR0FBRyxjQUFyQixDLENBRVA7O0FBQ08sTUFBTUMsa0JBQWtCLEdBQUcsb0JBQTNCO0FBQ0EsTUFBTUMsbUJBQW1CLEdBQUcscUJBQTVCO0FBQ0EsTUFBTUMsb0JBQW9CLEdBQUcsc0JBQTdCLEMsQ0FFUDs7QUFDTyxNQUFNQyxlQUFlLEdBQUcsaUJBQXhCO0FBQ0EsTUFBTUMsZ0JBQWdCLEdBQUcsa0JBQXpCO0FBQ0EsTUFBTUMsaUJBQWlCLEdBQUcsbUJBQTFCO0FBQ0EsTUFBTUMsc0JBQXNCLEdBQUcsd0JBQS9CLEMsQ0FFUDs7QUFDTyxNQUFNQyxXQUFXLEdBQUcsYUFBcEI7QUFDQSxNQUFNQyxZQUFZLEdBQUcsY0FBckI7QUFDQSxNQUFNQyxhQUFhLEdBQUcsZUFBdEI7QUFDQSxNQUFNQyxrQkFBa0IsR0FBRyxvQkFBM0IsQyxDQUVQOztBQUNPLE1BQU1DLG9CQUFvQixHQUFHLHNCQUE3QjtBQUNBLE1BQU1DLHFCQUFxQixHQUFHLHVCQUE5QjtBQUNBLE1BQU1DLHNCQUFzQixHQUFHLHdCQUEvQjtBQUNBLE1BQU1DLDJCQUEyQixHQUFHLDZCQUFwQyxDLENBRVA7O0FBQ08sTUFBTUMsZ0JBQWdCLEdBQUcsa0JBQXpCO0FBQ0EsTUFBTUMsaUJBQWlCLEdBQUcsbUJBQTFCO0FBQ0EsTUFBTUMsa0JBQWtCLEdBQUcsb0JBQTNCO0FBQ0EsTUFBTUMsdUJBQXVCLEdBQUcseUJBQWhDLEMsQ0FFUDs7QUFDTyxNQUFNQyxhQUFhLEdBQUcsZUFBdEI7QUFDQSxNQUFNQyxjQUFjLEdBQUcsZ0JBQXZCO0FBQ0EsTUFBTUMsZUFBZSxHQUFHLGlCQUF4QjtBQUNBLE1BQU1DLG9CQUFvQixHQUFHLHNCQUE3QixDLENBRVA7O0FBQ08sTUFBTUMsVUFBVSxHQUFHLFlBQW5CO0FBQ0EsTUFBTUMsV0FBVyxHQUFHLGFBQXBCO0FBQ0EsTUFBTUMsWUFBWSxHQUFHLGNBQXJCO0FBQ0EsTUFBTUMsaUJBQWlCLEdBQUcsbUJBQTFCLEMsQ0FFUCIsImZpbGUiOiIuL2FjdGlvbnMvdHlwZXMuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBBVVRIXG5leHBvcnQgY29uc3QgRkVUQ0hfQVVUSCA9ICdGRVRDSF9BVVRIJ1xuZXhwb3J0IGNvbnN0IFJFQ0VJVkVfQVVUSCA9ICdSRUNFSVZFX0FVVEgnXG5leHBvcnQgY29uc3QgRkFJTEVEX0FVVEggPSAnRkFJTEVEX0FVVEgnXG5leHBvcnQgY29uc3QgRkVUQ0hfTE9HT1VUX1VTRVIgPSAnRkVUQ0hfTE9HT1VUX1VTRVInXG5cbi8vIEFDQ09VTlQgVVBEQVRFXG5leHBvcnQgY29uc3QgRkVUQ0hfQ0hBTkdFX0FDQ09VTlQgPSAnRkVUQ0hfQ0hBTkdFX0FDQ09VTlQnXG5leHBvcnQgY29uc3QgUkVDRUlWRV9DSEFOR0VfQUNDT1VOVCA9ICdSRUNFSVZFX0NIQU5HRV9BQ0NPVU5UJ1xuZXhwb3J0IGNvbnN0IEZBSUxFRF9DSEFOR0VfQUNDT1VOVCA9ICdGQUlMRURfQ0hBTkdFX0FDQ09VTlQnXG5cbi8vIEZPUkdPVCBQQVNTV09SRFxuZXhwb3J0IGNvbnN0IEZFVENIX0ZPUkdPVF9QQVNTV09SRCA9ICdGRVRDSF9GT1JHT1RfUEFTU1dPUkQnXG5leHBvcnQgY29uc3QgUkVDRUlWRV9JVEVNX0ZPUkdPVF9QQVNTV09SRCA9ICdSRUNFSVZFX0lURU1fRk9SR09UX1BBU1NXT1JEJ1xuZXhwb3J0IGNvbnN0IEZBSUxFRF9GT1JHT1RfUEFTU1dPUkQgPSAnRkFJTEVEX0ZPUkdPVF9QQVNTV09SRCdcblxuLy8gSU1BR0VcbmV4cG9ydCBjb25zdCBGRVRDSF9JTUFHRSA9ICdGRVRDSF9JTUFHRSdcbmV4cG9ydCBjb25zdCBTVUNDRVNTX0lNQUdFID0gJ1NVQ0NFU1NfSU1BR0UnXG5leHBvcnQgY29uc3QgRkFJTEVEX0lNQUdFID0gJ0ZBSUxFRF9JTUFHRSdcblxuLy8gQ1VSUkVOVCBUSU1FXG5leHBvcnQgY29uc3QgRkVUQ0hfQ1VSUkVOVF9USU1FID0gJ0ZFVENIX0NVUlJFTlRfVElNRSdcbmV4cG9ydCBjb25zdCBGQUlMRURfQ1VSUkVOVF9USU1FID0gJ0ZBSUxFRF9DVVJSRU5UX1RJTUUnXG5leHBvcnQgY29uc3QgUkVDRUlWRV9DVVJSRU5UX1RJTUUgPSAnUkVDRUlWRV9DVVJSRU5UX1RJTUUnXG5cbi8vIEZPT0QgQ09VUlRcbmV4cG9ydCBjb25zdCBGRVRDSF9GT09EQ09VUlQgPSAnRkVUQ0hfRk9PRENPVVJUJ1xuZXhwb3J0IGNvbnN0IEZBSUxFRF9GT09EQ09VUlQgPSAnRkFJTEVEX0ZPT0RDT1VSVCdcbmV4cG9ydCBjb25zdCBSRUNFSVZFX0ZPT0RDT1VSVCA9ICdSRUNFSVZFX0ZPT0RDT1VSVCdcbmV4cG9ydCBjb25zdCBSRUNFSVZFX0lURU1fRk9PRENPVVJUID0gJ1JFQ0VJVkVfSVRFTV9GT09EQ09VUlQnXG5cbi8vIFNUQU5EXG5leHBvcnQgY29uc3QgRkVUQ0hfU1RBTkQgPSAnRkVUQ0hfU1RBTkQnXG5leHBvcnQgY29uc3QgRkFJTEVEX1NUQU5EID0gJ0ZBSUxFRF9TVEFORCdcbmV4cG9ydCBjb25zdCBSRUNFSVZFX1NUQU5EID0gJ1JFQ0VJVkVfU1RBTkQnXG5leHBvcnQgY29uc3QgUkVDRUlWRV9JVEVNX1NUQU5EID0gJ1JFQ0VJVkVfSVRFTV9TVEFORCdcblxuLy8gQ0FURUdPUllfU1RBTkRcbmV4cG9ydCBjb25zdCBGRVRDSF9DQVRFR09SWV9TVEFORCA9ICdGRVRDSF9DQVRFR09SWV9TVEFORCdcbmV4cG9ydCBjb25zdCBGQUlMRURfQ0FURUdPUllfU1RBTkQgPSAnRkFJTEVEX0NBVEVHT1JZX1NUQU5EJ1xuZXhwb3J0IGNvbnN0IFJFQ0VJVkVfQ0FURUdPUllfU1RBTkQgPSAnUkVDRUlWRV9DQVRFR09SWV9TVEFORCdcbmV4cG9ydCBjb25zdCBSRUNFSVZFX0lURU1fQ0FURUdPUllfU1RBTkQgPSAnUkVDRUlWRV9JVEVNX0NBVEVHT1JZX1NUQU5EJ1xuXG4vLyBIT01FX1NUQU5EXG5leHBvcnQgY29uc3QgRkVUQ0hfSE9NRV9TVEFORCA9ICdGRVRDSF9IT01FX1NUQU5EJ1xuZXhwb3J0IGNvbnN0IEZBSUxFRF9IT01FX1NUQU5EID0gJ0ZBSUxFRF9IT01FX1NUQU5EJ1xuZXhwb3J0IGNvbnN0IFJFQ0VJVkVfSE9NRV9TVEFORCA9ICdSRUNFSVZFX0hPTUVfU1RBTkQnXG5leHBvcnQgY29uc3QgUkVDRUlWRV9JVEVNX0hPTUVfU1RBTkQgPSAnUkVDRUlWRV9JVEVNX0hPTUVfU1RBTkQnXG5cbi8vIFBST0RVQ1RcbmV4cG9ydCBjb25zdCBGRVRDSF9QUk9EVUNUID0gJ0ZFVENIX1BST0RVQ1QnXG5leHBvcnQgY29uc3QgRkFJTEVEX1BST0RVQ1QgPSAnRkFJTEVEX1BST0RVQ1QnXG5leHBvcnQgY29uc3QgUkVDRUlWRV9QUk9EVUNUID0gJ1JFQ0VJVkVfUFJPRFVDVCdcbmV4cG9ydCBjb25zdCBSRUNFSVZFX0lURU1fUFJPRFVDVCA9ICdSRUNFSVZFX0lURU1fUFJPRFVDVCdcblxuLy8gVVNFUlxuZXhwb3J0IGNvbnN0IEZFVENIX1VTRVIgPSAnRkVUQ0hfVVNFUidcbmV4cG9ydCBjb25zdCBGQUlMRURfVVNFUiA9ICdGQUlMRURfVVNFUidcbmV4cG9ydCBjb25zdCBSRUNFSVZFX1VTRVIgPSAnUkVDRUlWRV9VU0VSJ1xuZXhwb3J0IGNvbnN0IFJFQ0VJVkVfSVRFTV9VU0VSID0gJ1JFQ0VJVkVfSVRFTV9VU0VSJ1xuXG4vLyBHRU5FUkFURUQgVFlQRVNcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./actions/types.js\n");
-
-/***/ }),
-
-/***/ "./pages/_app.js":
-/*!***********************!*\
-  !*** ./pages/_app.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return App; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ \"styled-components\");\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-devtools-extension */ \"redux-devtools-extension\");\n/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store */ \"./store/index.js\");\nvar _jsxFileName = \"/home/pandi95/Projects/React/blog-frontend/src/pages/_app.js\";\n\nvar __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;\n\nfunction _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }\n\n\n\n\n\n\n\nconst GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__[\"createGlobalStyle\"]`\n  body {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n  }\n`;\nconst theme = {\n  colors: {\n    primary: '#0070f3'\n  }\n};\nconst store = Object(redux__WEBPACK_IMPORTED_MODULE_4__[\"createStore\"])(_store__WEBPACK_IMPORTED_MODULE_6__[\"default\"], Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_5__[\"composeWithDevTools\"])(Object(redux__WEBPACK_IMPORTED_MODULE_4__[\"applyMiddleware\"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3___default.a)));\nfunction App({\n  Component,\n  pageProps\n}) {\n  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(GlobalStyle, {\n    __self: this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 30,\n      columnNumber: 7\n    }\n  }), __jsx(styled_components__WEBPACK_IMPORTED_MODULE_1__[\"ThemeProvider\"], {\n    theme: theme,\n    __self: this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 31,\n      columnNumber: 7\n    }\n  }, __jsx(react_redux__WEBPACK_IMPORTED_MODULE_2__[\"Provider\"], {\n    store: store,\n    __self: this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 32,\n      columnNumber: 9\n    }\n  }, __jsx(Component, _extends({}, pageProps, {\n    __self: this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 33,\n      columnNumber: 11\n    }\n  })))));\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9wYWdlcy9fYXBwLmpzP2Q1MzAiXSwibmFtZXMiOlsiR2xvYmFsU3R5bGUiLCJjcmVhdGVHbG9iYWxTdHlsZSIsInRoZW1lIiwiY29sb3JzIiwicHJpbWFyeSIsInN0b3JlIiwiY3JlYXRlU3RvcmUiLCJyZWR1Y2VyIiwiY29tcG9zZVdpdGhEZXZUb29scyIsImFwcGx5TWlkZGxld2FyZSIsInRodW5rIiwiQXBwIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQSxNQUFNQSxXQUFXLEdBQUdDLG1FQUFrQjtBQUN0QztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsQ0FOQTtBQVFBLE1BQU1DLEtBQUssR0FBRztBQUNaQyxRQUFNLEVBQUU7QUFDTkMsV0FBTyxFQUFFO0FBREg7QUFESSxDQUFkO0FBTUEsTUFBTUMsS0FBSyxHQUFHQyx5REFBVyxDQUN2QkMsOENBRHVCLEVBRXZCQyxvRkFBbUIsQ0FBQ0MsNkRBQWUsQ0FBQ0Msa0RBQUQsQ0FBaEIsQ0FGSSxDQUF6QjtBQUtlLFNBQVNDLEdBQVQsQ0FBYztBQUFFQyxXQUFGO0FBQWFDO0FBQWIsQ0FBZCxFQUF3QztBQUNyRCxTQUNFLG1FQUNFLE1BQUMsV0FBRDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLElBREYsRUFFRSxNQUFDLCtEQUFEO0FBQWUsU0FBSyxFQUFFWCxLQUF0QjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLEtBQ0UsTUFBQyxvREFBRDtBQUFVLFNBQUssRUFBRUcsS0FBakI7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxLQUNFLE1BQUMsU0FBRCxlQUFlUSxTQUFmO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsS0FERixDQURGLENBRkYsQ0FERjtBQVVEIiwiZmlsZSI6Ii4vcGFnZXMvX2FwcC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNyZWF0ZUdsb2JhbFN0eWxlLCBUaGVtZVByb3ZpZGVyIH0gZnJvbSAnc3R5bGVkLWNvbXBvbmVudHMnXG5pbXBvcnQgeyBQcm92aWRlciB9IGZyb20gJ3JlYWN0LXJlZHV4J1xuaW1wb3J0IHRodW5rIGZyb20gJ3JlZHV4LXRodW5rJ1xuaW1wb3J0IHsgY3JlYXRlU3RvcmUsIGFwcGx5TWlkZGxld2FyZSB9IGZyb20gJ3JlZHV4J1xuaW1wb3J0IHsgY29tcG9zZVdpdGhEZXZUb29scyB9IGZyb20gJ3JlZHV4LWRldnRvb2xzLWV4dGVuc2lvbidcbmltcG9ydCByZWR1Y2VyIGZyb20gJy4uL3N0b3JlJ1xuXG5jb25zdCBHbG9iYWxTdHlsZSA9IGNyZWF0ZUdsb2JhbFN0eWxlYFxuICBib2R5IHtcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICB9XG5gXG5cbmNvbnN0IHRoZW1lID0ge1xuICBjb2xvcnM6IHtcbiAgICBwcmltYXJ5OiAnIzAwNzBmMydcbiAgfVxufVxuXG5jb25zdCBzdG9yZSA9IGNyZWF0ZVN0b3JlKFxuICByZWR1Y2VyLFxuICBjb21wb3NlV2l0aERldlRvb2xzKGFwcGx5TWlkZGxld2FyZSh0aHVuaykpXG4pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEFwcCAoeyBDb21wb25lbnQsIHBhZ2VQcm9wcyB9KSB7XG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxHbG9iYWxTdHlsZSAvPlxuICAgICAgPFRoZW1lUHJvdmlkZXIgdGhlbWU9e3RoZW1lfT5cbiAgICAgICAgPFByb3ZpZGVyIHN0b3JlPXtzdG9yZX0+XG4gICAgICAgICAgPENvbXBvbmVudCB7Li4ucGFnZVByb3BzfSAvPlxuICAgICAgICA8L1Byb3ZpZGVyPlxuICAgICAgPC9UaGVtZVByb3ZpZGVyPlxuICAgIDwvPlxuICApXG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
-
-/***/ }),
-
-/***/ "./store/index.js":
-/*!************************!*\
-  !*** ./store/index.js ***!
-  \************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ \"redux-form\");\n/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_form__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _reducer_accountStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducer/accountStore */ \"./store/reducer/accountStore.js\");\n/* harmony import */ var _reducer_forgotPassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducer/forgotPassword */ \"./store/reducer/forgotPassword.js\");\n/* harmony import */ var _reducer_foodCourt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducer/foodCourt */ \"./store/reducer/foodCourt.js\");\n/* harmony import */ var _reducer_userStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reducer/userStore */ \"./store/reducer/userStore.js\");\n/* harmony import */ var _reducer_productStore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducer/productStore */ \"./store/reducer/productStore.js\");\n/* harmony import */ var _reducer_homeStandStore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reducer/homeStandStore */ \"./store/reducer/homeStandStore.js\");\n/* harmony import */ var _reducer_categoryStandStore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reducer/categoryStandStore */ \"./store/reducer/categoryStandStore.js\");\n/* harmony import */ var _reducer_standStore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reducer/standStore */ \"./store/reducer/standStore.js\");\n/* eslint-disable comma-dangle */\n\n\n\n\n // GENERATED REDUCER\n\n\n\n\n\n\nconst rooterReducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  form: redux_form__WEBPACK_IMPORTED_MODULE_1__[\"reducer\"],\n  accountStore: _reducer_accountStore__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  forgotStore: _reducer_forgotPassword__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n  foodCourt: _reducer_foodCourt__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n  // GENERATED COMBINE\n  userStore: _reducer_userStore__WEBPACK_IMPORTED_MODULE_5__[\"default\"],\n  productStore: _reducer_productStore__WEBPACK_IMPORTED_MODULE_6__[\"default\"],\n  homeStandStore: _reducer_homeStandStore__WEBPACK_IMPORTED_MODULE_7__[\"default\"],\n  categoryStandStore: _reducer_categoryStandStore__WEBPACK_IMPORTED_MODULE_8__[\"default\"],\n  standStore: _reducer_standStore__WEBPACK_IMPORTED_MODULE_9__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (rooterReducers);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9pbmRleC5qcz85MTAxIl0sIm5hbWVzIjpbInJvb3RlclJlZHVjZXJzIiwiY29tYmluZVJlZHVjZXJzIiwiZm9ybSIsImZvcm1SZWR1Y2VyIiwiYWNjb3VudFN0b3JlIiwiZm9yZ290U3RvcmUiLCJmb29kQ291cnQiLCJ1c2VyU3RvcmUiLCJwcm9kdWN0U3RvcmUiLCJob21lU3RhbmRTdG9yZSIsImNhdGVnb3J5U3RhbmRTdG9yZSIsInN0YW5kU3RvcmUiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUNBO0FBRUE7QUFDQTtDQUdBOztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQSxNQUFNQSxjQUFjLEdBQUdDLDZEQUFlLENBQUM7QUFDckNDLE1BQUksRUFBRUMsa0RBRCtCO0FBRXJDQyw2RUFGcUM7QUFHckNDLDhFQUhxQztBQUlyQ0MsdUVBSnFDO0FBTXJDO0FBQ0FDLHVFQVBxQztBQVFyQ0MsNkVBUnFDO0FBU3JDQyxpRkFUcUM7QUFVckNDLHlGQVZxQztBQVdyQ0MseUVBQVVBO0FBWDJCLENBQUQsQ0FBdEM7QUFjZVgsNkVBQWYiLCJmaWxlIjoiLi9zdG9yZS9pbmRleC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIGVzbGludC1kaXNhYmxlIGNvbW1hLWRhbmdsZSAqL1xuaW1wb3J0IHsgY29tYmluZVJlZHVjZXJzIH0gZnJvbSAncmVkdXgnXG5pbXBvcnQgeyByZWR1Y2VyIGFzIGZvcm1SZWR1Y2VyIH0gZnJvbSAncmVkdXgtZm9ybSdcblxuaW1wb3J0IGFjY291bnRTdG9yZSBmcm9tICcuL3JlZHVjZXIvYWNjb3VudFN0b3JlJ1xuaW1wb3J0IGZvcmdvdFN0b3JlIGZyb20gJy4vcmVkdWNlci9mb3Jnb3RQYXNzd29yZCdcbmltcG9ydCBmb29kQ291cnQgZnJvbSAnLi9yZWR1Y2VyL2Zvb2RDb3VydCdcblxuLy8gR0VORVJBVEVEIFJFRFVDRVJcbmltcG9ydCB1c2VyU3RvcmUgZnJvbSAnLi9yZWR1Y2VyL3VzZXJTdG9yZSdcbmltcG9ydCBwcm9kdWN0U3RvcmUgZnJvbSAnLi9yZWR1Y2VyL3Byb2R1Y3RTdG9yZSdcbmltcG9ydCBob21lU3RhbmRTdG9yZSBmcm9tICcuL3JlZHVjZXIvaG9tZVN0YW5kU3RvcmUnXG5pbXBvcnQgY2F0ZWdvcnlTdGFuZFN0b3JlIGZyb20gJy4vcmVkdWNlci9jYXRlZ29yeVN0YW5kU3RvcmUnXG5pbXBvcnQgc3RhbmRTdG9yZSBmcm9tICcuL3JlZHVjZXIvc3RhbmRTdG9yZSdcblxuY29uc3Qgcm9vdGVyUmVkdWNlcnMgPSBjb21iaW5lUmVkdWNlcnMoe1xuICBmb3JtOiBmb3JtUmVkdWNlcixcbiAgYWNjb3VudFN0b3JlLFxuICBmb3Jnb3RTdG9yZSxcbiAgZm9vZENvdXJ0LFxuXG4gIC8vIEdFTkVSQVRFRCBDT01CSU5FXG4gIHVzZXJTdG9yZSxcbiAgcHJvZHVjdFN0b3JlLFxuICBob21lU3RhbmRTdG9yZSxcbiAgY2F0ZWdvcnlTdGFuZFN0b3JlLFxuICBzdGFuZFN0b3JlLFxufSlcblxuZXhwb3J0IGRlZmF1bHQgcm9vdGVyUmVkdWNlcnNcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./store/index.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/accountStore.js":
-/*!***************************************!*\
-  !*** ./store/reducer/accountStore.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_AUTH\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_AUTH\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_AUTH\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_LOGOUT_USER\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        currentItem: {}\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_CHANGE_ACCOUNT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_CHANGE_ACCOUNT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_CHANGE_ACCOUNT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        errorMessage: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL2FjY291bnRTdG9yZS5qcz83ZTQ3Il0sIm5hbWVzIjpbImluaXRpYWxTdGF0ZSIsImxvYWRpbmciLCJjdXJyZW50SXRlbSIsImxpc3QiLCJtZXRhIiwiZXJyb3IiLCJtZXNzYWdlIiwic3RhdGUiLCJhY3Rpb24iLCJ0eXBlIiwiRkVUQ0hfQVVUSCIsIlJFQ0VJVkVfQVVUSCIsInBheWxvYWQiLCJGQUlMRURfQVVUSCIsIkZFVENIX0xPR09VVF9VU0VSIiwiRkVUQ0hfQ0hBTkdFX0FDQ09VTlQiLCJSRUNFSVZFX0NIQU5HRV9BQ0NPVU5UIiwiRkFJTEVEX0NIQU5HRV9BQ0NPVU5UIiwiZXJyb3JNZXNzYWdlIl0sIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBO0FBVUEsTUFBTUEsWUFBWSxHQUFHO0FBQ25CQyxTQUFPLEVBQUUsS0FEVTtBQUVuQkMsYUFBVyxFQUFFLEVBRk07QUFHbkJDLE1BQUksRUFBRSxFQUhhO0FBSW5CQyxNQUFJLEVBQUUsRUFKYTtBQUtuQkMsT0FBSyxFQUFFLEtBTFk7QUFNbkJDLFNBQU8sRUFBRTtBQU5VLENBQXJCO0FBU2UsZ0VBQUNDLEtBQUssR0FBR1AsWUFBVCxFQUF1QlEsTUFBTSxHQUFHLEVBQWhDLEtBQXVDO0FBQ3BELFVBQVFBLE1BQU0sQ0FBQ0MsSUFBZjtBQUNFLFNBQUtDLHlEQUFMO0FBQ0UsNkNBQ0tILEtBREw7QUFFRU4sZUFBTyxFQUFFLElBRlg7QUFHRUksYUFBSyxFQUFFO0FBSFQ7O0FBS0YsU0FBS00sMkRBQUw7QUFDRSw2Q0FDS0osS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsS0FIVDtBQUlFQyxlQUFPLEVBQUUsRUFKWDtBQUtFSixtQkFBVyxFQUFFTSxNQUFNLENBQUNJLE9BQVAsQ0FBZVY7QUFMOUI7O0FBT0YsU0FBS1csMERBQUw7QUFDRSw2Q0FDS04sS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsSUFIVDtBQUlFQyxlQUFPLEVBQUVFLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlUDtBQUoxQjs7QUFNRixTQUFLUyxnRUFBTDtBQUNFLDZDQUNLUCxLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxLQUhUO0FBSUVILG1CQUFXLEVBQUU7QUFKZjs7QUFNRixTQUFLYSxtRUFBTDtBQUNFLDZDQUNLUixLQURMO0FBRUVOLGVBQU8sRUFBRSxJQUZYO0FBR0VJLGFBQUssRUFBRTtBQUhUOztBQUtGLFNBQUtXLHFFQUFMO0FBQ0UsNkNBQ0tULEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFO0FBSFQ7O0FBS0YsU0FBS1ksb0VBQUw7QUFDRSw2Q0FDS1YsS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsSUFIVDtBQUlFYSxvQkFBWSxFQUFFVixNQUFNLENBQUNJLE9BQVAsQ0FBZVA7QUFKL0I7O0FBTUY7QUFDRSxhQUFPRSxLQUFQO0FBakRKO0FBbURELENBcEREIiwiZmlsZSI6Ii4vc3RvcmUvcmVkdWNlci9hY2NvdW50U3RvcmUuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1xuICBGRVRDSF9BVVRILFxuICBSRUNFSVZFX0FVVEgsXG4gIEZBSUxFRF9BVVRILFxuICBGRVRDSF9MT0dPVVRfVVNFUixcbiAgRkFJTEVEX0NIQU5HRV9BQ0NPVU5ULFxuICBGRVRDSF9DSEFOR0VfQUNDT1VOVCxcbiAgUkVDRUlWRV9DSEFOR0VfQUNDT1VOVFxufSBmcm9tICcuLi8uLi9hY3Rpb25zL3R5cGVzJ1xuXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7XG4gIGxvYWRpbmc6IGZhbHNlLFxuICBjdXJyZW50SXRlbToge30sXG4gIGxpc3Q6IFtdLFxuICBtZXRhOiB7fSxcbiAgZXJyb3I6IGZhbHNlLFxuICBtZXNzYWdlOiAnJ1xufVxuXG5leHBvcnQgZGVmYXVsdCAoc3RhdGUgPSBpbml0aWFsU3RhdGUsIGFjdGlvbiA9IHt9KSA9PiB7XG4gIHN3aXRjaCAoYWN0aW9uLnR5cGUpIHtcbiAgICBjYXNlIEZFVENIX0FVVEg6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogdHJ1ZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlXG4gICAgICB9XG4gICAgY2FzZSBSRUNFSVZFX0FVVEg6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJycsXG4gICAgICAgIGN1cnJlbnRJdGVtOiBhY3Rpb24ucGF5bG9hZC5jdXJyZW50SXRlbVxuICAgICAgfVxuICAgIGNhc2UgRkFJTEVEX0FVVEg6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiB0cnVlLFxuICAgICAgICBtZXNzYWdlOiBhY3Rpb24ucGF5bG9hZC5lcnJvclxuICAgICAgfVxuICAgIGNhc2UgRkVUQ0hfTE9HT1VUX1VTRVI6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgICAgY3VycmVudEl0ZW06IHt9XG4gICAgICB9XG4gICAgY2FzZSBGRVRDSF9DSEFOR0VfQUNDT1VOVDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiB0cnVlLFxuICAgICAgICBlcnJvcjogZmFsc2VcbiAgICAgIH1cbiAgICBjYXNlIFJFQ0VJVkVfQ0hBTkdFX0FDQ09VTlQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZVxuICAgICAgfVxuICAgIGNhc2UgRkFJTEVEX0NIQU5HRV9BQ0NPVU5UOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBlcnJvcjogdHJ1ZSxcbiAgICAgICAgZXJyb3JNZXNzYWdlOiBhY3Rpb24ucGF5bG9hZC5lcnJvclxuICAgICAgfVxuICAgIGRlZmF1bHQ6XG4gICAgICByZXR1cm4gc3RhdGVcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./store/reducer/accountStore.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/categoryStandStore.js":
-/*!*********************************************!*\
-  !*** ./store/reducer/categoryStandStore.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_CATEGORY_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_CATEGORY_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_CATEGORY_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        list: action.payload.list,\n        meta: action.payload.meta\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_CATEGORY_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL2NhdGVnb3J5U3RhbmRTdG9yZS5qcz82NmU4Il0sIm5hbWVzIjpbImluaXRpYWxTdGF0ZSIsImxvYWRpbmciLCJjdXJyZW50SXRlbSIsImxpc3QiLCJtZXRhIiwiZXJyb3IiLCJtZXNzYWdlIiwic3RhdGUiLCJhY3Rpb24iLCJ0eXBlIiwiRkVUQ0hfQ0FURUdPUllfU1RBTkQiLCJSRUNFSVZFX0lURU1fQ0FURUdPUllfU1RBTkQiLCJwYXlsb2FkIiwiUkVDRUlWRV9DQVRFR09SWV9TVEFORCIsIkZBSUxFRF9DQVRFR09SWV9TVEFORCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTtBQU9BLE1BQU1BLFlBQVksR0FBRztBQUNuQkMsU0FBTyxFQUFFLEtBRFU7QUFFbkJDLGFBQVcsRUFBRSxFQUZNO0FBR25CQyxNQUFJLEVBQUUsRUFIYTtBQUluQkMsTUFBSSxFQUFFLEVBSmE7QUFLbkJDLE9BQUssRUFBRSxLQUxZO0FBTW5CQyxTQUFPLEVBQUU7QUFOVSxDQUFyQjtBQVNlLGdFQUFDQyxLQUFLLEdBQUdQLFlBQVQsRUFBdUJRLE1BQU0sR0FBRyxFQUFoQyxLQUF1QztBQUNwRCxVQUFRQSxNQUFNLENBQUNDLElBQWY7QUFDRSxTQUFLQyxtRUFBTDtBQUNFLDZDQUNLSCxLQURMO0FBRUVOLGVBQU8sRUFBRSxJQUZYO0FBR0VJLGFBQUssRUFBRTtBQUhUOztBQUtGLFNBQUtNLDBFQUFMO0FBQ0UsNkNBQ0tKLEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFLEtBSFQ7QUFJRUMsZUFBTyxFQUFFLEVBSlg7QUFLRUosbUJBQVcsRUFBRU0sTUFBTSxDQUFDSSxPQUFQLENBQWVWO0FBTDlCOztBQU9GLFNBQUtXLHFFQUFMO0FBQ0UsNkNBQ0tOLEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFLEtBSFQ7QUFJRUMsZUFBTyxFQUFFLEVBSlg7QUFLRUgsWUFBSSxFQUFFSyxNQUFNLENBQUNJLE9BQVAsQ0FBZVQsSUFMdkI7QUFNRUMsWUFBSSxFQUFFSSxNQUFNLENBQUNJLE9BQVAsQ0FBZVI7QUFOdkI7O0FBUUYsU0FBS1Usb0VBQUw7QUFDRSw2Q0FDS1AsS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsSUFIVDtBQUlFQyxlQUFPLEVBQUVFLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlUDtBQUoxQjs7QUFNRjtBQUNFLGFBQU9FLEtBQVA7QUFoQ0o7QUFrQ0QsQ0FuQ0QiLCJmaWxlIjoiLi9zdG9yZS9yZWR1Y2VyL2NhdGVnb3J5U3RhbmRTdG9yZS5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG4gIEZFVENIX0NBVEVHT1JZX1NUQU5ELFxuICBSRUNFSVZFX0lURU1fQ0FURUdPUllfU1RBTkQsXG4gIFJFQ0VJVkVfQ0FURUdPUllfU1RBTkQsXG4gIEZBSUxFRF9DQVRFR09SWV9TVEFORFxufSBmcm9tICcuLi8uLi9hY3Rpb25zL3R5cGVzJ1xuXG5jb25zdCBpbml0aWFsU3RhdGUgPSB7XG4gIGxvYWRpbmc6IGZhbHNlLFxuICBjdXJyZW50SXRlbToge30sXG4gIGxpc3Q6IFtdLFxuICBtZXRhOiB7fSxcbiAgZXJyb3I6IGZhbHNlLFxuICBtZXNzYWdlOiAnJ1xufVxuXG5leHBvcnQgZGVmYXVsdCAoc3RhdGUgPSBpbml0aWFsU3RhdGUsIGFjdGlvbiA9IHt9KSA9PiB7XG4gIHN3aXRjaCAoYWN0aW9uLnR5cGUpIHtcbiAgICBjYXNlIEZFVENIX0NBVEVHT1JZX1NUQU5EOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IHRydWUsXG4gICAgICAgIGVycm9yOiBmYWxzZVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9JVEVNX0NBVEVHT1JZX1NUQU5EOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBlcnJvcjogZmFsc2UsXG4gICAgICAgIG1lc3NhZ2U6ICcnLFxuICAgICAgICBjdXJyZW50SXRlbTogYWN0aW9uLnBheWxvYWQuY3VycmVudEl0ZW1cbiAgICAgIH1cbiAgICBjYXNlIFJFQ0VJVkVfQ0FURUdPUllfU1RBTkQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJycsXG4gICAgICAgIGxpc3Q6IGFjdGlvbi5wYXlsb2FkLmxpc3QsXG4gICAgICAgIG1ldGE6IGFjdGlvbi5wYXlsb2FkLm1ldGFcbiAgICAgIH1cbiAgICBjYXNlIEZBSUxFRF9DQVRFR09SWV9TVEFORDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IHRydWUsXG4gICAgICAgIG1lc3NhZ2U6IGFjdGlvbi5wYXlsb2FkLmVycm9yXG4gICAgICB9XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZVxuICB9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./store/reducer/categoryStandStore.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/foodCourt.js":
-/*!************************************!*\
-  !*** ./store/reducer/foodCourt.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_FOODCOURT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_FOODCOURT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_FOODCOURT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        list: action.payload.list,\n        meta: action.payload.meta\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_FOODCOURT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_LOGOUT_USER\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        currentItem: {}\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL2Zvb2RDb3VydC5qcz8yN2UwIl0sIm5hbWVzIjpbImluaXRpYWxTdGF0ZSIsImxvYWRpbmciLCJjdXJyZW50SXRlbSIsImxpc3QiLCJtZXRhIiwiZXJyb3IiLCJtZXNzYWdlIiwic3RhdGUiLCJhY3Rpb24iLCJ0eXBlIiwiRkVUQ0hfRk9PRENPVVJUIiwiUkVDRUlWRV9JVEVNX0ZPT0RDT1VSVCIsInBheWxvYWQiLCJSRUNFSVZFX0ZPT0RDT1VSVCIsIkZBSUxFRF9GT09EQ09VUlQiLCJGRVRDSF9MT0dPVVRfVVNFUiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTtBQVFBLE1BQU1BLFlBQVksR0FBRztBQUNuQkMsU0FBTyxFQUFFLEtBRFU7QUFFbkJDLGFBQVcsRUFBRSxFQUZNO0FBR25CQyxNQUFJLEVBQUUsRUFIYTtBQUluQkMsTUFBSSxFQUFFLEVBSmE7QUFLbkJDLE9BQUssRUFBRSxLQUxZO0FBTW5CQyxTQUFPLEVBQUU7QUFOVSxDQUFyQjtBQVNlLGdFQUFDQyxLQUFLLEdBQUdQLFlBQVQsRUFBdUJRLE1BQU0sR0FBRyxFQUFoQyxLQUF1QztBQUNwRCxVQUFRQSxNQUFNLENBQUNDLElBQWY7QUFDRSxTQUFLQyw4REFBTDtBQUNFLDZDQUNLSCxLQURMO0FBRUVOLGVBQU8sRUFBRSxJQUZYO0FBR0VJLGFBQUssRUFBRTtBQUhUOztBQUtGLFNBQUtNLHFFQUFMO0FBQ0UsNkNBQ0tKLEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFLEtBSFQ7QUFJRUMsZUFBTyxFQUFFLEVBSlg7QUFLRUosbUJBQVcsRUFBRU0sTUFBTSxDQUFDSSxPQUFQLENBQWVWO0FBTDlCOztBQU9GLFNBQUtXLGdFQUFMO0FBQ0UsNkNBQ0tOLEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFLEtBSFQ7QUFJRUMsZUFBTyxFQUFFLEVBSlg7QUFLRUgsWUFBSSxFQUFFSyxNQUFNLENBQUNJLE9BQVAsQ0FBZVQsSUFMdkI7QUFNRUMsWUFBSSxFQUFFSSxNQUFNLENBQUNJLE9BQVAsQ0FBZVI7QUFOdkI7O0FBUUYsU0FBS1UsK0RBQUw7QUFDRSw2Q0FDS1AsS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsSUFIVDtBQUlFQyxlQUFPLEVBQUVFLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlUDtBQUoxQjs7QUFNRixTQUFLVSxnRUFBTDtBQUNFLDZDQUNLUixLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxLQUhUO0FBSUVILG1CQUFXLEVBQUU7QUFKZjs7QUFNRjtBQUNFLGFBQU9LLEtBQVA7QUF2Q0o7QUF5Q0QsQ0ExQ0QiLCJmaWxlIjoiLi9zdG9yZS9yZWR1Y2VyL2Zvb2RDb3VydC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG4gIEZFVENIX0ZPT0RDT1VSVCxcbiAgUkVDRUlWRV9JVEVNX0ZPT0RDT1VSVCxcbiAgUkVDRUlWRV9GT09EQ09VUlQsXG4gIEZBSUxFRF9GT09EQ09VUlQsXG4gIEZFVENIX0xPR09VVF9VU0VSXG59IGZyb20gJy4uLy4uL2FjdGlvbnMvdHlwZXMnXG5cbmNvbnN0IGluaXRpYWxTdGF0ZSA9IHtcbiAgbG9hZGluZzogZmFsc2UsXG4gIGN1cnJlbnRJdGVtOiB7fSxcbiAgbGlzdDogW10sXG4gIG1ldGE6IHt9LFxuICBlcnJvcjogZmFsc2UsXG4gIG1lc3NhZ2U6ICcnXG59XG5cbmV4cG9ydCBkZWZhdWx0IChzdGF0ZSA9IGluaXRpYWxTdGF0ZSwgYWN0aW9uID0ge30pID0+IHtcbiAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xuICAgIGNhc2UgRkVUQ0hfRk9PRENPVVJUOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IHRydWUsXG4gICAgICAgIGVycm9yOiBmYWxzZVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9JVEVNX0ZPT0RDT1VSVDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgICBtZXNzYWdlOiAnJyxcbiAgICAgICAgY3VycmVudEl0ZW06IGFjdGlvbi5wYXlsb2FkLmN1cnJlbnRJdGVtXG4gICAgICB9XG4gICAgY2FzZSBSRUNFSVZFX0ZPT0RDT1VSVDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgICBtZXNzYWdlOiAnJyxcbiAgICAgICAgbGlzdDogYWN0aW9uLnBheWxvYWQubGlzdCxcbiAgICAgICAgbWV0YTogYWN0aW9uLnBheWxvYWQubWV0YVxuICAgICAgfVxuICAgIGNhc2UgRkFJTEVEX0ZPT0RDT1VSVDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IHRydWUsXG4gICAgICAgIG1lc3NhZ2U6IGFjdGlvbi5wYXlsb2FkLmVycm9yXG4gICAgICB9XG4gICAgY2FzZSBGRVRDSF9MT0dPVVRfVVNFUjpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgICBjdXJyZW50SXRlbToge31cbiAgICAgIH1cbiAgICBkZWZhdWx0OlxuICAgICAgcmV0dXJuIHN0YXRlXG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./store/reducer/foodCourt.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/forgotPassword.js":
-/*!*****************************************!*\
-  !*** ./store/reducer/forgotPassword.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_FORGOT_PASSWORD\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        message: null\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_FORGOT_PASSWORD\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        currentItem: action.payload.currentItem,\n        meta: action.payload.meta,\n        message: null\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_FORGOT_PASSWORD\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        message: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL2ZvcmdvdFBhc3N3b3JkLmpzPzIyZmQiXSwibmFtZXMiOlsiaW5pdGlhbFN0YXRlIiwibG9hZGluZyIsImN1cnJlbnRJdGVtIiwibWV0YSIsImVycm9yIiwibWVzc2FnZSIsInN0YXRlIiwiYWN0aW9uIiwidHlwZSIsIkZFVENIX0ZPUkdPVF9QQVNTV09SRCIsIlJFQ0VJVkVfSVRFTV9GT1JHT1RfUEFTU1dPUkQiLCJwYXlsb2FkIiwiRkFJTEVEX0ZPUkdPVF9QQVNTV09SRCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTtBQU1BLE1BQU1BLFlBQVksR0FBRztBQUNuQkMsU0FBTyxFQUFFLEtBRFU7QUFFbkJDLGFBQVcsRUFBRSxFQUZNO0FBR25CQyxNQUFJLEVBQUUsRUFIYTtBQUluQkMsT0FBSyxFQUFFLEtBSlk7QUFLbkJDLFNBQU8sRUFBRTtBQUxVLENBQXJCO0FBUWUsZ0VBQUNDLEtBQUssR0FBR04sWUFBVCxFQUF1Qk8sTUFBTSxHQUFHLEVBQWhDLEtBQXVDO0FBQ3BELFVBQVFBLE1BQU0sQ0FBQ0MsSUFBZjtBQUNFLFNBQUtDLG9FQUFMO0FBQ0UsNkNBQ0tILEtBREw7QUFFRUwsZUFBTyxFQUFFLElBRlg7QUFHRUksZUFBTyxFQUFFO0FBSFg7O0FBS0YsU0FBS0ssMkVBQUw7QUFDRSw2Q0FDS0osS0FETDtBQUVFTCxlQUFPLEVBQUUsS0FGWDtBQUdFQyxtQkFBVyxFQUFFSyxNQUFNLENBQUNJLE9BQVAsQ0FBZVQsV0FIOUI7QUFJRUMsWUFBSSxFQUFFSSxNQUFNLENBQUNJLE9BQVAsQ0FBZVIsSUFKdkI7QUFLRUUsZUFBTyxFQUFFO0FBTFg7O0FBT0YsU0FBS08scUVBQUw7QUFDRSw2Q0FDS04sS0FETDtBQUVFTCxlQUFPLEVBQUUsS0FGWDtBQUdFSSxlQUFPLEVBQUVFLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlUDtBQUgxQjs7QUFLRjtBQUNFLGFBQU9FLEtBQVA7QUF0Qko7QUF3QkQsQ0F6QkQiLCJmaWxlIjoiLi9zdG9yZS9yZWR1Y2VyL2ZvcmdvdFBhc3N3b3JkLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgRkVUQ0hfRk9SR09UX1BBU1NXT1JELFxuICBSRUNFSVZFX0lURU1fRk9SR09UX1BBU1NXT1JELFxuICBGQUlMRURfRk9SR09UX1BBU1NXT1JEXG59IGZyb20gJy4uLy4uL2FjdGlvbnMvdHlwZXMnXG5cbmNvbnN0IGluaXRpYWxTdGF0ZSA9IHtcbiAgbG9hZGluZzogZmFsc2UsXG4gIGN1cnJlbnRJdGVtOiB7fSxcbiAgbWV0YToge30sXG4gIGVycm9yOiBmYWxzZSxcbiAgbWVzc2FnZTogJydcbn1cblxuZXhwb3J0IGRlZmF1bHQgKHN0YXRlID0gaW5pdGlhbFN0YXRlLCBhY3Rpb24gPSB7fSkgPT4ge1xuICBzd2l0Y2ggKGFjdGlvbi50eXBlKSB7XG4gICAgY2FzZSBGRVRDSF9GT1JHT1RfUEFTU1dPUkQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogdHJ1ZSxcbiAgICAgICAgbWVzc2FnZTogbnVsbFxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9JVEVNX0ZPUkdPVF9QQVNTV09SRDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgY3VycmVudEl0ZW06IGFjdGlvbi5wYXlsb2FkLmN1cnJlbnRJdGVtLFxuICAgICAgICBtZXRhOiBhY3Rpb24ucGF5bG9hZC5tZXRhLFxuICAgICAgICBtZXNzYWdlOiBudWxsXG4gICAgICB9XG4gICAgY2FzZSBGQUlMRURfRk9SR09UX1BBU1NXT1JEOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBtZXNzYWdlOiBhY3Rpb24ucGF5bG9hZC5lcnJvclxuICAgICAgfVxuICAgIGRlZmF1bHQ6XG4gICAgICByZXR1cm4gc3RhdGVcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./store/reducer/forgotPassword.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/homeStandStore.js":
-/*!*****************************************!*\
-  !*** ./store/reducer/homeStandStore.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_HOME_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_HOME_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_HOME_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        list: action.payload.list,\n        meta: action.payload.meta\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_HOME_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL2hvbWVTdGFuZFN0b3JlLmpzPzdiYzciXSwibmFtZXMiOlsiaW5pdGlhbFN0YXRlIiwibG9hZGluZyIsImN1cnJlbnRJdGVtIiwibGlzdCIsIm1ldGEiLCJlcnJvciIsIm1lc3NhZ2UiLCJzdGF0ZSIsImFjdGlvbiIsInR5cGUiLCJGRVRDSF9IT01FX1NUQU5EIiwiUkVDRUlWRV9JVEVNX0hPTUVfU1RBTkQiLCJwYXlsb2FkIiwiUkVDRUlWRV9IT01FX1NUQU5EIiwiRkFJTEVEX0hPTUVfU1RBTkQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7QUFPQSxNQUFNQSxZQUFZLEdBQUc7QUFDbkJDLFNBQU8sRUFBRSxLQURVO0FBRW5CQyxhQUFXLEVBQUUsRUFGTTtBQUduQkMsTUFBSSxFQUFFLEVBSGE7QUFJbkJDLE1BQUksRUFBRSxFQUphO0FBS25CQyxPQUFLLEVBQUUsS0FMWTtBQU1uQkMsU0FBTyxFQUFFO0FBTlUsQ0FBckI7QUFTZSxnRUFBQ0MsS0FBSyxHQUFHUCxZQUFULEVBQXVCUSxNQUFNLEdBQUcsRUFBaEMsS0FBdUM7QUFDcEQsVUFBUUEsTUFBTSxDQUFDQyxJQUFmO0FBQ0UsU0FBS0MsK0RBQUw7QUFDRSw2Q0FDS0gsS0FETDtBQUVFTixlQUFPLEVBQUUsSUFGWDtBQUdFSSxhQUFLLEVBQUU7QUFIVDs7QUFLRixTQUFLTSxzRUFBTDtBQUNFLDZDQUNLSixLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxLQUhUO0FBSUVDLGVBQU8sRUFBRSxFQUpYO0FBS0VKLG1CQUFXLEVBQUVNLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlVjtBQUw5Qjs7QUFPRixTQUFLVyxpRUFBTDtBQUNFLDZDQUNLTixLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxLQUhUO0FBSUVDLGVBQU8sRUFBRSxFQUpYO0FBS0VILFlBQUksRUFBRUssTUFBTSxDQUFDSSxPQUFQLENBQWVULElBTHZCO0FBTUVDLFlBQUksRUFBRUksTUFBTSxDQUFDSSxPQUFQLENBQWVSO0FBTnZCOztBQVFGLFNBQUtVLGdFQUFMO0FBQ0UsNkNBQ0tQLEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFLElBSFQ7QUFJRUMsZUFBTyxFQUFFRSxNQUFNLENBQUNJLE9BQVAsQ0FBZVA7QUFKMUI7O0FBTUY7QUFDRSxhQUFPRSxLQUFQO0FBaENKO0FBa0NELENBbkNEIiwiZmlsZSI6Ii4vc3RvcmUvcmVkdWNlci9ob21lU3RhbmRTdG9yZS5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG4gIEZFVENIX0hPTUVfU1RBTkQsXG4gIFJFQ0VJVkVfSVRFTV9IT01FX1NUQU5ELFxuICBSRUNFSVZFX0hPTUVfU1RBTkQsXG4gIEZBSUxFRF9IT01FX1NUQU5EXG59IGZyb20gJy4uLy4uL2FjdGlvbnMvdHlwZXMnXG5cbmNvbnN0IGluaXRpYWxTdGF0ZSA9IHtcbiAgbG9hZGluZzogZmFsc2UsXG4gIGN1cnJlbnRJdGVtOiB7fSxcbiAgbGlzdDogW10sXG4gIG1ldGE6IHt9LFxuICBlcnJvcjogZmFsc2UsXG4gIG1lc3NhZ2U6ICcnXG59XG5cbmV4cG9ydCBkZWZhdWx0IChzdGF0ZSA9IGluaXRpYWxTdGF0ZSwgYWN0aW9uID0ge30pID0+IHtcbiAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xuICAgIGNhc2UgRkVUQ0hfSE9NRV9TVEFORDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiB0cnVlLFxuICAgICAgICBlcnJvcjogZmFsc2VcbiAgICAgIH1cbiAgICBjYXNlIFJFQ0VJVkVfSVRFTV9IT01FX1NUQU5EOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBlcnJvcjogZmFsc2UsXG4gICAgICAgIG1lc3NhZ2U6ICcnLFxuICAgICAgICBjdXJyZW50SXRlbTogYWN0aW9uLnBheWxvYWQuY3VycmVudEl0ZW1cbiAgICAgIH1cbiAgICBjYXNlIFJFQ0VJVkVfSE9NRV9TVEFORDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgICBtZXNzYWdlOiAnJyxcbiAgICAgICAgbGlzdDogYWN0aW9uLnBheWxvYWQubGlzdCxcbiAgICAgICAgbWV0YTogYWN0aW9uLnBheWxvYWQubWV0YVxuICAgICAgfVxuICAgIGNhc2UgRkFJTEVEX0hPTUVfU1RBTkQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiB0cnVlLFxuICAgICAgICBtZXNzYWdlOiBhY3Rpb24ucGF5bG9hZC5lcnJvclxuICAgICAgfVxuICAgIGRlZmF1bHQ6XG4gICAgICByZXR1cm4gc3RhdGVcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./store/reducer/homeStandStore.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/productStore.js":
-/*!***************************************!*\
-  !*** ./store/reducer/productStore.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_PRODUCT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_PRODUCT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_PRODUCT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        list: action.payload.list,\n        meta: action.payload.meta\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_PRODUCT\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL3Byb2R1Y3RTdG9yZS5qcz8xNTI5Il0sIm5hbWVzIjpbImluaXRpYWxTdGF0ZSIsImxvYWRpbmciLCJjdXJyZW50SXRlbSIsImxpc3QiLCJtZXRhIiwiZXJyb3IiLCJtZXNzYWdlIiwic3RhdGUiLCJhY3Rpb24iLCJ0eXBlIiwiRkVUQ0hfUFJPRFVDVCIsIlJFQ0VJVkVfSVRFTV9QUk9EVUNUIiwicGF5bG9hZCIsIlJFQ0VJVkVfUFJPRFVDVCIsIkZBSUxFRF9QUk9EVUNUIl0sIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBO0FBT0EsTUFBTUEsWUFBWSxHQUFHO0FBQ25CQyxTQUFPLEVBQUUsS0FEVTtBQUVuQkMsYUFBVyxFQUFFLEVBRk07QUFHbkJDLE1BQUksRUFBRSxFQUhhO0FBSW5CQyxNQUFJLEVBQUUsRUFKYTtBQUtuQkMsT0FBSyxFQUFFLEtBTFk7QUFNbkJDLFNBQU8sRUFBRTtBQU5VLENBQXJCO0FBU2UsZ0VBQUNDLEtBQUssR0FBR1AsWUFBVCxFQUF1QlEsTUFBTSxHQUFHLEVBQWhDLEtBQXVDO0FBQ3BELFVBQVFBLE1BQU0sQ0FBQ0MsSUFBZjtBQUNFLFNBQUtDLDREQUFMO0FBQ0UsNkNBQ0tILEtBREw7QUFFRU4sZUFBTyxFQUFFLElBRlg7QUFHRUksYUFBSyxFQUFFO0FBSFQ7O0FBS0YsU0FBS00sbUVBQUw7QUFDRSw2Q0FDS0osS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsS0FIVDtBQUlFQyxlQUFPLEVBQUUsRUFKWDtBQUtFSixtQkFBVyxFQUFFTSxNQUFNLENBQUNJLE9BQVAsQ0FBZVY7QUFMOUI7O0FBT0YsU0FBS1csOERBQUw7QUFDRSw2Q0FDS04sS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsS0FIVDtBQUlFQyxlQUFPLEVBQUUsRUFKWDtBQUtFSCxZQUFJLEVBQUVLLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlVCxJQUx2QjtBQU1FQyxZQUFJLEVBQUVJLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlUjtBQU52Qjs7QUFRRixTQUFLVSw2REFBTDtBQUNFLDZDQUNLUCxLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxJQUhUO0FBSUVDLGVBQU8sRUFBRUUsTUFBTSxDQUFDSSxPQUFQLENBQWVQO0FBSjFCOztBQU1GO0FBQ0UsYUFBT0UsS0FBUDtBQWhDSjtBQWtDRCxDQW5DRCIsImZpbGUiOiIuL3N0b3JlL3JlZHVjZXIvcHJvZHVjdFN0b3JlLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgRkVUQ0hfUFJPRFVDVCxcbiAgUkVDRUlWRV9JVEVNX1BST0RVQ1QsXG4gIFJFQ0VJVkVfUFJPRFVDVCxcbiAgRkFJTEVEX1BST0RVQ1Rcbn0gZnJvbSAnLi4vLi4vYWN0aW9ucy90eXBlcydcblxuY29uc3QgaW5pdGlhbFN0YXRlID0ge1xuICBsb2FkaW5nOiBmYWxzZSxcbiAgY3VycmVudEl0ZW06IHt9LFxuICBsaXN0OiBbXSxcbiAgbWV0YToge30sXG4gIGVycm9yOiBmYWxzZSxcbiAgbWVzc2FnZTogJydcbn1cblxuZXhwb3J0IGRlZmF1bHQgKHN0YXRlID0gaW5pdGlhbFN0YXRlLCBhY3Rpb24gPSB7fSkgPT4ge1xuICBzd2l0Y2ggKGFjdGlvbi50eXBlKSB7XG4gICAgY2FzZSBGRVRDSF9QUk9EVUNUOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IHRydWUsXG4gICAgICAgIGVycm9yOiBmYWxzZVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9JVEVNX1BST0RVQ1Q6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJycsXG4gICAgICAgIGN1cnJlbnRJdGVtOiBhY3Rpb24ucGF5bG9hZC5jdXJyZW50SXRlbVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9QUk9EVUNUOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBlcnJvcjogZmFsc2UsXG4gICAgICAgIG1lc3NhZ2U6ICcnLFxuICAgICAgICBsaXN0OiBhY3Rpb24ucGF5bG9hZC5saXN0LFxuICAgICAgICBtZXRhOiBhY3Rpb24ucGF5bG9hZC5tZXRhXG4gICAgICB9XG4gICAgY2FzZSBGQUlMRURfUFJPRFVDVDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IHRydWUsXG4gICAgICAgIG1lc3NhZ2U6IGFjdGlvbi5wYXlsb2FkLmVycm9yXG4gICAgICB9XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZVxuICB9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./store/reducer/productStore.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/standStore.js":
-/*!*************************************!*\
-  !*** ./store/reducer/standStore.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        list: action.payload.list,\n        meta: action.payload.meta\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_STAND\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL3N0YW5kU3RvcmUuanM/OTExOCJdLCJuYW1lcyI6WyJpbml0aWFsU3RhdGUiLCJsb2FkaW5nIiwiY3VycmVudEl0ZW0iLCJsaXN0IiwibWV0YSIsImVycm9yIiwibWVzc2FnZSIsInN0YXRlIiwiYWN0aW9uIiwidHlwZSIsIkZFVENIX1NUQU5EIiwiUkVDRUlWRV9JVEVNX1NUQU5EIiwicGF5bG9hZCIsIlJFQ0VJVkVfU1RBTkQiLCJGQUlMRURfU1RBTkQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7QUFPQSxNQUFNQSxZQUFZLEdBQUc7QUFDbkJDLFNBQU8sRUFBRSxLQURVO0FBRW5CQyxhQUFXLEVBQUUsRUFGTTtBQUduQkMsTUFBSSxFQUFFLEVBSGE7QUFJbkJDLE1BQUksRUFBRSxFQUphO0FBS25CQyxPQUFLLEVBQUUsS0FMWTtBQU1uQkMsU0FBTyxFQUFFO0FBTlUsQ0FBckI7QUFTZSxnRUFBQ0MsS0FBSyxHQUFHUCxZQUFULEVBQXVCUSxNQUFNLEdBQUcsRUFBaEMsS0FBdUM7QUFDcEQsVUFBUUEsTUFBTSxDQUFDQyxJQUFmO0FBQ0UsU0FBS0MsMERBQUw7QUFDRSw2Q0FDS0gsS0FETDtBQUVFTixlQUFPLEVBQUUsSUFGWDtBQUdFSSxhQUFLLEVBQUU7QUFIVDs7QUFLRixTQUFLTSxpRUFBTDtBQUNFLDZDQUNLSixLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxLQUhUO0FBSUVDLGVBQU8sRUFBRSxFQUpYO0FBS0VKLG1CQUFXLEVBQUVNLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlVjtBQUw5Qjs7QUFPRixTQUFLVyw0REFBTDtBQUNFLDZDQUNLTixLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxLQUhUO0FBSUVDLGVBQU8sRUFBRSxFQUpYO0FBS0VILFlBQUksRUFBRUssTUFBTSxDQUFDSSxPQUFQLENBQWVULElBTHZCO0FBTUVDLFlBQUksRUFBRUksTUFBTSxDQUFDSSxPQUFQLENBQWVSO0FBTnZCOztBQVFGLFNBQUtVLDJEQUFMO0FBQ0UsNkNBQ0tQLEtBREw7QUFFRU4sZUFBTyxFQUFFLEtBRlg7QUFHRUksYUFBSyxFQUFFLElBSFQ7QUFJRUMsZUFBTyxFQUFFRSxNQUFNLENBQUNJLE9BQVAsQ0FBZVA7QUFKMUI7O0FBTUY7QUFDRSxhQUFPRSxLQUFQO0FBaENKO0FBa0NELENBbkNEIiwiZmlsZSI6Ii4vc3RvcmUvcmVkdWNlci9zdGFuZFN0b3JlLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgRkVUQ0hfU1RBTkQsXG4gIFJFQ0VJVkVfSVRFTV9TVEFORCxcbiAgUkVDRUlWRV9TVEFORCxcbiAgRkFJTEVEX1NUQU5EXG59IGZyb20gJy4uLy4uL2FjdGlvbnMvdHlwZXMnXG5cbmNvbnN0IGluaXRpYWxTdGF0ZSA9IHtcbiAgbG9hZGluZzogZmFsc2UsXG4gIGN1cnJlbnRJdGVtOiB7fSxcbiAgbGlzdDogW10sXG4gIG1ldGE6IHt9LFxuICBlcnJvcjogZmFsc2UsXG4gIG1lc3NhZ2U6ICcnXG59XG5cbmV4cG9ydCBkZWZhdWx0IChzdGF0ZSA9IGluaXRpYWxTdGF0ZSwgYWN0aW9uID0ge30pID0+IHtcbiAgc3dpdGNoIChhY3Rpb24udHlwZSkge1xuICAgIGNhc2UgRkVUQ0hfU1RBTkQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogdHJ1ZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlXG4gICAgICB9XG4gICAgY2FzZSBSRUNFSVZFX0lURU1fU1RBTkQ6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJycsXG4gICAgICAgIGN1cnJlbnRJdGVtOiBhY3Rpb24ucGF5bG9hZC5jdXJyZW50SXRlbVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9TVEFORDpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgICBtZXNzYWdlOiAnJyxcbiAgICAgICAgbGlzdDogYWN0aW9uLnBheWxvYWQubGlzdCxcbiAgICAgICAgbWV0YTogYWN0aW9uLnBheWxvYWQubWV0YVxuICAgICAgfVxuICAgIGNhc2UgRkFJTEVEX1NUQU5EOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBlcnJvcjogdHJ1ZSxcbiAgICAgICAgbWVzc2FnZTogYWN0aW9uLnBheWxvYWQuZXJyb3JcbiAgICAgIH1cbiAgICBkZWZhdWx0OlxuICAgICAgcmV0dXJuIHN0YXRlXG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./store/reducer/standStore.js\n");
-
-/***/ }),
-
-/***/ "./store/reducer/userStore.js":
-/*!************************************!*\
-  !*** ./store/reducer/userStore.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _actions_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/types */ \"./actions/types.js\");\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\nconst initialState = {\n  loading: false,\n  currentItem: {},\n  list: [],\n  meta: {},\n  error: false,\n  message: ''\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = initialState, action = {}) => {\n  switch (action.type) {\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_USER\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: true,\n        error: false\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_ITEM_USER\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        currentItem: action.payload.currentItem\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_USER\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: false,\n        message: '',\n        list: action.payload.list,\n        meta: action.payload.meta\n      });\n\n    case _actions_types__WEBPACK_IMPORTED_MODULE_0__[\"FAILED_USER\"]:\n      return _objectSpread(_objectSpread({}, state), {}, {\n        loading: false,\n        error: true,\n        message: action.payload.error\n      });\n\n    default:\n      return state;\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zdG9yZS9yZWR1Y2VyL3VzZXJTdG9yZS5qcz82NmYwIl0sIm5hbWVzIjpbImluaXRpYWxTdGF0ZSIsImxvYWRpbmciLCJjdXJyZW50SXRlbSIsImxpc3QiLCJtZXRhIiwiZXJyb3IiLCJtZXNzYWdlIiwic3RhdGUiLCJhY3Rpb24iLCJ0eXBlIiwiRkVUQ0hfVVNFUiIsIlJFQ0VJVkVfSVRFTV9VU0VSIiwicGF5bG9hZCIsIlJFQ0VJVkVfVVNFUiIsIkZBSUxFRF9VU0VSIl0sIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBO0FBT0EsTUFBTUEsWUFBWSxHQUFHO0FBQ25CQyxTQUFPLEVBQUUsS0FEVTtBQUVuQkMsYUFBVyxFQUFFLEVBRk07QUFHbkJDLE1BQUksRUFBRSxFQUhhO0FBSW5CQyxNQUFJLEVBQUUsRUFKYTtBQUtuQkMsT0FBSyxFQUFFLEtBTFk7QUFNbkJDLFNBQU8sRUFBRTtBQU5VLENBQXJCO0FBU2UsZ0VBQUNDLEtBQUssR0FBR1AsWUFBVCxFQUF1QlEsTUFBTSxHQUFHLEVBQWhDLEtBQXVDO0FBQ3BELFVBQVFBLE1BQU0sQ0FBQ0MsSUFBZjtBQUNFLFNBQUtDLHlEQUFMO0FBQ0UsNkNBQ0tILEtBREw7QUFFRU4sZUFBTyxFQUFFLElBRlg7QUFHRUksYUFBSyxFQUFFO0FBSFQ7O0FBS0YsU0FBS00sZ0VBQUw7QUFDRSw2Q0FDS0osS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsS0FIVDtBQUlFQyxlQUFPLEVBQUUsRUFKWDtBQUtFSixtQkFBVyxFQUFFTSxNQUFNLENBQUNJLE9BQVAsQ0FBZVY7QUFMOUI7O0FBT0YsU0FBS1csMkRBQUw7QUFDRSw2Q0FDS04sS0FETDtBQUVFTixlQUFPLEVBQUUsS0FGWDtBQUdFSSxhQUFLLEVBQUUsS0FIVDtBQUlFQyxlQUFPLEVBQUUsRUFKWDtBQUtFSCxZQUFJLEVBQUVLLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlVCxJQUx2QjtBQU1FQyxZQUFJLEVBQUVJLE1BQU0sQ0FBQ0ksT0FBUCxDQUFlUjtBQU52Qjs7QUFRRixTQUFLVSwwREFBTDtBQUNFLDZDQUNLUCxLQURMO0FBRUVOLGVBQU8sRUFBRSxLQUZYO0FBR0VJLGFBQUssRUFBRSxJQUhUO0FBSUVDLGVBQU8sRUFBRUUsTUFBTSxDQUFDSSxPQUFQLENBQWVQO0FBSjFCOztBQU1GO0FBQ0UsYUFBT0UsS0FBUDtBQWhDSjtBQWtDRCxDQW5DRCIsImZpbGUiOiIuL3N0b3JlL3JlZHVjZXIvdXNlclN0b3JlLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgRkVUQ0hfVVNFUixcbiAgUkVDRUlWRV9JVEVNX1VTRVIsXG4gIFJFQ0VJVkVfVVNFUixcbiAgRkFJTEVEX1VTRVJcbn0gZnJvbSAnLi4vLi4vYWN0aW9ucy90eXBlcydcblxuY29uc3QgaW5pdGlhbFN0YXRlID0ge1xuICBsb2FkaW5nOiBmYWxzZSxcbiAgY3VycmVudEl0ZW06IHt9LFxuICBsaXN0OiBbXSxcbiAgbWV0YToge30sXG4gIGVycm9yOiBmYWxzZSxcbiAgbWVzc2FnZTogJydcbn1cblxuZXhwb3J0IGRlZmF1bHQgKHN0YXRlID0gaW5pdGlhbFN0YXRlLCBhY3Rpb24gPSB7fSkgPT4ge1xuICBzd2l0Y2ggKGFjdGlvbi50eXBlKSB7XG4gICAgY2FzZSBGRVRDSF9VU0VSOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IHRydWUsXG4gICAgICAgIGVycm9yOiBmYWxzZVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9JVEVNX1VTRVI6XG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5zdGF0ZSxcbiAgICAgICAgbG9hZGluZzogZmFsc2UsXG4gICAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJycsXG4gICAgICAgIGN1cnJlbnRJdGVtOiBhY3Rpb24ucGF5bG9hZC5jdXJyZW50SXRlbVxuICAgICAgfVxuICAgIGNhc2UgUkVDRUlWRV9VU0VSOlxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uc3RhdGUsXG4gICAgICAgIGxvYWRpbmc6IGZhbHNlLFxuICAgICAgICBlcnJvcjogZmFsc2UsXG4gICAgICAgIG1lc3NhZ2U6ICcnLFxuICAgICAgICBsaXN0OiBhY3Rpb24ucGF5bG9hZC5saXN0LFxuICAgICAgICBtZXRhOiBhY3Rpb24ucGF5bG9hZC5tZXRhXG4gICAgICB9XG4gICAgY2FzZSBGQUlMRURfVVNFUjpcbiAgICAgIHJldHVybiB7XG4gICAgICAgIC4uLnN0YXRlLFxuICAgICAgICBsb2FkaW5nOiBmYWxzZSxcbiAgICAgICAgZXJyb3I6IHRydWUsXG4gICAgICAgIG1lc3NhZ2U6IGFjdGlvbi5wYXlsb2FkLmVycm9yXG4gICAgICB9XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybiBzdGF0ZVxuICB9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./store/reducer/userStore.js\n");
-
-/***/ }),
-
 /***/ 0:
-/*!****************************************!*\
-  !*** multi private-next-pages/_app.js ***!
-  \****************************************/
-/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
+module.exports = __webpack_require__("1TCz");
 
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "1TCz":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("module.exports = require(\"react\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdFwiPzU4OGUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicmVhY3QuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdFwiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///react\n");
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+
+// EXTERNAL MODULE: ../node_modules/next/app.js
+var app = __webpack_require__("o42t");
+var app_default = /*#__PURE__*/__webpack_require__.n(app);
+
+// EXTERNAL MODULE: external "react-redux"
+var external_react_redux_ = __webpack_require__("h74D");
+
+// EXTERNAL MODULE: external "next-redux-wrapper"
+var external_next_redux_wrapper_ = __webpack_require__("JMOJ");
+
+// EXTERNAL MODULE: external "redux-thunk"
+var external_redux_thunk_ = __webpack_require__("ZSx1");
+var external_redux_thunk_default = /*#__PURE__*/__webpack_require__.n(external_redux_thunk_);
+
+// EXTERNAL MODULE: external "redux"
+var external_redux_ = __webpack_require__("rKB8");
+
+// EXTERNAL MODULE: ./components/CustomHelmet/index.js + 2 modules
+var CustomHelmet = __webpack_require__("6AbQ");
+
+// EXTERNAL MODULE: external "redux-form"
+var external_redux_form_ = __webpack_require__("eLzx");
+
+// CONCATENATED MODULE: ./actions/types.js
+// AUTH
+const FETCH_AUTH = 'FETCH_AUTH';
+const RECEIVE_AUTH = 'RECEIVE_AUTH';
+const FAILED_AUTH = 'FAILED_AUTH';
+const FETCH_LOGOUT_USER = 'FETCH_LOGOUT_USER'; // ACCOUNT UPDATE
+
+const FETCH_CHANGE_ACCOUNT = 'FETCH_CHANGE_ACCOUNT';
+const RECEIVE_CHANGE_ACCOUNT = 'RECEIVE_CHANGE_ACCOUNT';
+const FAILED_CHANGE_ACCOUNT = 'FAILED_CHANGE_ACCOUNT'; // FORGOT PASSWORD
+
+const FETCH_FORGOT_PASSWORD = 'FETCH_FORGOT_PASSWORD';
+const RECEIVE_ITEM_FORGOT_PASSWORD = 'RECEIVE_ITEM_FORGOT_PASSWORD';
+const FAILED_FORGOT_PASSWORD = 'FAILED_FORGOT_PASSWORD'; // IMAGE
+
+const FETCH_IMAGE = 'FETCH_IMAGE';
+const SUCCESS_IMAGE = 'SUCCESS_IMAGE';
+const FAILED_IMAGE = 'FAILED_IMAGE'; // CURRENT TIME
+
+const FETCH_CURRENT_TIME = 'FETCH_CURRENT_TIME';
+const FAILED_CURRENT_TIME = 'FAILED_CURRENT_TIME';
+const RECEIVE_CURRENT_TIME = 'RECEIVE_CURRENT_TIME'; // FOOD COURT
+
+const FETCH_FOODCOURT = 'FETCH_FOODCOURT';
+const FAILED_FOODCOURT = 'FAILED_FOODCOURT';
+const RECEIVE_FOODCOURT = 'RECEIVE_FOODCOURT';
+const RECEIVE_ITEM_FOODCOURT = 'RECEIVE_ITEM_FOODCOURT'; // STAND
+
+const FETCH_STAND = 'FETCH_STAND';
+const FAILED_STAND = 'FAILED_STAND';
+const RECEIVE_STAND = 'RECEIVE_STAND';
+const RECEIVE_ITEM_STAND = 'RECEIVE_ITEM_STAND'; // CATEGORY_STAND
+
+const FETCH_CATEGORY_STAND = 'FETCH_CATEGORY_STAND';
+const FAILED_CATEGORY_STAND = 'FAILED_CATEGORY_STAND';
+const RECEIVE_CATEGORY_STAND = 'RECEIVE_CATEGORY_STAND';
+const RECEIVE_ITEM_CATEGORY_STAND = 'RECEIVE_ITEM_CATEGORY_STAND'; // HOME_STAND
+
+const FETCH_HOME_STAND = 'FETCH_HOME_STAND';
+const FAILED_HOME_STAND = 'FAILED_HOME_STAND';
+const RECEIVE_HOME_STAND = 'RECEIVE_HOME_STAND';
+const RECEIVE_ITEM_HOME_STAND = 'RECEIVE_ITEM_HOME_STAND'; // PRODUCT
+
+const FETCH_PRODUCT = 'FETCH_PRODUCT';
+const FAILED_PRODUCT = 'FAILED_PRODUCT';
+const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
+const RECEIVE_ITEM_PRODUCT = 'RECEIVE_ITEM_PRODUCT'; // USER
+
+const FETCH_USER = 'FETCH_USER';
+const FAILED_USER = 'FAILED_USER';
+const RECEIVE_USER = 'RECEIVE_USER';
+const RECEIVE_ITEM_USER = 'RECEIVE_ITEM_USER'; // GENERATED TYPES
+// CONCATENATED MODULE: ./store/reducer/accountStore.js
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var accountStore = ((state = initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_AUTH:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_AUTH:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case FAILED_AUTH:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    case FETCH_LOGOUT_USER:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        currentItem: {}
+      });
+
+    case FETCH_CHANGE_ACCOUNT:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_CHANGE_ACCOUNT:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: false
+      });
+
+    case FAILED_CHANGE_ACCOUNT:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        errorMessage: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/forgotPassword.js
+function forgotPassword_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function forgotPassword_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { forgotPassword_ownKeys(Object(source), true).forEach(function (key) { forgotPassword_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { forgotPassword_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function forgotPassword_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const forgotPassword_initialState = {
+  loading: false,
+  currentItem: {},
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var forgotPassword = ((state = forgotPassword_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_FORGOT_PASSWORD:
+      return forgotPassword_objectSpread(forgotPassword_objectSpread({}, state), {}, {
+        loading: true,
+        message: null
+      });
+
+    case RECEIVE_ITEM_FORGOT_PASSWORD:
+      return forgotPassword_objectSpread(forgotPassword_objectSpread({}, state), {}, {
+        loading: false,
+        currentItem: action.payload.currentItem,
+        meta: action.payload.meta,
+        message: null
+      });
+
+    case FAILED_FORGOT_PASSWORD:
+      return forgotPassword_objectSpread(forgotPassword_objectSpread({}, state), {}, {
+        loading: false,
+        message: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/foodCourt.js
+function foodCourt_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function foodCourt_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { foodCourt_ownKeys(Object(source), true).forEach(function (key) { foodCourt_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { foodCourt_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function foodCourt_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const foodCourt_initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var foodCourt = ((state = foodCourt_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_FOODCOURT:
+      return foodCourt_objectSpread(foodCourt_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_ITEM_FOODCOURT:
+      return foodCourt_objectSpread(foodCourt_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case RECEIVE_FOODCOURT:
+      return foodCourt_objectSpread(foodCourt_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        list: action.payload.list,
+        meta: action.payload.meta
+      });
+
+    case FAILED_FOODCOURT:
+      return foodCourt_objectSpread(foodCourt_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    case FETCH_LOGOUT_USER:
+      return foodCourt_objectSpread(foodCourt_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        currentItem: {}
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/userStore.js
+function userStore_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function userStore_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { userStore_ownKeys(Object(source), true).forEach(function (key) { userStore_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { userStore_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function userStore_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const userStore_initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var userStore = ((state = userStore_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_USER:
+      return userStore_objectSpread(userStore_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_ITEM_USER:
+      return userStore_objectSpread(userStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case RECEIVE_USER:
+      return userStore_objectSpread(userStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        list: action.payload.list,
+        meta: action.payload.meta
+      });
+
+    case FAILED_USER:
+      return userStore_objectSpread(userStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/productStore.js
+function productStore_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function productStore_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { productStore_ownKeys(Object(source), true).forEach(function (key) { productStore_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { productStore_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function productStore_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const productStore_initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var productStore = ((state = productStore_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_PRODUCT:
+      return productStore_objectSpread(productStore_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_ITEM_PRODUCT:
+      return productStore_objectSpread(productStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case RECEIVE_PRODUCT:
+      return productStore_objectSpread(productStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        list: action.payload.list,
+        meta: action.payload.meta
+      });
+
+    case FAILED_PRODUCT:
+      return productStore_objectSpread(productStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/homeStandStore.js
+function homeStandStore_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function homeStandStore_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { homeStandStore_ownKeys(Object(source), true).forEach(function (key) { homeStandStore_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { homeStandStore_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function homeStandStore_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const homeStandStore_initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var homeStandStore = ((state = homeStandStore_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_HOME_STAND:
+      return homeStandStore_objectSpread(homeStandStore_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_ITEM_HOME_STAND:
+      return homeStandStore_objectSpread(homeStandStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case RECEIVE_HOME_STAND:
+      return homeStandStore_objectSpread(homeStandStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        list: action.payload.list,
+        meta: action.payload.meta
+      });
+
+    case FAILED_HOME_STAND:
+      return homeStandStore_objectSpread(homeStandStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/categoryStandStore.js
+function categoryStandStore_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function categoryStandStore_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { categoryStandStore_ownKeys(Object(source), true).forEach(function (key) { categoryStandStore_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { categoryStandStore_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function categoryStandStore_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const categoryStandStore_initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var categoryStandStore = ((state = categoryStandStore_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_CATEGORY_STAND:
+      return categoryStandStore_objectSpread(categoryStandStore_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_ITEM_CATEGORY_STAND:
+      return categoryStandStore_objectSpread(categoryStandStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case RECEIVE_CATEGORY_STAND:
+      return categoryStandStore_objectSpread(categoryStandStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        list: action.payload.list,
+        meta: action.payload.meta
+      });
+
+    case FAILED_CATEGORY_STAND:
+      return categoryStandStore_objectSpread(categoryStandStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/reducer/standStore.js
+function standStore_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function standStore_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { standStore_ownKeys(Object(source), true).forEach(function (key) { standStore_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { standStore_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function standStore_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+const standStore_initialState = {
+  loading: false,
+  currentItem: {},
+  list: [],
+  meta: {},
+  error: false,
+  message: ''
+};
+/* harmony default export */ var standStore = ((state = standStore_initialState, action = {}) => {
+  switch (action.type) {
+    case FETCH_STAND:
+      return standStore_objectSpread(standStore_objectSpread({}, state), {}, {
+        loading: true,
+        error: false
+      });
+
+    case RECEIVE_ITEM_STAND:
+      return standStore_objectSpread(standStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        currentItem: action.payload.currentItem
+      });
+
+    case RECEIVE_STAND:
+      return standStore_objectSpread(standStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: false,
+        message: '',
+        list: action.payload.list,
+        meta: action.payload.meta
+      });
+
+    case FAILED_STAND:
+      return standStore_objectSpread(standStore_objectSpread({}, state), {}, {
+        loading: false,
+        error: true,
+        message: action.payload.error
+      });
+
+    default:
+      return state;
+  }
+});
+// CONCATENATED MODULE: ./store/index.js
+/* eslint-disable comma-dangle */
+
+
+
+
+ // GENERATED REDUCER
+
+
+
+
+
+
+const rooterReducers = Object(external_redux_["combineReducers"])({
+  form: external_redux_form_["reducer"],
+  accountStore: accountStore,
+  forgotStore: forgotPassword,
+  foodCourt: foodCourt,
+  // GENERATED COMBINE
+  userStore: userStore,
+  productStore: productStore,
+  homeStandStore: homeStandStore,
+  categoryStandStore: categoryStandStore,
+  standStore: standStore
+});
+/* harmony default export */ var store = (rooterReducers);
+// CONCATENATED MODULE: ./pages/_app.js
+var __jsx = external_react_default.a.createElement;
+
+
+
+
+
+
+
+
+const theme = {
+  colors: {
+    primary: '#0070f3'
+  }
+};
+const _app_store = Object(external_redux_["createStore"])(store, Object(external_redux_["compose"])(Object(external_redux_["applyMiddleware"])(external_redux_thunk_default.a)));
+const wrapper = Object(external_next_redux_wrapper_["createWrapper"])(_app_store);
+
+class _app_MyApp extends app_default.a {
+  constructor() {
+    super();
+  }
+
+  static async getInitialProps({
+    Component,
+    ctx
+  }) {
+    let pageProps = {};
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+
+    return {
+      pageProps
+    };
+  }
+
+  componentDidMount() {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles);
+    }
+  }
+
+  render() {
+    const {
+      Component,
+      pageProps
+    } = this.props;
+    return __jsx(external_react_default.a.Fragment, null, __jsx(external_react_redux_["Provider"], {
+      store: _app_store
+    }, __jsx(CustomHelmet["a" /* default */], null), __jsx(Component, pageProps)));
+  }
+
+}
+
+/* harmony default export */ var _app = __webpack_exports__["default"] = (wrapper.withRedux(_app_MyApp));
 
 /***/ }),
 
-/***/ "react-redux":
-/*!******************************!*\
-  !*** external "react-redux" ***!
-  \******************************/
-/*! no static exports found */
+/***/ "63Ad":
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"react-redux\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdC1yZWR1eFwiPzc4Y2QiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicmVhY3QtcmVkdXguanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdC1yZWR1eFwiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///react-redux\n");
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
 
 /***/ }),
 
-/***/ "redux":
-/*!************************!*\
-  !*** external "redux" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "6AbQ":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("module.exports = require(\"redux\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWR1eFwiP2QzMjUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicmVkdXguanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWR1eFwiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///redux\n");
+"use strict";
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+
+// EXTERNAL MODULE: external "react-helmet"
+var external_react_helmet_ = __webpack_require__("zIXN");
+var external_react_helmet_default = /*#__PURE__*/__webpack_require__.n(external_react_helmet_);
+
+// CONCATENATED MODULE: ./theme/color.js
+/* harmony default export */ var color = ({
+  // Start - Material Pallete https://www.materialpalette.com/light-green/light-blue
+  primaryColor: '#FB770D',
+  secondaryColor: '#325D79',
+  colorPrimarySmooth: '#FFEBDB',
+  contentColor: '#cafaf7',
+  darkPrimaryColor: '#5B8F32',
+  lightPrimaryColor: '#DCEDC8',
+  grayButton: '#EBEBEB',
+  grayButtonText: '#909090',
+  grayBgColor: '#707070',
+  textIcons: '#ffffff',
+  accentIcons: '#03A9F4',
+  primaryText: '#EFEEEE',
+  secondaryText: '#757575',
+  dividerColor: '#BDBDBD',
+  backgroundColor: '#FAFCFB',
+  darkTextColor: '#000000',
+  // End - Material Pallete https://www.materialpalette.com/light-green/light-blue
+  normalColor: '#B1B0B0',
+  // icon on #00DED6
+  // iconOff: '#B9B9B9',
+  iconOff: '#BCBCBC',
+  logout: '#FF6767',
+  login: '#51DD8C',
+  // icon color #333333
+  white: '#ffffff',
+  errorColor: '#E4202D',
+  starColor: '#FEBF35',
+  transparent: 'transparent',
+  link: '#03A9F4',
+  gray: '#ACACAC',
+  orange: '#FF4E00',
+  facebook: '#4266b2',
+  google: '#EC3F7A'
+});
+// CONCATENATED MODULE: ./constants/index.js
+const APPNAME = 'Food Court Management';
+const DESCRIPTION = 'Food Court Management';
+const TYPE_CODE_FORGOT = 0;
+const TYPE_CODE_VERIFICATION = 1;
+const TYPE_ACCOUNT_PHONE = 0;
+const TYPE_ACCOUNT_EMAIL = 1;
+const GUARD_OWNER = 'owner';
+const GUARD_USER = 'user';
+const GUARD_STAND = 'stand';
+const FOODCOURT_SELECTED = 'owner_foodcourt_selected';
+// CONCATENATED MODULE: ./components/CustomHelmet/index.js
+var __jsx = external_react_default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+
+const CustomHelmet = (_ref) => {
+  let {
+    title,
+    meta = [],
+    children
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["title", "meta", "children"]);
+
+  console.log('CUstomer Helment ', title);
+  return __jsx(external_react_helmet_default.a, _extends({
+    htmlAttributes: {
+      lang: 'en'
+    },
+    title: `${title} | ${DESCRIPTION}`,
+    meta: [{
+      name: 'theme-color',
+      content: color.darkPrimaryColor
+    }, {
+      name: 'description',
+      content: DESCRIPTION
+    }, {
+      name: 'viewport',
+      content: 'minimum-scale=1, initial-scale=1.0, maximum-scale=1.0, width=device-width'
+    }, {
+      property: 'og:title',
+      content: `${title} | ${DESCRIPTION}`
+    }].concat(meta)
+  }, props), __jsx("link", {
+    async: true,
+    rel: "shortcut icon",
+    type: "image/x-icon",
+    href: "/static/favicon.ico"
+  }), __jsx("link", {
+    rel: "preload",
+    async: true,
+    type: "text/css",
+    href: "/static/nprogress.css"
+  }), children);
+};
+
+CustomHelmet.defaultProps = {
+  meta: [],
+  title: APPNAME
+};
+/* harmony default export */ var components_CustomHelmet = __webpack_exports__["a"] = (CustomHelmet);
 
 /***/ }),
 
-/***/ "redux-devtools-extension":
-/*!*******************************************!*\
-  !*** external "redux-devtools-extension" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "6jsY":
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = require(\"redux-devtools-extension\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWR1eC1kZXZ0b29scy1leHRlbnNpb25cIj81YWE5Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6InJlZHV4LWRldnRvb2xzLWV4dGVuc2lvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlZHV4LWRldnRvb2xzLWV4dGVuc2lvblwiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///redux-devtools-extension\n");
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__("63Ad");
+
+exports.__esModule = true;
+exports.Container = Container;
+exports.createUrl = createUrl;
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__("cDcd"));
+
+var _utils = __webpack_require__("kYf9");
+
+exports.AppInitialProps = _utils.AppInitialProps;
+exports.NextWebVitalsMetric = _utils.NextWebVitalsMetric;
+/**
+* `App` component is used for initialize of pages. It allows for overwriting and full control of the `page` initialization.
+* This allows for keeping state between navigation, custom error handling, injecting additional data.
+*/
+
+async function appGetInitialProps({
+  Component,
+  ctx
+}) {
+  const pageProps = await (0, _utils.loadGetInitialProps)(Component, ctx);
+  return {
+    pageProps
+  };
+}
+
+class App extends _react.default.Component {
+  // Kept here for backwards compatibility.
+  // When someone ended App they could call `super.componentDidCatch`.
+  // @deprecated This method is no longer needed. Errors are caught at the top level
+  componentDidCatch(error, _errorInfo) {
+    throw error;
+  }
+
+  render() {
+    const {
+      router,
+      Component,
+      pageProps,
+      __N_SSG,
+      __N_SSP
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement(Component, Object.assign({}, pageProps, // we don't add the legacy URL prop if it's using non-legacy
+    // methods like getStaticProps and getServerSideProps
+    !(__N_SSG || __N_SSP) ? {
+      url: createUrl(router)
+    } : {}));
+  }
+
+}
+
+exports.default = App;
+App.origGetInitialProps = appGetInitialProps;
+App.getInitialProps = appGetInitialProps;
+let warnContainer;
+let warnUrl;
+
+if (false) {} // @deprecated noop for now until removal
+
+
+function Container(p) {
+  if (false) {}
+  return p.children;
+}
+
+function createUrl(router) {
+  // This is to make sure we don't references the router object at call time
+  const {
+    pathname,
+    asPath,
+    query
+  } = router;
+  return {
+    get query() {
+      if (false) {}
+      return query;
+    },
+
+    get pathname() {
+      if (false) {}
+      return pathname;
+    },
+
+    get asPath() {
+      if (false) {}
+      return asPath;
+    },
+
+    back: () => {
+      if (false) {}
+      router.back();
+    },
+    push: (url, as) => {
+      if (false) {}
+      return router.push(url, as);
+    },
+    pushTo: (href, as) => {
+      if (false) {}
+      const pushRoute = as ? href : '';
+      const pushUrl = as || href;
+      return router.push(pushRoute, pushUrl);
+    },
+    replace: (url, as) => {
+      if (false) {}
+      return router.replace(url, as);
+    },
+    replaceTo: (href, as) => {
+      if (false) {}
+      const replaceRoute = as ? href : '';
+      const replaceUrl = as || href;
+      return router.replace(replaceRoute, replaceUrl);
+    }
+  };
+}
 
 /***/ }),
 
-/***/ "redux-form":
-/*!*****************************!*\
-  !*** external "redux-form" ***!
-  \*****************************/
-/*! no static exports found */
+/***/ "JMOJ":
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"redux-form\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWR1eC1mb3JtXCI/NmNiYyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJyZWR1eC1mb3JtLmpzIiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVkdXgtZm9ybVwiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///redux-form\n");
+module.exports = require("next-redux-wrapper");
 
 /***/ }),
 
-/***/ "redux-thunk":
-/*!******************************!*\
-  !*** external "redux-thunk" ***!
-  \******************************/
-/*! no static exports found */
+/***/ "ZSx1":
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"redux-thunk\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWR1eC10aHVua1wiPzg4MDgiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicmVkdXgtdGh1bmsuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWR1eC10aHVua1wiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///redux-thunk\n");
+module.exports = require("redux-thunk");
 
 /***/ }),
 
-/***/ "styled-components":
-/*!************************************!*\
-  !*** external "styled-components" ***!
-  \************************************/
-/*! no static exports found */
+/***/ "cDcd":
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"styled-components\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJzdHlsZWQtY29tcG9uZW50c1wiP2Y1YWQiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoic3R5bGVkLWNvbXBvbmVudHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJzdHlsZWQtY29tcG9uZW50c1wiKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///styled-components\n");
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "eLzx":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-form");
+
+/***/ }),
+
+/***/ "h74D":
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "kYf9":
+/***/ (function(module, exports) {
+
+module.exports = require("next/dist/next-server/lib/utils.js");
+
+/***/ }),
+
+/***/ "o42t":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("6jsY")
+
+
+/***/ }),
+
+/***/ "rKB8":
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "zIXN":
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
 
 /***/ })
 

@@ -1,0 +1,1 @@
+self.__precacheManifest = ["/_next/static/chunks/0.js","/_next/static/chunks/amp.js","/_next/static/chunks/main.js","/_next/static/chunks/polyfills.js","/_next/static/chunks/react-refresh.js","/_next/static/chunks/webpack.js"]

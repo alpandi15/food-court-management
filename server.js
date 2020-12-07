@@ -30,7 +30,8 @@ app.prepare()
         res.removeHeader('x-powered-by')
         next()
       })
-      .get('/info', (req, res) => res.send('INi Data Render SSR'))
+      .get('/info', (req, res) => res.send(`INi Data Render SSR ${req.url}`))
+
     routes(server, app)
 
     server
