@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { config } from \"../../config\";\nvar apiProtocol = config.apiProtocol,\n    apiHost = config.apiHost,\n    apiPort = config.apiPort,\n    apiVersion = config.apiVersion;\nexport var APIURL = \"\".concat(apiProtocol, \"://\").concat(apiHost, \":\").concat(apiPort, \"/\").concat(apiVersion);","map":null,"metadata":{},"sourceType":"module"}

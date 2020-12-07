@@ -1,0 +1,557 @@
+$colorPrimary: #FB770D;
+$colorPrimaryLight: #FFA45B;
+$colorPrimarySmooth: #FFEBDB;
+
+$colorSecondary: #325D79;
+$colorSecondaryBlack: #25424C;
+
+$colorBlue: #9BD7D1;
+$colorGrey: #EFEEEE;
+
+$colorGreyDark: #F5F5F5;
+
+$colorGrayOwner: #878787;
+$colorRed: #EB5757;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins';
+}
+body {
+  background-color: #F7F7F7;
+}
+
+.row {
+  .col {
+    margin: 0;
+    padding: 0;
+  }
+}
+// MODAL
+.modal {
+  overflow: visible;
+  .modal-content {
+    background-color: white;
+    padding: 10px !important;
+  }
+  .modal-content-owner {
+    padding: 10px;
+    .modal-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      &.logout {
+        text-align: center;
+      }
+    }
+    .modal-footer-owner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 15px;
+  
+      button {
+        margin-left: 5px;
+      }
+    }
+  }
+  .modal-footer {
+    display: none !important;
+  }
+}
+
+.admin-container {
+  .profile-content {
+    width: 100%;
+    // height: 230px;
+    padding: 25px 0;
+    background: $colorGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .image {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid $colorPrimary;
+      }
+    }
+
+    .name {
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .user-role {
+      font-size: 12px;
+      background-color: #fa8426;
+      padding: 0 10px;
+      border-radius: 10px;
+      color: white;
+    }
+
+    .content-select {
+      width: 170px;
+      .input-field {
+        margin: 0 !important;
+        padding: 0 !important;
+        select {
+          &.select-foodcourt {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color: $colorGrayOwner;
+            font-size: 14px;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-menu {
+    padding: 15px 0;
+    height: 55vh;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+    .menu-item {
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      color: $colorSecondaryBlack;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .container-logout {
+    padding: 15px 20px;
+    color: $colorRed;
+    width: 100%;
+    .logout {
+      display: flex;
+      align-items: center;
+
+      i {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+.image-uploader {
+  .image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  input {
+    display: none;
+  }
+
+  .btn-openfile {
+    position: inherit;
+    top: -10px;
+    width: 100%;
+    background-color: $colorPrimary !important;
+    color: #FFFFFF !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// REGISTER
+
+.owner-container {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 0 !important;
+  .cover-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(170deg, black, transparent);
+      z-index: 1;
+    }
+  }
+
+  // Register Food Court
+  .image-content {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    height: 100%;
+    .information {
+      width: 300px;
+      position: absolute;
+
+      .logo {
+        width: 300px;
+        height: 230px;
+        object-fit: cover;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 15px 0px;
+        line-height: 1.3;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  .content {
+    padding: 20px 30px;
+    height: 100%;
+    background-color: #F5F5F5;
+    h4 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 23px;
+    }
+
+    .form-content {
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  // SELECTION FOOD COURT PAGE
+  .content-select-foodcourt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .select-food-court {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .text {
+        margin: 20px 0;
+        font-size: 21px;
+        text-align: center;
+        font-weight: 700;
+      }
+      .form-selection {
+        width: 100%;
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.owner-content {
+  margin: 25px;
+  .header-title {
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .tabs {
+    &.tabs-setting {
+      margin-top: 35px;
+
+      .tab {
+        a {
+          color: $colorPrimaryLight;
+
+          &.active {
+            color: $colorPrimary;
+          }
+        }
+      }
+
+      .indicator {
+        background-color: $colorPrimary;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 20px;
+    padding: 0;
+
+    .title {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 2px solid #6d6d6d;
+    }
+
+    .user-setting, .foodcourt-setting {
+      margin-top: 20px;
+      
+      .section {
+        font-size: 14px;
+        font-weight: 600;
+        color: #878787;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .row {
+        margin: 0;
+
+        .col {
+          padding: 10px 0;
+        }
+
+        .user-image {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 2px solid #fb7;
+        }
+
+        .text {
+          font-size: 13px;
+          font-weight: 500;
+        }
+
+        .verification {
+          display: flex;
+          font-size: 10px;
+          .unverif {
+            color: #da2c2c;
+          }
+          .verif {
+            color: rgb(66, 143, 66);
+          }
+
+          .verif-now {
+            font-weight: 600;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .form-stand {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    .list-stand {
+      margin-top: 60px;
+      .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .d-flex {
+          &.align-items-center {
+            &.contain-search-input {
+              width: 40%;
+              border: 1px solid #afafaf !important;
+            }
+          }
+        }
+      }
+    }
+
+    .form-stand {
+      .title-info {
+        font-size: 14px;
+        color: $colorGrayOwner;
+        font-weight: 500;
+      }
+
+      .stand, .user-stand {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-category {
+        font-size: 10px;
+
+        a {
+          margin: 0 5px;
+          color: $colorPrimary;
+        }
+      }
+    }
+
+    form {
+      .button-submit-control {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        button {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    // DETAIL STAND
+    .information-detail {
+      .data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px 0;
+
+        .label {
+          font-weight: 600;
+          color: $colorGrayOwner;
+          width: 50%;
+        }
+
+        .value {
+          font-weight: 500;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+// LIST DATA TABLE
+.list {
+  table {
+    td {
+      padding: 5px 0;
+
+      &.actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .btn-action {
+          padding: 5px;
+          background-color: $colorPrimaryLight;
+          display: flex;
+          width: 37px;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          margin: 1px;
+          border-radius: 10px;
+          color: black;
+  
+          i {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// PAGINATION
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  .info {}
+  .control{
+    .pagination{
+      li {
+        &.active {
+          color: $colorPrimarySmooth;
+        }
+        .button-page {
+          color: #444;
+          display: inline-block;
+          font-size: 12px;
+          padding: 0 10px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+// MAP BOX
+.mapboxgl-ctrl {
+  &.mapboxgl-ctrl-group {
+    width: 30px;
+  }
+}
+
+@media (min-width: 640px) {
+  .content-select-foodcourt {
+    .select-food-court {
+      width: 30% !important;
+    }
+  }
+
+  .owner-content {
+    .content {
+      .user-setting, .foodcourt-setting {
+        .form-stand {
+          width: 60%;
+        }
+      }
+    }
+  }
+}

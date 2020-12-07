@@ -1,0 +1,348 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins'; }
+
+body {
+  background-color: #F7F7F7; }
+
+.row .col {
+  margin: 0;
+  padding: 0; }
+
+.modal {
+  overflow: visible; }
+  .modal .modal-content {
+    background-color: white;
+    padding: 10px !important; }
+  .modal .modal-content-owner {
+    padding: 10px; }
+    .modal .modal-content-owner .modal-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px; }
+      .modal .modal-content-owner .modal-title.logout {
+        text-align: center; }
+    .modal .modal-content-owner .modal-footer-owner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 15px; }
+      .modal .modal-content-owner .modal-footer-owner button {
+        margin-left: 5px; }
+  .modal .modal-footer {
+    display: none !important; }
+
+.admin-container .profile-content {
+  width: 100%;
+  padding: 25px 0;
+  background: #EFEEEE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .admin-container .profile-content .image {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .admin-container .profile-content .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #FB770D; }
+  .admin-container .profile-content .name {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 600; }
+  .admin-container .profile-content .user-role {
+    font-size: 12px;
+    background-color: #fa8426;
+    padding: 0 10px;
+    border-radius: 10px;
+    color: white; }
+  .admin-container .profile-content .content-select {
+    width: 170px; }
+    .admin-container .profile-content .content-select .input-field {
+      margin: 0 !important;
+      padding: 0 !important; }
+      .admin-container .profile-content .content-select .input-field select.select-foodcourt {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        font-size: 14px; }
+        .admin-container .profile-content .content-select .input-field select.select-foodcourt:focus {
+          outline: none; }
+.admin-container .nav-menu {
+  padding: 15px 0;
+  height: 55vh;
+  position: relative;
+  overflow: hidden;
+  overflow-y: scroll; }
+  .admin-container .nav-menu .menu-item {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    color: #25424C; }
+    .admin-container .nav-menu .menu-item i {
+      margin-right: 10px; }
+.admin-container .container-logout {
+  padding: 15px 20px;
+  color: #EB5757;
+  width: 100%; }
+  .admin-container .container-logout .logout {
+    display: flex;
+    align-items: center; }
+    .admin-container .container-logout .logout i {
+      margin-right: 15px; }
+
+.image-uploader .image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; }
+.image-uploader input {
+  display: none; }
+.image-uploader .btn-openfile {
+  position: inherit;
+  top: -10px;
+  width: 100%;
+  background-color: #FB770D !important;
+  color: #FFFFFF !important;
+  display: flex;
+  justify-content: center; }
+
+.owner-container {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 0 !important; }
+  .owner-container .cover-image {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    .owner-container .cover-image .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+    .owner-container .cover-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(170deg, black, transparent);
+      z-index: 1; }
+  .owner-container .image-content {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    height: 100%; }
+    .owner-container .image-content .information {
+      width: 300px;
+      position: absolute; }
+      .owner-container .image-content .information .logo {
+        width: 300px;
+        height: 230px;
+        object-fit: cover; }
+      .owner-container .image-content .information .title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 15px 0px;
+        line-height: 1.3; }
+      .owner-container .image-content .information p {
+        font-size: 16px;
+        line-height: 18px; }
+  .owner-container .content {
+    padding: 20px 30px;
+    height: 100%;
+    background-color: #F5F5F5; }
+    .owner-container .content h4 {
+      font-size: 24px;
+      font-weight: 700; }
+    .owner-container .content p {
+      font-size: 16px;
+      line-height: 23px; }
+    .owner-container .content .form-content form {
+      display: flex;
+      flex-direction: column; }
+  .owner-container .content-select-foodcourt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; }
+    .owner-container .content-select-foodcourt .select-food-court {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .owner-container .content-select-foodcourt .select-food-court .image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; }
+      .owner-container .content-select-foodcourt .select-food-court .text {
+        margin: 20px 0;
+        font-size: 21px;
+        text-align: center;
+        font-weight: 700; }
+      .owner-container .content-select-foodcourt .select-food-court .form-selection {
+        width: 100%; }
+        .owner-container .content-select-foodcourt .select-food-court .form-selection form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center; }
+          .owner-container .content-select-foodcourt .select-food-court .form-selection form .input {
+            width: 100%; }
+
+.owner-content {
+  margin: 25px; }
+  .owner-content .header-title .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .owner-content .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+  .owner-content .tabs.tabs-setting {
+    margin-top: 35px; }
+    .owner-content .tabs.tabs-setting .tab a {
+      color: #FFA45B; }
+      .owner-content .tabs.tabs-setting .tab a.active {
+        color: #FB770D; }
+    .owner-content .tabs.tabs-setting .indicator {
+      background-color: #FB770D; }
+  .owner-content .content {
+    margin-top: 20px;
+    padding: 0; }
+    .owner-content .content .title {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 2px solid #6d6d6d; }
+    .owner-content .content .user-setting, .owner-content .content .foodcourt-setting {
+      margin-top: 20px; }
+      .owner-content .content .user-setting .section, .owner-content .content .foodcourt-setting .section {
+        font-size: 14px;
+        font-weight: 600;
+        color: #878787;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+      .owner-content .content .user-setting .row, .owner-content .content .foodcourt-setting .row {
+        margin: 0; }
+        .owner-content .content .user-setting .row .col, .owner-content .content .foodcourt-setting .row .col {
+          padding: 10px 0; }
+        .owner-content .content .user-setting .row .user-image, .owner-content .content .foodcourt-setting .row .user-image {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 2px solid #fb7; }
+        .owner-content .content .user-setting .row .text, .owner-content .content .foodcourt-setting .row .text {
+          font-size: 13px;
+          font-weight: 500; }
+        .owner-content .content .user-setting .row .verification, .owner-content .content .foodcourt-setting .row .verification {
+          display: flex;
+          font-size: 10px; }
+          .owner-content .content .user-setting .row .verification .unverif, .owner-content .content .foodcourt-setting .row .verification .unverif {
+            color: #da2c2c; }
+          .owner-content .content .user-setting .row .verification .verif, .owner-content .content .foodcourt-setting .row .verification .verif {
+            color: #428f42; }
+          .owner-content .content .user-setting .row .verification .verif-now, .owner-content .content .foodcourt-setting .row .verification .verif-now {
+            font-weight: 600;
+            margin-left: 10px; }
+      .owner-content .content .user-setting .form-stand, .owner-content .content .foodcourt-setting .form-stand {
+        display: flex;
+        flex-direction: column;
+        width: 100%; }
+    .owner-content .content .list-stand {
+      margin-top: 60px; }
+      .owner-content .content .list-stand .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        .owner-content .content .list-stand .search .d-flex.align-items-center.contain-search-input {
+          width: 40%;
+          border: 1px solid #afafaf !important; }
+    .owner-content .content .form-stand .title-info {
+      font-size: 14px;
+      color: #878787;
+      font-weight: 500; }
+    .owner-content .content .form-stand .stand, .owner-content .content .form-stand .user-stand {
+      display: flex;
+      flex-direction: column; }
+    .owner-content .content .form-stand .text-category {
+      font-size: 10px; }
+      .owner-content .content .form-stand .text-category a {
+        margin: 0 5px;
+        color: #FB770D; }
+    .owner-content .content form .button-submit-control {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end; }
+      .owner-content .content form .button-submit-control button {
+        margin-left: 5px; }
+    .owner-content .content .information-detail .data {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 10px 0; }
+      .owner-content .content .information-detail .data .label {
+        font-weight: 600;
+        color: #878787;
+        width: 50%; }
+      .owner-content .content .information-detail .data .value {
+        font-weight: 500;
+        width: 50%; }
+
+.list table td {
+  padding: 5px 0; }
+  .list table td.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .list table td.actions .btn-action {
+      padding: 5px;
+      background-color: #FFA45B;
+      display: flex;
+      width: 37px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin: 1px;
+      border-radius: 10px;
+      color: black; }
+      .list table td.actions .btn-action i {
+        font-size: 15px; }
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem; }
+  .pagination-container .control .pagination li.active {
+    color: #FFEBDB; }
+  .pagination-container .control .pagination li .button-page {
+    color: #444;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 30px; }
+
+.mapboxgl-ctrl.mapboxgl-ctrl-group {
+  width: 30px; }
+
+@media (min-width: 640px) {
+  .content-select-foodcourt .select-food-court {
+    width: 30% !important; }
+
+  .owner-content .content .user-setting .form-stand, .owner-content .content .foodcourt-setting .form-stand {
+    width: 60%; } }
+
+/*# sourceMappingURL=owner.css.map */
