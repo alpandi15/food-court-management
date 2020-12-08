@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { request } from \"../utils/request\";\nexport async function apiForgotPassword(type = 'email', data) {\n  return request({\n    url: `auth/forgot-password/${type}`,\n    auth: false,\n    data,\n    method: 'post'\n  });\n}","map":null,"metadata":{},"sourceType":"module"}
