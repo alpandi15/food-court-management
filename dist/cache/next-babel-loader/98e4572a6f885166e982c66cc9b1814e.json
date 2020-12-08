@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { config } from \"../../config\";\nconst {\n  apiProtocol,\n  apiHost,\n  apiPort,\n  apiVersion\n} = config;\nexport const APIURL = `${apiProtocol}://${apiHost}:${apiPort}/${apiVersion}`;","map":null,"metadata":{},"sourceType":"module"}
