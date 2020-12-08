@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import CustomHelmet from 'components/CustomHelmet'
+import Toaster from 'components/Toast'
 import reducer from '../store'
 
 const theme = {
@@ -49,6 +50,7 @@ class MyApp extends App {
         <Provider store={store}>
           <CustomHelmet />
           <Component {...pageProps} />
+          <Toaster />
         </Provider>
       </>
     )

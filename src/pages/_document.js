@@ -49,6 +49,19 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {this.helmetJsx}
+
+          <link async rel="preload" type="text/css" rel="stylesheet" href="/static/assets/css/materialize.min.css" />
+          <link async rel="preload" type="text/css" rel="stylesheet" href="/static/Css/_app.css" />
+
+          <link async rel="preload" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          <link async rel="preload" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+          <link async rel="preload" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet" />
+
+          <link
+            async rel="preload" type="text/css"
+            href="/static/assets/css/mapbox-gl.css"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

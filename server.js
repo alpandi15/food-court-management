@@ -17,10 +17,6 @@ const handle = app.getRequestHandler()
 app.prepare()
   .then(() => {
     const server = express()
-
-    server
-
-
     server
       .disable('x-powered-by')
       .set('X-Powered-By', 'Witech')
@@ -30,13 +26,13 @@ app.prepare()
         res.removeHeader('x-powered-by')
         next()
       })
-      .get('/info', (req, res) => res.send(`INi Data Render SSR ${req.url}`))
+      .get('/', (req, res) => res.send(`INi Data Render SSR ${req.url}`))
 
     routes(server, app)
 
     server
       .get('*', (req, res) => {
-        if (req.url.includes('/sw')) {
+        if (req.url.includes('/service-worker')) {
           const filePath = join(__dirname, 'static', 'workbox', 'service-worker.js')
           app.serveStatic(req, res, filePath)
         } else if (req.url.startsWith('static/workbox/')) {
