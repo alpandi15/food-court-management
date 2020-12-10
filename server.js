@@ -17,6 +17,9 @@ const handle = app.getRequestHandler()
 app.prepare()
   .then(() => {
     const server = express()
+
+    server
+
     server
       .disable('x-powered-by')
       .set('X-Powered-By', 'Witech')
@@ -26,7 +29,7 @@ app.prepare()
         res.removeHeader('x-powered-by')
         next()
       })
-      .get('/', (req, res) => res.send(`INi Data Render SSR ${req.url}`))
+      // .get('/', (req, res) => res.send(`INi Data Render SSR ${req.url}`))
 
     routes(server, app)
 

@@ -5,11 +5,13 @@
     "airbnb"
   ],
   "plugins": [
-    "react",
-    "material-ui",
-    "react-with-styles"
+    "react"
   ],
   "rules": {
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/button-has-type": 0,
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/label-has-associated-control": 0,
     "semi": [
       2,
       "never"
@@ -42,12 +44,10 @@
     ],
     "func-names": 0,
     "prefer-const": 0,
-    "no-extend-native": 0,
     "no-param-reassign": 0,
     "no-restricted-syntax": 0,
     "prefer-rest-params": 0,
     "no-eval": 0,
-    "react-with-styles/no-unused-styles": 2,
     "react/jsx-no-bind": 0,
     "no-unused-vars": [
       2,
@@ -106,32 +106,33 @@
     ]
   },
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true
   },
   "parser": "babel-eslint",
   "globals": {
     "window": true,
-    "document": true,
-    "foo": true,
     "Blob": true,
     "utils": true,
     "localStorage": true,
     "navigator": true,
-    "alert": true,
     "screen": true,
     "location": true,
     "Element": true,
     "Image": true,
-    "FileReader": true,
+    "Expo": true,
+    "fetch": true,
     "FormData": true,
+    "GLOBAL": true,
+    "XMLHttpRequest": true,
     "_": true
   },
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 8,
     "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
+      "experimentalObjectRestSpread": true,
+      "legacyDecorators": true
     }
   }
 }

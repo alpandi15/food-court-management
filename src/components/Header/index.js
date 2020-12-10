@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 import { Icon } from 'react-materialize'
 import color from '../../theme/color'
 
@@ -34,7 +35,12 @@ const Header = ({
   title,
   children
 }) => {
-  const history = useHistory()
+  const router = useRouter()
+
+  const goBack = () => {
+    router.back()
+  }
+
   return (
     <div className="navbar-fixed">
       <nav className={transparent ? 'transparent' : 'scroll'}>
@@ -43,7 +49,7 @@ const Header = ({
             <div
               className="nav-prev-button waves-effect"
               style={textStyle}
-              onClick={() => history.goBack()}
+              onClick={goBack}
             >
               <Icon>arrow_back</Icon>
             </div>

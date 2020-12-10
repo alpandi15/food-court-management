@@ -1,4 +1,5 @@
 import { set, remove } from 'services/utils/storage'
+import { loggedin } from 'components/Security/auth'
 import {
   apiRegister,
   apiLogin,
@@ -17,6 +18,7 @@ const fetch = () => {
 }
 
 const receive = (data) => {
+  loggedin({ ...data })
   return {
     type: RECEIVE_AUTH,
     payload: {

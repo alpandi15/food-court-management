@@ -3,7 +3,9 @@ import React from 'react'
 const Index = () => {
   return (
     <div>
-      Ini Index
+      Landing Page
+      <br />
+      <a href="/main">Start</a>
     </div>
   )
 }
