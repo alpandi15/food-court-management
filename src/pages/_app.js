@@ -42,7 +42,7 @@ class MyApp extends App {
     return (
       <React.Fragment>
         <Provider store={store}>
-          <div>
+          <div className="next-root">
             <CustomHelmet />
             <Component pageContext={this.pageContext} {...pageProps} />
           </div>

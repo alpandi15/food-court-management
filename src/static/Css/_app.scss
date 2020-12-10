@@ -19,7 +19,7 @@ $colorGreyDark: #F5F5F5;
 
 html,
 body,
-#root {
+#root, #__next, .next-root {
   height: 100%;
 }
 

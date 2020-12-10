@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDrag } from 'react-use-gesture'
 import { Link } from 'react-router-dom'
-import Link from 'next/link'
+// import Link from 'next/link'
 import { useSpring, a, config } from 'react-spring'
 
 const width = -270
@@ -62,7 +62,7 @@ const SideNav = () => {
 
   const callBind = React.useCallback(bind, [])
   const callOpen = React.useCallback(open, [])
-  const display = x.to((px) => (px > width ? 'block' : 'none'))
+  const display = x.to(px => (px > width ? 'block' : 'none'))
 
   return (
     <>
