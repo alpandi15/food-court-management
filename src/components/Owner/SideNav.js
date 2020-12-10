@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+import Link from 'next/link'
 import { Button } from 'react-materialize'
 import { connect } from 'react-redux'
 import Select from 'components/Form/SelectionDefault'
@@ -31,7 +32,7 @@ const SideNav = ({
   getMy,
   list
 }) => {
-  const history = useHistory()
+  // const history = useHistory()
   const [modal, setModal] = React.useState(false)
   const [selected, setSelected] = React.useState(null)
 
@@ -63,7 +64,7 @@ const SideNav = ({
   const handleLogout = React.useCallback(async () => {
     await logoutUser(GUARD_OWNER)
     setModal(false)
-    history.push('/owner/login')
+    // history.push('/owner/login')
   }, [])
 
   const handleSelected = (id) => {

@@ -34,8 +34,8 @@ class MyDocument extends Document {
   // should render on <head>
   get helmetHeadComponents () {
     return Object.keys(this.props.helmet)
-      .filter((el) => el !== 'htmlAttributes' && el !== 'bodyAttributes')
-      .map((el) => this.props.helmet[el].toComponent())
+      .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
+      .map(el => this.props.helmet[el].toComponent())
   }
 
   static helmetJsx () {
@@ -50,17 +50,18 @@ class MyDocument extends Document {
         <Head>
           {this.helmetJsx}
 
-          <link async rel="preload" type="text/css" rel="stylesheet" href="/static/assets/css/materialize.min.css" />
-          <link async rel="preload" type="text/css" rel="stylesheet" href="/static/Css/_app.css" />
+          <link async rel="preload" type="text/css" href="/static/assets/css/materialize.min.css" />
+          <link async rel="preload" type="text/css" href="/static/Css/_app.css" />
 
-          <link async rel="preload" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-          <link async rel="preload" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-          <link async rel="preload" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet" />
+          <link async rel="preload" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          <link async rel="preload" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+          <link async rel="preload" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" />
 
           <link
-            async rel="preload" type="text/css"
+            async
+            rel="preload"
+            type="text/css"
             href="/static/assets/css/mapbox-gl.css"
-            rel="stylesheet"
           />
         </Head>
         <body>
@@ -100,7 +101,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage
 
   ctx.renderPage = () => originalRenderPage({
-    enhanceApp: (App) => (props) => sheets.collectStyles(<App {...props} />)
+    enhanceApp: App => props => sheets.collectStyles(<App {...props} />)
   })
 
   const initialProps = await Document.getInitialProps(ctx)

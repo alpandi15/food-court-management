@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDrag } from 'react-use-gesture'
 import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { useSpring, a, config } from 'react-spring'
 
 const width = -270

@@ -1,5 +1,12 @@
 /* eslint-disable comma-dangle */
-import { combineReducers } from 'redux'
+import {
+  combineReducers,
+  applyMiddleware,
+  createStore
+  // compose
+} from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import thunkMiddleware from 'redux-thunk'
 import { reducer as formReducer } from 'redux-form'
 
 import accountStore from './reducer/accountStore'
@@ -13,7 +20,7 @@ import homeStandStore from './reducer/homeStandStore'
 import categoryStandStore from './reducer/categoryStandStore'
 import standStore from './reducer/standStore'
 
-const rooterReducers = combineReducers({
+const reducers = combineReducers({
   form: formReducer,
   accountStore,
   forgotStore,
@@ -27,4 +34,11 @@ const rooterReducers = combineReducers({
   standStore,
 })
 
-export default rooterReducers
+const store = createStore(
+  reducers,
+  composeWithDevTools(
+    applyMiddleware(thunkMiddleware)
+  )
+)
+
+export default store

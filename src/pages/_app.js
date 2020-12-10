@@ -2,27 +2,21 @@ import React from 'react'
 import App from 'next/app'
 import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
 import CustomHelmet from 'components/CustomHelmet'
-import Toaster from 'components/Toast'
-import reducer from '../store'
+// import Toaster from 'components/Toast'
+import getPageContext from 'utils/getPageContext'
+import store from '../store'
 
-const theme = {
-  colors: {
-    primary: '#0070f3'
-  }
-}
-
-const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(thunk))
-)
+// const theme = {
+//   colors: {
+//     primary: '#0070f3'
+//   }
+// }
 
 class MyApp extends App {
   constructor () {
     super()
+    this.pageContext = getPageContext()
   }
 
   static async getInitialProps ({ Component, ctx }) {
@@ -46,13 +40,14 @@ class MyApp extends App {
   render () {
     const { Component, pageProps } = this.props
     return (
-      <>
+      <React.Fragment>
         <Provider store={store}>
-          <CustomHelmet />
-          <Component {...pageProps} />
-          <Toaster />
+          <div>
+            <CustomHelmet />
+            <Component pageContext={this.pageContext} {...pageProps} />
+          </div>
         </Provider>
-      </>
+      </React.Fragment>
     )
   }
 }
