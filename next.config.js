@@ -13,16 +13,23 @@ module.exports = {
   poweredByHeader: false,
   distDir: '../dist',
   env: {
-    APIPROTOCOL: process.env.APIPROTOCOL || 'http',
-    APIHOST: process.env.APIHOST || 'localhost',
-    APIPORT: process.env.APIPORT || 3000,
-    APIVERSION: process.env.APIVERSION || '',
+    API_PROTOCOL: process.env.API_PROTOCOL || 'http',
+    API_HOST: process.env.API_HOST || 'localhost',
+    API_PORT: process.env.API_PORT || '3000',
+    API_VERSION: process.env.API_VERSION || 'v1/',
+    ID_GOOGLE: process.env.ID_GOOGLE || '',
+    ID_FACEBOOK: process.env.ID_FACEBOOK || '',
 
-    APIHOSTIMAGE: process.env.APIHOSTIMAGE || 'localhost',
-    APIPORTIMAGE: process.env.APIPORTIMAGE || 4000,
-    APIVERSIONIMAGE: process.env.APIVERSIONIMAGE || ''
+    API_IMAGE_PROTOCOL: process.env.API_IMAGE_PROTOCOL || 'http',
+    API_IMAGE: process.env.API_IMAGE || 'localhost',
+    API_IMAGE_PORT: process.env.API_IMAGE_PORT || '3000',
+    API_IMAGE_VERSION: process.env.API_IMAGE_VERSION || '',
+
+    MAP_TOKEN: process.env.MAP_TOKEN || ''
   },
-  webpack (config, { isServer, buildId, dev, defaultLoaders }) {
+  webpack (config, {
+    isServer, buildId, dev
+  }) {
     const workboxOptions = {
       clientsClaim: true,
       skipWaiting: true,
@@ -77,12 +84,12 @@ module.exports = {
           icons: [
             {
               // src: path.resolve('static/favicon/ms-icon-310x310.png'),
-              src: path.resolve('src/public/logo512.png'),
+              src: path.resolve('src/static/logo512.png'),
               sizes: [72, 96, 120, 128, 144, 152, 167, 180, 192, 384, 512]
             },
             {
               // src: path.resolve('static/favicon/ms-icon-310x310.png'),
-              src: path.resolve('src/public/logo192.png'),
+              src: path.resolve('src/static/logo192.png'),
               sizes: [120, 152, 167, 180],
               ios: true
             }

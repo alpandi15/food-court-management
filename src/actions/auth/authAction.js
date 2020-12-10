@@ -39,7 +39,7 @@ const failed = (error) => {
 }
 
 // Register User
-const registerUser = (data) => async (dispatch) => {
+const registerUser = data => async (dispatch) => {
   try {
     dispatch(fetch())
     const response = await apiRegister(data)
@@ -82,7 +82,7 @@ const loginUser = (data, guard = 'user') => async (dispatch) => {
 }
 
 // Logout
-const logoutUser = (guard) => async (dispatch) => {
+const logoutUser = guard => async (dispatch) => {
   await remove(`access_token_${guard}`)
   await remove(`refresh_token_${guard}`)
   if (guard === 'owner') {
@@ -92,7 +92,7 @@ const logoutUser = (guard) => async (dispatch) => {
 }
 
 // Get user token
-const getUserData = (guard) => async (dispatch) => {
+const getUserData = guard => async (dispatch) => {
   console.log('USER TOKEN ', guard)
   const response = await apiGetProfile(guard)
   if (response.success) {

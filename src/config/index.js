@@ -1,26 +1,28 @@
 import dotenv from 'dotenv'
 
 dotenv.config()
-const envState = process.env.REACT_APP_NODE_ENV
+// const envState = process.env.NODE_ENV
 
 const config = {
   env: process.env.NODE_ENV,
-  apiProtocol: envState === 'development' ? process.env.REACT_APP_API_PROTOCOL : 'http',
-  apiHost: envState === 'development' ? process.env.REACT_APP_API_HOST : 'localhost',
-  apiPort: envState === 'development' ? process.env.REACT_APP_API_PORT : '3000',
-  apiVersion: process.env.REACT_APP_API_VERSION || '',
-  appIdGoogle: process.env.REACT_APP_ID_GOOGLE || '',
-  appIdFacebook: process.env.REACT_APP_ID_FACEBOOK || '',
-  apiImage: process.env.REACT_APP_API_IMAGE || 'localhost',
-  apiImagePort: process.env.REACT_APP_API_IMAGE_PORT || '3000',
-  merchantCode: process.env.REACT_APP_PADIPAYCODE || '',
-  marchantPass: process.env.REACT_APP_PADIPAYPASS || '',
-  mapToken: process.env.REACT_APP_MAP_TOKEN || ''
+  apiProtocol: process.env.API_PROTOCOL || 'http',
+  apiHost: process.env.API_HOST || 'localhost',
+  apiPort: process.env.API_PORT || '3000',
+  apiVersion: process.env.API_VERSION || 'v1/',
+  appIdGoogle: process.env.ID_GOOGLE || '',
+  appIdFacebook: process.env.ID_FACEBOOK || '',
+
+  apiImageProtocol: process.env.API_IMAGE_PROTOCOL || 'http',
+  apiImage: process.env.API_IMAGE || 'localhost',
+  apiImagePort: process.env.API_IMAGE_PORT || '3000',
+  apiImageVersion: process.env.API_IMAGE_VERSION || '',
+
+  mapToken: process.env.MAP_TOKEN || ''
 }
 
-const APIUPLOAD = `${config.apiProtocol}://${config.apiImage}:${config.apiImagePort}`
+config.APIURL = `${config.apiProtocol}://${config.apiHost}:${config.apiPort}/${config.apiVersion}`
+config.APIUPLOAD = `${config.apiImageProtocol}://${config.apiImage}:${config.apiImagePort}${config.apiImageVersion}`
 
 export {
-  config,
-  APIUPLOAD
+  config
 }

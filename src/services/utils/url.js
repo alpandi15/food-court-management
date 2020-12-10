@@ -9,4 +9,10 @@ const {
   apiVersion
 } = config
 
-export const APIURL = `${apiProtocol}://${apiHost}:${apiPort}/${apiVersion}`
+const APIURL = `${apiProtocol}://${apiHost}:${apiPort}/${apiVersion}`
+const APIUPLOAD = `${config.apiImageProtocol}://${config.apiImage}:${config.apiImagePort}${config.apiImageVersion}`
+
+export {
+  APIURL,
+  APIUPLOAD
+}

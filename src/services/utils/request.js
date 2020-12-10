@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { getAccessToken } from 'services/utils/storage'
-import { APIURL } from 'services/utils/url'
+import {
+  APIURL
+} from './url'
 
 export async function request ({
   fullUrl = false,
