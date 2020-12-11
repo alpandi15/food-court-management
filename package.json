@@ -67,7 +67,6 @@
     "redux-form-material-ui": "^4.3.4",
     "redux-immutablejs": "^0.0.8",
     "redux-thunk": "2.3.0",
-    "socket.io-client": "^3.0.3",
     "sprintf-js": "^1.1.2",
     "styled-components": "^5.0.0",
     "styled-jsx": "3.2.2",
