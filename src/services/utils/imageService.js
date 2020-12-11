@@ -1,5 +1,5 @@
-import { APIUPLOAD } from 'config'
 import { request } from 'services/utils/request'
+import { APIUPLOAD } from './url'
 
 // User
 const apiUpload = async (type = 'product', data) => {

@@ -6,5 +6,13 @@
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
     }
+  ],
+  "react-qr-reader": [
+    {
+      "id": "../node_modules/react-qr-reader/lib/createBlob.js",
+      "name": "../node_modules/react-qr-reader/lib/createBlob.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
   ]
 }
