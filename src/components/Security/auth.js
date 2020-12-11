@@ -3,10 +3,11 @@ import Router from 'next/router'
 import nextCookie from 'next-cookies'
 import cookie from 'js-cookie'
 
-export const loggedin = async ({ access_token, path, ...data }) => {
-  console.log('TOKEN ', access_token, data)
-  const token = access_token || 'asdasdasdyuaya sduastd'
-  cookie.set('token', token, { expires: 7 })
+export const loggedin = async ({
+  access_token, path, guard, ...data
+}) => {
+  console.log('TOKEN ', access_token, data, path)
+  cookie.set(`access_token_${guard}`, access_token, { expires: 1 })
   if (path) {
     Router.push(path)
   } else {
@@ -14,8 +15,8 @@ export const loggedin = async ({ access_token, path, ...data }) => {
   }
 }
 
-export const logout = () => {
-  cookie.remove('token')
+export const logout = (guard) => {
+  cookie.remove(`access_token_${guard}`)
   // to support logging out from all windows
   window.localStorage.setItem('logout', Date.now())
   Router.push('/auth/login')
@@ -23,9 +24,9 @@ export const logout = () => {
 
 const getDisplayName = Component => Component.displayName || Component.name || 'Component'
 
-export const auth = (ctx) => {
-  const { token } = nextCookie(ctx)
-
+export const auth = (ctx, guard) => {
+  const tokenData = nextCookie(ctx)
+  const token = tokenData[`access_token_${guard}`]
   /*
    * This happens on server only, ctx.req is available means it's being
    * rendered on server. If we are on server and token is not available,
@@ -59,11 +60,11 @@ export const withAuthSync = WrappedComponent => class extends Component {
   static displayName = `withAuthSync(${getDisplayName(WrappedComponent)})`
 
   static async getInitialProps (ctx) {
-    const token = auth(ctx)
-
     const componentProps = WrappedComponent.getInitialProps
-      && (await WrappedComponent.getInitialProps(ctx))
+    && (await WrappedComponent.getInitialProps(ctx))
 
+    const token = auth(ctx, componentProps.guard)
+    console.log('INI CONTEXT ', componentProps.guard)
     return { ...componentProps, token }
   }
 

@@ -17,8 +17,8 @@ const fetch = () => {
   return { type: FETCH_AUTH }
 }
 
-const receive = (data) => {
-  loggedin({ ...data })
+const receive = (data, path, guard) => {
+  loggedin({ ...data, path, guard })
   return {
     type: RECEIVE_AUTH,
     payload: {
@@ -61,13 +61,13 @@ const registerUser = data => async (dispatch) => {
 }
 
 // Login
-const loginUser = (data, guard = 'user') => async (dispatch) => {
+const loginUser = (data, guard = 'user', path) => async (dispatch) => {
   try {
     dispatch(fetch())
     const response = await apiLogin(data)
-    console.log('Login Data ', response, guard)
+    console.log('Login Data ', response, path)
     if (response && response.success) {
-      dispatch(receive(response.data))
+      dispatch(receive(response.data, path, guard))
       if (response && response.data) {
         await set(`access_token_${guard}`, response.data.access_token)
         await set(`refresh_token_${guard}`, response.data.refresh_token)

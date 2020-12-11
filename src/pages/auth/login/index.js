@@ -43,42 +43,42 @@ const Auth = ({
 
   const onSubmit = async (values) => {
     console.log('submit ', submitting, loading, invalid)
-    console.log('Router ', router)
+    console.log('Router ', router.query.path)
     const result = await loginUser({
       username: values.email,
       password: values.password
-    }, GUARD)
+    }, GUARD, router.query.path)
 
     console.log('RESPONSE USER ', result)
-    if (result.success) {
-      const resUser = await getUserData(GUARD)
-      console.log('GET USER ', resUser)
-      if (resUser.success) {
-        if (resUser.data && resUser.data.roleId === 2) {
-          toastify({
-            type: 'success',
-            message: result.meta.message
-          })
-          // history.push('/')
-        } else {
-          logoutUser(GUARD)
-          toastify({
-            type: 'error',
-            message: 'Unauthenticated'
-          })
-        }
-      } else {
-        toastify({
-          type: 'error',
-          message: 'Login Error'
-        })
-      }
-    } else {
-      toastify({
-        type: 'error',
-        message: result.message
-      })
-    }
+    // if (result.success) {
+    //   const resUser = await getUserData(GUARD)
+    //   console.log('GET USER ', resUser)
+    //   if (resUser.success) {
+    //     if (resUser.data && resUser.data.roleId === 2) {
+    //       toastify({
+    //         type: 'success',
+    //         message: result.meta.message
+    //       })
+    //       // history.push('/')
+    //     } else {
+    //       logoutUser(GUARD)
+    //       toastify({
+    //         type: 'error',
+    //         message: 'Unauthenticated'
+    //       })
+    //     }
+    //   } else {
+    //     toastify({
+    //       type: 'error',
+    //       message: 'Login Error'
+    //     })
+    //   }
+    // } else {
+    //   toastify({
+    //     type: 'error',
+    //     message: result.message
+    //   })
+    // }
   }
 
   return (
@@ -141,19 +141,20 @@ const Auth = ({
 
 const mapStateToProps = (state) => {
   return {
-    values: getFormValues('FormLogin')(state)
+    values: getFormValues('FormLogin')(state),
+    guard: 'user'
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  loginUser: (data, guard) => dispatch(loginUser(data, guard)),
+  loginUser: (data, guard, path) => dispatch(loginUser(data, guard, path)),
   getUserData: guard => dispatch(getUserData(guard)),
   logoutUser: guard => dispatch(logoutUser(guard))
 })
 
-
 Auth.defaultProps = {
-  title: 'Login'
+  title: 'Login',
+  guard: GUARD
 }
 
 export default reduxForm({

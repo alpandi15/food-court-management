@@ -160,4 +160,19 @@ const mapDispatchToProps = dispatch => ({
   logoutUser: guard => dispatch(logoutUser(guard))
 })
 
-export default withAuthSync(connect(mapStateToProps, mapDispatchToProps)(withRouter(Main)))
+Main.defaultProps = {
+  title: 'Main'
+}
+
+// initial props authenticated using guard users
+Main.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(
+  connect(mapStateToProps, mapDispatchToProps)(
+    withRouter(Main)
+  )
+)
