@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Button } from 'react-materialize'
 
 import Header from 'components/Header'
-import Modal from 'components/Modal'
+// import Modal from 'components/Modal'
 
 const QrReader = dynamic(() => import('react-qr-reader'), {
   ssr: false
@@ -76,7 +76,9 @@ const ScanQr = () => {
           <div className="fixed-button">
             <div className="result">{data}</div>
             <div className="button-login">
-              <Link href="/manual" className="waves-effect waves-light btn btn-app bg-grey">Masukkan ID Manual</Link>
+              <Link href="/main/manual">
+                <a className="waves-effect waves-light btn btn-app bg-grey">Masukkan ID Manual</a>
+              </Link>
               <div className="forgot-password">
                 <span>Tidak bisa scan kode QR? Silahkan masukkan ID secara manual</span>
               </div>

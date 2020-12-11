@@ -1,16 +1,16 @@
 import React from 'react'
 import { Icon } from 'react-materialize'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
 // import { withAuthSync } from 'components/Security/auth'
 // import Modal from 'components/Modal'
 import { logoutUser, getUserData } from 'actions/auth/authAction'
 
-const Modal = dynamic(() => import('components/Modal'), {
-  ssr: false
-})
+// const Modal = dynamic(() => import('components/Modal'), {
+//   ssr: false
+// })
 
 const mail = 'static/Icon/Message.svg'
 const Background = 'static/Image/bg.svg'
@@ -26,7 +26,7 @@ const Main = ({
   getUserData,
   ...data
 }) => {
-  const [modal, setModal] = React.useState(false)
+  // const [modal, setModal] = React.useState(false)
 
   React.useEffect(() => {
     console.log('DATA ', data)
@@ -37,14 +37,14 @@ const Main = ({
     fetch()
   }, [GUARD, getUserData])
 
-  const handleModal = (status) => {
-    setModal(status)
-  }
+  // const handleModal = (status) => {
+  //   setModal(status)
+  // }
 
-  const handleLogout = async () => {
-    await logoutUser(GUARD)
-    setModal(false)
-  }
+  // const handleLogout = async () => {
+  //   await logoutUser(GUARD)
+  //   setModal(false)
+  // }
 
   return (
     <>
@@ -105,21 +105,24 @@ const Main = ({
             }
             <div className="bottom-content">
               <div className="location">
-                <a href="/list-food-court" className="map-location waves-effect">
-                  <Icon>location_on</Icon>
-                  Lihat Lokasi Food Court
-                </a>
+                <Link href="/main/maps">
+                  <a className="map-location waves-effect">
+                    <Icon>location_on</Icon>
+                    Lihat Lokasi Food Court
+                  </a>
+                </Link>
               </div>
               <div className="register-button">
                 {
                   userData && !userData.id ? (
-                    <>
-                      <a href="/auth/register" className="waves-effect">
+                    <Link href="/auth/register">
+                      <a className="waves-effect">
                         Daftar Sekarang
                       </a>
-                    </>
+                    </Link>
                   ) : (
-                    <button onClick={() => handleModal(true)} className="btn-logout waves-effect waves-light">
+                    // <button onClick={() => handleModal(true)} className="btn-logout waves-effect waves-light">
+                    <button className="btn-logout waves-effect waves-light">
                       <span>Keluar</span>
                       <i className="material-icons">exit_to_app</i>
                     </button>
