@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
 import { withAuthSync } from 'components/Security/auth'
 import Modal from 'components/Modal'
-import { logoutUser } from 'actions/auth/authAction'
+import { logoutUser, getUserData } from 'actions/auth/authAction'
 
 const mail = 'static/Icon/Message.svg'
 const Background = 'static/Image/bg.svg'
@@ -16,13 +16,20 @@ const GUARD = 'user'
 
 const Main = ({
   userData,
-  logoutUser
+  logoutUser,
+  getUserData,
+  ...data
 }) => {
   const [modal, setModal] = React.useState(false)
 
   React.useEffect(() => {
-    console.log('INI DOCUMENT ', document.createElement('div'))
-  }, [])
+    console.log('DATA ', data)
+    const fetch = async () => {
+      await getUserData(GUARD)
+    }
+
+    fetch()
+  }, [GUARD, getUserData])
 
   const handleModal = (status) => {
     setModal(status)
@@ -157,7 +164,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  logoutUser: guard => dispatch(logoutUser(guard))
+  logoutUser: guard => dispatch(logoutUser(guard)),
+  getUserData: guard => dispatch(getUserData(guard))
 })
 
 Main.defaultProps = {
@@ -171,8 +179,12 @@ Main.getInitialProps = () => {
   }
 }
 
-export default withAuthSync(
-  connect(mapStateToProps, mapDispatchToProps)(
-    withRouter(Main)
-  )
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withRouter(Main)
 )
+
+// export default withAuthSync(
+//   connect(mapStateToProps, mapDispatchToProps)(
+//     withRouter(Main)
+//   )
+// )

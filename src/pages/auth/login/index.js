@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
-import { withRouter } from 'next/router'
+import Router, { withRouter } from 'next/router'
 import CustomHelmet from 'components/CustomHelmet'
-import { loginUser, logoutUser, getUserData } from 'actions/auth/authAction'
+import { logout } from 'components/Security/auth'
+import { loginUser, getUserData } from 'actions/auth/authAction'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
 import { toastify } from 'components/Toast/Toastify'
@@ -35,50 +36,55 @@ const Auth = ({
   handleSubmit,
   loginUser,
   getUserData,
-  logoutUser,
   title,
   router
 }) => {
   // const history = useHistory()
 
   const onSubmit = async (values) => {
-    console.log('submit ', submitting, loading, invalid)
-    console.log('Router ', router.query.path)
+    const { path } = router.query
+
     const result = await loginUser({
       username: values.email,
       password: values.password
     }, GUARD, router.query.path)
 
     console.log('RESPONSE USER ', result)
-    // if (result.success) {
-    //   const resUser = await getUserData(GUARD)
-    //   console.log('GET USER ', resUser)
-    //   if (resUser.success) {
-    //     if (resUser.data && resUser.data.roleId === 2) {
-    //       toastify({
-    //         type: 'success',
-    //         message: result.meta.message
-    //       })
-    //       // history.push('/')
-    //     } else {
-    //       logoutUser(GUARD)
-    //       toastify({
-    //         type: 'error',
-    //         message: 'Unauthenticated'
-    //       })
-    //     }
-    //   } else {
-    //     toastify({
-    //       type: 'error',
-    //       message: 'Login Error'
-    //     })
-    //   }
-    // } else {
-    //   toastify({
-    //     type: 'error',
-    //     message: result.message
-    //   })
-    // }
+    if (result.success) {
+      const resUser = await getUserData(GUARD)
+      console.log('GET USER ', resUser)
+      if (resUser.success) {
+        if (resUser.data && resUser.data.roleId === 2) {
+          toastify({
+            type: 'success',
+            message: result.meta.message
+          })
+          if (path) {
+            Router.push(path)
+          } else {
+            Router.push('/main')
+          }
+        } else {
+          // alert('Unauthenticated')
+          logout(GUARD)
+          toastify({
+            type: 'error',
+            message: 'Unauthenticated'
+          })
+        }
+      } else {
+        toastify({
+          type: 'error',
+          message: 'Login Error'
+        })
+      }
+    } else {
+      // alert(result.message)
+      toastify({
+        type: 'error',
+        message: result.message
+      })
+    }
   }
 
   return (
@@ -148,8 +154,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   loginUser: (data, guard, path) => dispatch(loginUser(data, guard, path)),
-  getUserData: guard => dispatch(getUserData(guard)),
-  logoutUser: guard => dispatch(logoutUser(guard))
+  getUserData: guard => dispatch(getUserData(guard))
 })
 
 Auth.defaultProps = {

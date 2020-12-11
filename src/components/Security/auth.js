@@ -8,11 +8,11 @@ export const loggedin = async ({
 }) => {
   console.log('TOKEN ', access_token, data, path)
   cookie.set(`access_token_${guard}`, access_token, { expires: 1 })
-  if (path) {
-    Router.push(path)
-  } else {
-    Router.push('/')
-  }
+  // if (path) {
+  //   Router.push(path)
+  // } else {
+  //   Router.push('/')
+  // }
 }
 
 export const logout = (guard) => {
@@ -64,7 +64,6 @@ export const withAuthSync = WrappedComponent => class extends Component {
     && (await WrappedComponent.getInitialProps(ctx))
 
     const token = auth(ctx, componentProps.guard)
-    console.log('INI CONTEXT ', componentProps.guard)
     return { ...componentProps, token }
   }
 

@@ -27,6 +27,15 @@ const receive = (data, path, guard) => {
   }
 }
 
+const receivedAuthMe = (data) => {
+  return {
+    type: RECEIVE_AUTH,
+    payload: {
+      currentItem: data
+    }
+  }
+}
+
 const logout = () => {
   return { type: FETCH_LOGOUT_USER }
 }
@@ -65,12 +74,12 @@ const loginUser = (data, guard = 'user', path) => async (dispatch) => {
   try {
     dispatch(fetch())
     const response = await apiLogin(data)
-    console.log('Login Data ', response, path)
+    // console.log('Login Data ', response, path)
     if (response && response.success) {
       dispatch(receive(response.data, path, guard))
       if (response && response.data) {
-        await set(`access_token_${guard}`, response.data.access_token)
-        await set(`refresh_token_${guard}`, response.data.refresh_token)
+        // await set(`access_token_${guard}`, response.data.access_token)
+        // await set(`refresh_token_${guard}`, response.data.refresh_token)
         return response
       }
     } else {
@@ -98,11 +107,11 @@ const getUserData = guard => async (dispatch) => {
   console.log('USER TOKEN ', guard)
   const response = await apiGetProfile(guard)
   if (response.success) {
-    dispatch(receive(response.data))
+    dispatch(receivedAuthMe(response.data))
     return response
   }
-  await remove(`access_token_${guard}`)
-  await remove(`refresh_token_${guard}`)
+  // await remove(`access_token_${guard}`)
+  // await remove(`refresh_token_${guard}`)
   dispatch(failed(response))
   return response
 }

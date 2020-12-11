@@ -1,11 +1,15 @@
+import Cookies from 'js-cookie'
+
 const getAccessToken = (guard) => {
-  let data = localStorage.getItem(`access_token_${guard}`)
+  // let data = localStorage.getItem(`access_token_${guard}`)
+  const data = Cookies.get(`access_token_${guard}`)
   const parsed = data || null
   return parsed
 }
 
 const getRefreshToken = (guard) => {
-  let data = localStorage.getItem(`access_token_${guard}`)
+  // let data = localStorage.getItem(`access_token_${guard}`)
+  const data = Cookies.get(`refresh_token_${guard}`)
   const parsed = data || null
   return parsed
 }
