@@ -63,6 +63,12 @@ class MyDocument extends Document {
             type="text/css"
             href="/static/assets/css/mapbox-gl.css"
           />
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1.0, maximum-scale=1.0, width=device-width"
+          />
+          <meta name="theme-color" content="#FB770D" />
         </Head>
         <body>
           <Main />

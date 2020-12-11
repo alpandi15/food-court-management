@@ -18,7 +18,7 @@ export const loggedin = async ({
 export const logout = (guard) => {
   cookie.remove(`access_token_${guard}`)
   // to support logging out from all windows
-  window.localStorage.setItem('logout', Date.now())
+  window.localStorage.setItem(`logout_${guard}`, Date.now())
   Router.push('/auth/login')
 }
 

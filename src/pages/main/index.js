@@ -1,10 +1,16 @@
 import React from 'react'
 import { Icon } from 'react-materialize'
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
-import { withAuthSync } from 'components/Security/auth'
-import Modal from 'components/Modal'
+// import { withAuthSync } from 'components/Security/auth'
+// import Modal from 'components/Modal'
 import { logoutUser, getUserData } from 'actions/auth/authAction'
+
+const Modal = dynamic(() => import('components/Modal'), {
+  ssr: false
+})
 
 const mail = 'static/Icon/Message.svg'
 const Background = 'static/Image/bg.svg'
@@ -75,12 +81,14 @@ const Main = ({
           </div>
 
           <div className="qr-button">
-            <a href="/scan-qr" className="btn btn-app waves-effect waves-light block">
-              <div className="icon">
-                <img src={qrcode} alt="" />
-              </div>
-              <span>Pindai Kode QR</span>
-            </a>
+            <Link href="/main/scan">
+              <a className="btn btn-app waves-effect waves-light block">
+                <div className="icon">
+                  <img src={qrcode} alt="" />
+                </div>
+                <span>Pindai Kode QR</span>
+              </a>
+            </Link>
           </div>
           <div>
             {

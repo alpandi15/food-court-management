@@ -79,7 +79,7 @@ module.exports = {
           fingerprints: false,
           start_url: '/',
           background_color: '#fafafa',
-          theme_color: '#89A61F',
+          theme_color: '#FB770D',
           inject: true,
           icons: [
             {
@@ -96,7 +96,7 @@ module.exports = {
           ],
           ios: {
             'apple-mobile-web-app-title': 'FCM',
-            'apple-mobile-web-app-status-bar-style': '#89A61F'
+            'apple-mobile-web-app-status-bar-style': '#FB770D'
           },
           includeDirectory: true,
           publicPath: '..'
