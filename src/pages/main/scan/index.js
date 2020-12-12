@@ -14,9 +14,28 @@ const QrReader = dynamic(() => import('react-qr-reader'), {
 
 const image = 'static/Image/Camera.png'
 
+const styles = {
+  cameraLoading: {
+    position: 'absolute',
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
+    top: '180px'
+  },
+  cameraLoadingText: {
+    backgroundColor: '#f76c6c',
+    color: 'white',
+    padding: '5px 10px',
+    borderRadius: '50px'
+  }
+}
 const ScanQr = () => {
   const [data, setData] = React.useState('No result')
   const [modal, setModal] = React.useState(false)
+  const [loadCamera, setLoadCamera] = React.useState({
+    loading: true,
+    success: true
+  })
   const [cameraMode, setCameraMode] = React.useState('environment')
 
   const handleModal = (status) => {
@@ -44,10 +63,18 @@ const ScanQr = () => {
     console.error('Ini Error', err)
     alert('Camera Error')
     handleModal(true)
+    setLoadCamera({
+      success: false,
+      ...loadCamera
+    })
   }
 
   const onLoad = (status) => {
     console.log('Loaded ', status)
+    setLoadCamera({
+      loading: false,
+      ...loadCamera
+    })
   }
 
   return (
@@ -55,6 +82,17 @@ const ScanQr = () => {
       <Header transparent />
       <div className="mobile-layout-content scan-qr">
         <div className="scanner-wrapper">
+          <div className="camera-loading" style={styles.cameraLoading}>
+            {
+              loadCamera.loading ? (
+                <div className="camera-loading-text" style={styles.cameraLoadingText}>
+                  Sedang memuat kamera...
+                  <br />
+                  {!loadCamera.success ? 'Kamera Error' : ''}
+                </div>
+              ) : ''
+            }
+          </div>
           <QrReader
             legacyMode={false}
             delay={1000}
