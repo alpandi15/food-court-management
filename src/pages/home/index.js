@@ -5,6 +5,7 @@ import { withRouter } from 'next/router'
 import { withAuthSync } from 'components/Security/auth'
 
 import { getAll } from 'actions/homeStand/homeStandAction'
+import { getUserData } from 'actions/auth/authAction'
 import Image from 'components/Image'
 import SearchInput from 'components/Form/SearchInput'
 import { Icon } from 'react-materialize'
@@ -17,11 +18,14 @@ const filterIcon = '/static/Icon/Filter.svg'
 const defaultImgStand = '/static/Image/default-stand/192x192.png'
 const defaultImgProduct = '/static/Image/default-product/32x32.png'
 
+const GUARD = 'user'
 
 const Home = ({
   // loadingData,
+  userData,
   listData,
-  getAll
+  getAll,
+  getUserData
 }) => {
   React.useEffect(() => {
     const fetch = async () => {
@@ -29,10 +33,12 @@ const Home = ({
         foodCourtId: 6,
         relationship: 1
       })
+
+      await getUserData(GUARD)
     }
 
     fetch()
-  }, [getAll])
+  }, [getAll, getUserData, GUARD])
 
   return (
     <>
@@ -42,7 +48,9 @@ const Home = ({
             <div className="hallo-user">
               <Link href="/profile">
                 <a>
-                  Halo, Abrar Endra
+                  Halo,
+                  {' '}
+                  {userData && userData.name}
                   <Icon>chevron_right</Icon>
                 </a>
               </Link>
@@ -145,16 +153,19 @@ const Home = ({
 }
 
 const mapStateToProps = (state) => {
-  const { homeStandStore } = state
+  const { homeStandStore, accountStore } = state
   return {
     loadingData: homeStandStore.loading,
     listData: homeStandStore.list,
-    meta: homeStandStore.meta
+    meta: homeStandStore.meta,
+    loadingUser: accountStore.loading,
+    userData: accountStore.currentItem
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getAll: data => dispatch(getAll(data))
+  getAll: data => dispatch(getAll(data)),
+  getUserData: guard => dispatch(getUserData(guard))
 })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Home)
