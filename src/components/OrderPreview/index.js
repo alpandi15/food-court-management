@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const OrderPreview = () => {
   return (
@@ -10,7 +10,11 @@ const OrderPreview = () => {
           <div className="total-price">Rp 107.000</div>
         </div>
         <div>
-          <Link to="/cart" className="btn btn-app-primary waves-effect" style={{ width: '100px' }}>Pesan</Link>
+          <Link href="/cart">
+            <a className="btn btn-app-primary waves-effect" style={{ width: '100px' }}>
+              Pesan
+            </a>
+          </Link>
         </div>
       </div>
     </div>

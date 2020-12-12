@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import { Icon } from 'react-materialize'
 import color from '../../theme/color'
 
@@ -35,10 +35,8 @@ const Header = ({
   title,
   children
 }) => {
-  const router = useRouter()
-
   const goBack = () => {
-    router.back()
+    Router.back()
   }
 
   return (

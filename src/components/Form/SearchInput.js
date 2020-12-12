@@ -14,7 +14,7 @@ const SearchInput = ({
       onClick={onClick}
     >
       <div className="icon-search">
-        <img src="static/Icon/Search.svg" alt="" />
+        <img src="/static/Icon/Search.svg" alt="" />
       </div>
       <input
         id={id}

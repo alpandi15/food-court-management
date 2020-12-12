@@ -7,8 +7,8 @@ import { withAuthSync } from 'components/Security/auth'
 import { getAll } from 'actions/homeStand/homeStandAction'
 import { getUserData } from 'actions/auth/authAction'
 import Image from 'components/Image'
-import SearchInput from 'components/Form/SearchInput'
 import { Icon } from 'react-materialize'
+import SearchInput from 'components/Form/SearchInput'
 import color from '../../theme/color'
 
 const loveIcon = '/static/Icon/Heart.svg'
@@ -25,9 +25,11 @@ const Home = ({
   userData,
   listData,
   getAll,
-  getUserData
+  getUserData,
+  ...datas
 }) => {
   React.useEffect(() => {
+    console.log('DATA PROPS ', datas)
     const fetch = async () => {
       await getAll({
         foodCourtId: 6,
@@ -92,7 +94,7 @@ const Home = ({
         <div className="container-stand-list">
           {
             listData && listData.length !== 0 && listData.map((val, index) => (
-              <Link href={`/stand/${val.uuid}/menu`} key={index}>
+              <Link href={`/home/stand/${val.uuid}`} key={index}>
                 <a>
                   <div className="content-product waves-effect">
                     <div className="image">
