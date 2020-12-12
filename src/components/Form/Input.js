@@ -12,9 +12,9 @@ const Input = ({
   },
   contentStyle,
   iconName,
-  className = undefined,
+  className = '',
   iconClassName,
-  active = false,
+  // active = false,
   input
 }) => {
   return (
@@ -32,7 +32,7 @@ const Input = ({
         className={touched ? (error ? `${className} invalid` : `${className} valid`) : className}
         {...input}
       />
-      <label htmlFor={id} className={active ? 'active' : ''}>{label}</label>
+      <label htmlFor={id} className={`active ${touched ? (error ? 'invalid' : 'valid') : ''}`}>{label}</label>
       {touched && (error && <span className="helper-text" data-error={error} data-success="Valid" />)}
     </div>
   )

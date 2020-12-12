@@ -273,6 +273,8 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .input-field > label {
   color: #9BD7D1 !important;
   font-size: 12px !important; }
+  .input-field > label.invalid {
+    color: #F44336 !important; }
 
 .contain-search-input {
   border-radius: 10px;

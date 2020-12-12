@@ -28,7 +28,6 @@ body {
   font-size: 12px;
   letter-spacing: .3px;
 }
-
 nav {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
@@ -386,6 +385,10 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 .input-field>label {
   color: $colorBlue !important;
   font-size: 12px !important;
+
+  &.invalid {
+    color: #F44336 !important;
+  }
 }
 
 .contain-search-input {

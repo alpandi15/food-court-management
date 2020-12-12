@@ -120,12 +120,14 @@ const Auth = ({
                 name="email"
                 label="Email"
                 type="email"
+                placeholder="Email atau Username"
                 component={TextInput}
               />
               <Field
                 id="password"
                 name="password"
                 label="Kata Sandi"
+                placeholder="Kata Sandi"
                 type="password"
                 component={TextInput}
               />
