@@ -23,8 +23,6 @@ const CustomHelmet = ({
       ]).concat(meta)}
       {...props}
     >
-      <link async rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
-      <link rel="preload" async type="text/css" href="/static/nprogress.css" />
       {children}
     </Helmet>
   )

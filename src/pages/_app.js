@@ -9,7 +9,6 @@ import OfflineSupport from 'components/OfflineSupport'
 // import Toaster from 'components/Toast'
 import getPageContext from 'utils/getPageContext'
 import store from '../store'
-
 // const theme = {
 //   colors: {
 //     primary: '#0070f3'

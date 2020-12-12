@@ -49,7 +49,9 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {this.helmetJsx}
-          <link rel="icon" href="/favicon.ico" />
+          <meta charSet="utf-8" />
+          {/* <link rel="icon" href="/favicon.ico" /> */}
+          <link async rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
           <link async rel="stylesheet" type="text/css" href="/static/assets/css/materialize.min.css" />
           <link async rel="stylesheet" type="text/css" href="/static/Css/_app.css" />
 
@@ -63,7 +65,7 @@ class MyDocument extends Document {
             type="text/css"
             href="/static/assets/css/mapbox-gl.css"
           />
-          <meta charSet="utf-8" />
+          <link rel="stylesheet" async type="text/css" href="/static/nprogress.css" />
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1.0, maximum-scale=1.0, width=device-width"

@@ -95,12 +95,14 @@ const Main = ({
               userData && userData.id ? (
                 <div />
               ) : (
-                <a href="/auth/login" className="waves-effect btn btn-light block">
-                  <div className="icon">
-                    <img src={mail} alt="" />
-                  </div>
-                  <span>Atau Masuk Dengan Email</span>
-                </a>
+                <Link href="/auth/login">
+                  <a className="waves-effect btn btn-light block">
+                    <div className="icon">
+                      <img src={mail} alt="" />
+                    </div>
+                    <span>Atau Masuk Dengan Email</span>
+                  </a>
+                </Link>
               )
             }
             <div className="bottom-content">
