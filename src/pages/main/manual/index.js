@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
 
-const Background = 'static/Image/bg.svg'
-const image = 'static/Image/table.png'
+const Background = '/static/Image/bg.svg'
+const image = '/static/Image/table.png'
 
 const validate = ({ email }) => {
   const error = {
@@ -25,11 +25,11 @@ const Manual = ({
   submitting,
   handleSubmit
 }) => {
-  const history = useHistory()
+  const router = useRouter()
 
   const onSubmit = async (values) => {
     console.log(values)
-    history.push('/home')
+    router.push('/home')
   }
 
   return (
