@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import Router, { withRouter } from 'next/router'
@@ -135,9 +136,11 @@ const Auth = ({
             <div className="fixed-button">
               <button type="submit" disabled={invalid || submitting || loading} className="waves-effect waves-light btn btn-app">Masuk</button>
               <div className="forgot-password">
-                <a href="/forgot-password" className="color-primary waves-effect">
-                  Lupa Password
-                </a>
+                <Link href="/auth/forgot-password">
+                  <a className="color-primary waves-effect">
+                    Lupa Password
+                  </a>
+                </Link>
               </div>
             </div>
           </form>

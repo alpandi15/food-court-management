@@ -149,8 +149,10 @@ const Register = ({
               <button type="submit" disabled={invalid || submitting || loading} className="waves-effect waves-light btn btn-app bg-grey">Daftar</button>
               <div className="forgot-password">
                 <span>Sudah punya akun ? </span>
-                <Link href="/login" className="color-primary waves-effect">
-                  Silahkan Masuk
+                <Link href="/auth/login">
+                  <a className="color-primary waves-effect">
+                    Silahkan Masuk
+                  </a>
                 </Link>
               </div>
             </div>
