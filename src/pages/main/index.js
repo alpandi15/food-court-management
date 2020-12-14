@@ -1,16 +1,16 @@
 import React from 'react'
 import { Icon } from 'react-materialize'
 import Link from 'next/link'
-// import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
-// import { withAuthSync } from 'components/Security/auth'
+import { logout } from 'components/Security/auth'
 // import Modal from 'components/Modal'
-import { logoutUser, getUserData } from 'actions/auth/authAction'
+import { getUserData } from 'actions/auth/authAction'
 
-// const Modal = dynamic(() => import('components/Modal'), {
-//   ssr: false
-// })
+const Modal = dynamic(() => import('components/Modal'), {
+  ssr: false
+})
 
 const mail = 'static/Icon/Message.svg'
 const Background = 'static/Image/bg.svg'
@@ -22,14 +22,11 @@ const GUARD = 'user'
 
 const Main = ({
   userData,
-  logoutUser,
-  getUserData,
-  ...data
+  getUserData
 }) => {
-  // const [modal, setModal] = React.useState(false)
+  const [modal, setModal] = React.useState(false)
 
   React.useEffect(() => {
-    console.log('DATA ', data)
     const fetch = async () => {
       await getUserData(GUARD)
     }
@@ -37,14 +34,14 @@ const Main = ({
     fetch()
   }, [GUARD, getUserData])
 
-  // const handleModal = (status) => {
-  //   setModal(status)
-  // }
+  const handleModal = (status) => {
+    setModal(status)
+  }
 
-  // const handleLogout = async () => {
-  //   await logoutUser(GUARD)
-  //   setModal(false)
-  // }
+  const handleLogout = async () => {
+    await logout(GUARD)
+    setModal(false)
+  }
 
   return (
     <>
@@ -124,7 +121,7 @@ const Main = ({
                     </Link>
                   ) : (
                     // <button onClick={() => handleModal(true)} className="btn-logout waves-effect waves-light">
-                    <button className="btn-logout waves-effect waves-light">
+                    <button type="button" onClick={() => handleModal(true)} className="btn-logout waves-effect waves-light">
                       <span>Keluar</span>
                       <i className="material-icons">exit_to_app</i>
                     </button>
@@ -136,7 +133,7 @@ const Main = ({
         </div>
       </div>
 
-      {/* <Modal
+      <Modal
         open={modal}
         onCloseStart={handleModal}
         id="ModalInformasi"
@@ -163,7 +160,7 @@ const Main = ({
             </div>
           </div>
         </div>
-      </Modal> */}
+      </Modal>
     </>
   )
 }
@@ -177,7 +174,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  logoutUser: guard => dispatch(logoutUser(guard)),
   getUserData: guard => dispatch(getUserData(guard))
 })
 
