@@ -67,12 +67,12 @@ const Home = ({
             </div>
           </div>
           <div className="home-header-right">
-            <Link href="/favourite">
+            <Link href="/home/favorite">
               <a className="btn btn-light-smooth waves-effect waves-light">
                 <img src={loveIcon} alt="" />
               </a>
             </Link>
-            <Link href="/history">
+            <Link href="/home/order/history">
               <a className="btn btn-light-smooth waves-effect waves-light">
                 <img src={docIcon} alt="" />
               </a>

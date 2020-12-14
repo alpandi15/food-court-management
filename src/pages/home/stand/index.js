@@ -275,7 +275,7 @@ const Menu = ({
                 <span>Lihat voucher stand ini</span>
               </div>
               <div className="button">
-                <Link href="/zeribowl/voucher">
+                <Link href="/home/stand/21d11972-351f-11eb-8c20-d0fe89b4eb7d/voucher">
                   <a className="btn btn-app-outline x-small waves-effect">
                     Buka
                   </a>
