@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { Icon } from 'react-materialize'
 import Header from 'components/Header'
+import CustomHelmet from 'components/CustomHelmet'
 import { logoutUser, getUserData } from 'actions/auth/authAction'
 import { withAuthSync, logout } from 'components/Security/auth'
 
@@ -11,7 +12,6 @@ const Image = dynamic(() => import('components/Image'), { ssr: false })
 const Modal = dynamic(() => import('components/Modal'), {
   ssr: false
 })
-
 
 const profileIcon = '/static/Icon/Profile.svg'
 const lockIcon = '/static/Icon/Lock.svg'
@@ -22,6 +22,7 @@ const logoutIcon = '/static/Icon/Logout.svg'
 const GUARD = 'user'
 
 const Profile = ({
+  title,
   userData,
   getUserData
 }) => {
@@ -45,6 +46,7 @@ const Profile = ({
 
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         transparent
       />
