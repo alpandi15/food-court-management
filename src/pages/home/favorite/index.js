@@ -4,6 +4,7 @@ import Link from 'next/link'
 import SearchInput from 'components/Form/SearchInput'
 import Header from 'components/Header'
 import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 const discIcon = '/static/Icon/Discount.svg'
 const image = '/static/Image/food-court.jpg'
@@ -80,4 +81,11 @@ Favourite.defaultProps = {
   title: 'Favorite'
 }
 
-export default Favourite
+// initial props authenticated using guard users
+Favourite.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(Favourite)

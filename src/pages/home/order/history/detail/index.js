@@ -2,12 +2,17 @@ import React from 'react'
 
 import Header from 'components/Header'
 import { Icon } from 'react-materialize'
+import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 const image = '/static/Image/food-court.jpg'
 
-const historyDetail = () => {
+const historyDetail = ({
+  title
+}) => {
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         textStyle={{
           color: '#000000'
@@ -161,4 +166,15 @@ const historyDetail = () => {
   )
 }
 
-export default historyDetail
+historyDetail.defaultProps = {
+  title: 'Detail Pesanan'
+}
+
+// initial props authenticated using guard users
+historyDetail.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(historyDetail)

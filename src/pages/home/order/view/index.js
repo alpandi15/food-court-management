@@ -1,14 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
 import Header from 'components/Header'
+import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 const image = '/static/Image/food-court.jpg'
 const Background = '/static/Image/bg.svg'
 const Cooking = '/static/Image/order_process.png'
 
-const Order = () => {
+const Order = ({
+  title
+}) => {
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         transparent
       />
@@ -85,4 +90,15 @@ const Order = () => {
   )
 }
 
-export default Order
+Order.defaultProps = {
+  title: 'Pesanan Saya'
+}
+
+// initial props authenticated using guard users
+Order.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(Order)

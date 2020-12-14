@@ -3,12 +3,17 @@ import React from 'react'
 import Header from 'components/Header'
 import { Tabs, Tab } from 'react-materialize'
 import Link from 'next/link'
+import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 // import image from 'static/Image/food-court.jpg'
 
-const orderHistory = () => {
+const orderHistory = ({
+  title
+}) => {
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         textStyle={{
           color: '#000000'
@@ -31,7 +36,7 @@ const orderHistory = () => {
               }}
               title="Proses"
             >
-              <Link href="/history/detail/1">
+              <Link href="/home/order/history/detail/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
                 <a>
                   <div className="history-wrapper waves-effect">
                     <div className="date-time">
@@ -48,7 +53,7 @@ const orderHistory = () => {
                   </div>
                 </a>
               </Link>
-              <Link href="/history/detail/1">
+              <Link href="/home/order/history/detail/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
                 <a>
                   <div className="history-wrapper waves-effect">
                     <div className="date-time">
@@ -77,7 +82,7 @@ const orderHistory = () => {
             >
               <div className="history-group">
                 <div className="month">November</div>
-                <Link href="/history/detail/1">
+                <Link href="/home/order/history/detail/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
                   <a>
                     <div className="history-wrapper waves-effect">
                       <div className="date-time">
@@ -94,7 +99,7 @@ const orderHistory = () => {
                     </div>
                   </a>
                 </Link>
-                <Link href="/history/detail/1">
+                <Link href="/home/order/history/detail/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
                   <a>
                     <div className="history-wrapper waves-effect">
                       <div className="date-time">
@@ -114,7 +119,7 @@ const orderHistory = () => {
               </div>
               <div className="history-group">
                 <div className="month">Oktober</div>
-                <Link href="/history/detail/1">
+                <Link href="/home/order/history/detail/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
                   <a>
                     <div className="history-wrapper waves-effect">
                       <div className="date-time">
@@ -131,7 +136,7 @@ const orderHistory = () => {
                     </div>
                   </a>
                 </Link>
-                <Link href="/history/detail/1">
+                <Link href="/home/order/history/detail/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
                   <a>
                     <div className="history-wrapper waves-effect">
                       <div className="date-time">
@@ -157,4 +162,15 @@ const orderHistory = () => {
   )
 }
 
-export default orderHistory
+orderHistory.defaultProps = {
+  title: 'History Pesanan Saya'
+}
+
+// initial props authenticated using guard users
+orderHistory.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(orderHistory)

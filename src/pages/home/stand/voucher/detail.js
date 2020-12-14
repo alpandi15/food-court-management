@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic'
 import Header from 'components/Header'
 import { Icon } from 'react-materialize'
 import color from 'theme/color'
+import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 const image = '/static/Image/food-court.jpg'
 
@@ -10,7 +12,9 @@ const Modal = dynamic(() => import('components/Modal'), {
   ssr: false
 })
 
-const VoucherDetail = () => {
+const VoucherDetail = ({
+  title
+}) => {
   const [headerActive, setHeaderActive] = React.useState(false)
   const [modal, setModal] = React.useState(false)
   const [modalUse, setModalUse] = React.useState(false)
@@ -31,6 +35,7 @@ const VoucherDetail = () => {
 
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         transparent={!headerActive}
         textStyle={{
@@ -167,4 +172,15 @@ const VoucherDetail = () => {
   )
 }
 
-export default VoucherDetail
+VoucherDetail.defaultProps = {
+  title: 'Voucher Info'
+}
+
+// initial props authenticated using guard users
+VoucherDetail.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(VoucherDetail)

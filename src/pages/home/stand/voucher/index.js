@@ -2,12 +2,17 @@ import React from 'react'
 
 import Header from 'components/Header'
 import Link from 'next/link'
+import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 const image = '/static/Image/food-court.jpg'
 
-const Voucher = () => {
+const Voucher = ({
+  title
+}) => {
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         textStyle={{
           color: '#000000'
@@ -65,4 +70,15 @@ const Voucher = () => {
   )
 }
 
-export default Voucher
+Voucher.defaultProps = {
+  title: 'Voucher'
+}
+
+// initial props authenticated using guard users
+Voucher.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(Voucher)

@@ -3,12 +3,17 @@ import React from 'react'
 import Header from 'components/Header'
 import { Icon } from 'react-materialize'
 import Link from 'next/link'
+import CustomHelmet from 'components/CustomHelmet'
+import { withAuthSync } from 'components/Security/auth'
 
 const image = '/static/Image/food-court.jpg'
 
-const Cart = () => {
+const Cart = ({
+  title
+}) => {
   return (
     <>
+      <CustomHelmet title={title} />
       <Header
         textStyle={{
           color: '#000000'
@@ -171,8 +176,8 @@ const Cart = () => {
             </div>
           </div>
           <div className="fixed-button">
-            <Link href="/home/order/view/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d" className="btn btn-app waves-effect block">
-              <a>
+            <Link href="/home/order/view/5ccfb5e3-3521-11eb-8c20-d0fe89b4eb7d">
+              <a className="btn btn-app waves-effect block">
                 <span>Pesan</span>
                 <span style={{ margin: '0 .5rem' }}> - </span>
                 <span className="price-button">Rp 107.000</span>
@@ -185,4 +190,15 @@ const Cart = () => {
   )
 }
 
-export default Cart
+Cart.defaultProps = {
+  title: 'Keranjang Pesanan'
+}
+
+// initial props authenticated using guard users
+Cart.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(Cart)
