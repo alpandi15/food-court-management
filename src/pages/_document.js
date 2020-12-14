@@ -54,6 +54,7 @@ class MyDocument extends Document {
           <link async rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
           <link async rel="stylesheet" type="text/css" href="/static/assets/css/materialize.min.css" />
           <link async rel="stylesheet" type="text/css" href="/static/Css/_app.css" />
+          <link async rel="stylesheet" type="text/css" href="/static/assets/css/ReactToastify.min.css" />
 
           <link async rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
           <link async rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />

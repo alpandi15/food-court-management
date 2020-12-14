@@ -6,7 +6,7 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import CustomHelmet from 'components/CustomHelmet'
 import OfflineSupport from 'components/OfflineSupport'
-// import Toaster from 'components/Toast'
+import Toaster from 'components/Toast'
 import getPageContext from 'utils/getPageContext'
 import store from '../store'
 // const theme = {
@@ -54,6 +54,7 @@ class MyApp extends App {
           <div className="next-root">
             <CustomHelmet />
             <Component pageContext={this.pageContext} {...pageProps} />
+            <Toaster />
           </div>
         </Provider>
       </React.Fragment>
