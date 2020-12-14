@@ -1,6 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Router from 'next/router'
 import { Button } from 'react-materialize'
 
 import Header from 'components/Header'
@@ -56,6 +57,7 @@ const ScanQr = () => {
     // alert(data)
     if (data) {
       setData(data)
+      Router.push('/home')
     }
   }
 

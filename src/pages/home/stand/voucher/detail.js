@@ -1,23 +1,22 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Header from 'components/Header'
 import { Icon } from 'react-materialize'
-// import Modal from 'components/Modal'
-
-// import Input from 'components/Form/Input'
 import color from 'theme/color'
 
 const image = '/static/Image/food-court.jpg'
 
-// const MemoModal = React.memo(Modal)
+const Modal = dynamic(() => import('components/Modal'), {
+  ssr: false
+})
 
 const VoucherDetail = () => {
   const [headerActive, setHeaderActive] = React.useState(false)
-  // const [modal, setModal] = React.useState(false)
-  // const [modalUse, setModalUse] = React.useState(false)
+  const [modal, setModal] = React.useState(false)
+  const [modalUse, setModalUse] = React.useState(false)
 
   const handleModal = (status) => {
-    console.log(status)
-    // setModal(status)
+    setModal(status)
   }
 
   React.useEffect(() => {
@@ -81,7 +80,7 @@ const VoucherDetail = () => {
               </div>
             </div>
 
-            <div onClick={() => console.log('Test')} className="info-wrapper waves-effect">
+            <div onClick={() => setModalUse(true)} className="info-wrapper waves-effect">
               <div className="info-icon">
                 <Icon>local_activity</Icon>
               </div>
@@ -108,7 +107,7 @@ const VoucherDetail = () => {
         </div>
       </div>
 
-      {/* <MemoModal
+      <Modal
         open={modal}
         onCloseStart={handleModal}
         id="ModalInformasi"
@@ -135,9 +134,9 @@ const VoucherDetail = () => {
             </div>
           </div>
         </div>
-      </MemoModal>
+      </Modal>
 
-      <MemoModal
+      <Modal
         open={modalUse}
         onCloseStart={setModalUse}
         id="ModalUse"
@@ -163,7 +162,7 @@ const VoucherDetail = () => {
             </div>
           </div>
         </div>
-      </MemoModal> */}
+      </Modal>
     </>
   )
 }
