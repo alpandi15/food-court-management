@@ -10,7 +10,7 @@ const OrderPreview = () => {
           <div className="total-price">Rp 107.000</div>
         </div>
         <div>
-          <Link href="/cart">
+          <Link href="/home/cart">
             <a className="btn btn-app-primary waves-effect" style={{ width: '100px' }}>
               Pesan
             </a>
