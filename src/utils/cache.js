@@ -30,7 +30,7 @@ export default async function renderAndCache (app, req, res, pagePath, queryPara
   try {
     console.log('=====MASUK ROUTING==== ', req.params, req.query)
     // If not let's render the page into HTML
-    const html = await app.renderToHTML(
+    const html = await app.render(
       req, res, pagePath,
       queryParams ? req[queryParams] : { ...req.query, ...req.params }
     )

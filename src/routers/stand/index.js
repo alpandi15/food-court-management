@@ -5,8 +5,8 @@ const router = express.Router()
 
 const routes = (app) => {
   return router
-    .get('/home/stand/:uuid', (req, res) => renderAndCache(app, req, res, '/stand'))
-    .get('/home/product/:uuid', (req, res) => renderAndCache(app, req, res, '/stand/product'))
+    .get('/home/stand/:uuid', (req, res) => renderAndCache(app, req, res, '/home/stand'))
+    .get('/home/stand/:standId/product/:uuid', (req, res) => renderAndCache(app, req, res, '/home/stand/product'))
 }
 
 export default routes

@@ -297,7 +297,7 @@ const Menu = ({
                       {
                         val.map((list, indexL) => (
                           <div className="menu-item" key={indexL}>
-                            <Link href="/home/product/13d11972-321f-11eb-8c20-d0fe89b4eb7d">
+                            <Link href="/home/stand/13d11972-321f-11eb-8c20-d0fe89b4eb7d/product/13d11972-321f-11eb-8c20-d0fe89b4eb7d">
                               <a>
                                 <div className="menu-wrapper waves-effect">
                                   <div className="menu-image">
