@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
 import { logout } from 'components/Security/auth'
-// import Modal from 'components/Modal'
 import { getUserData } from 'actions/auth/authAction'
 
 const Modal = dynamic(() => import('components/Modal'), {
@@ -120,7 +119,6 @@ const Main = ({
                       </a>
                     </Link>
                   ) : (
-                    // <button onClick={() => handleModal(true)} className="btn-logout waves-effect waves-light">
                     <button type="button" onClick={() => handleModal(true)} className="btn-logout waves-effect waves-light">
                       <span>Keluar</span>
                       <i className="material-icons">exit_to_app</i>

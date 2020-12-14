@@ -5,12 +5,14 @@ import { connect } from 'react-redux'
 import { Icon } from 'react-materialize'
 import Header from 'components/Header'
 import { logoutUser, getUserData } from 'actions/auth/authAction'
-import { withAuthSync } from 'components/Security/auth'
-// import Image from 'components/Image'
+import { withAuthSync, logout } from 'components/Security/auth'
 
 const Image = dynamic(() => import('components/Image'), { ssr: false })
+const Modal = dynamic(() => import('components/Modal'), {
+  ssr: false
+})
 
-// const image = '/static/Image/food-court.jpg'
+
 const profileIcon = '/static/Icon/Profile.svg'
 const lockIcon = '/static/Icon/Lock.svg'
 const heartIcon = '/static/Icon/HeartL.svg'
@@ -21,9 +23,9 @@ const GUARD = 'user'
 
 const Profile = ({
   userData,
-  // logoutUser,
   getUserData
 }) => {
+  const [modal, setModal] = React.useState(false)
   React.useEffect(() => {
     const fetch = async () => {
       await getUserData(GUARD)
@@ -31,6 +33,15 @@ const Profile = ({
 
     fetch()
   }, [GUARD, getUserData])
+
+  const handleModal = (status) => {
+    setModal(status)
+  }
+
+  const handleLogout = async () => {
+    await logout(GUARD)
+    setModal(false)
+  }
 
   return (
     <>
@@ -110,18 +121,43 @@ const Profile = ({
             </a>
           </Link>
 
-          <Link href="/">
-            <a>
-              <div className="list-menu-wrapper waves-effect logout">
-                <div className="icon">
-                  <img src={logoutIcon} alt="" />
-                </div>
-                <div className="menu-name">Keluar</div>
-              </div>
-            </a>
-          </Link>
+          <div onClick={() => handleModal(true)} className="list-menu-wrapper waves-effect logout">
+            <div className="icon">
+              <img src={logoutIcon} alt="" />
+            </div>
+            <div className="menu-name">Keluar</div>
+          </div>
         </div>
       </div>
+
+      <Modal
+        open={modal}
+        onCloseStart={handleModal}
+        id="ModalInformasi"
+        endingTop="10%"
+        modalBottom
+      >
+        <div>
+          <div className="modal-content-custom logout">
+            <button
+              className="btn modal-close close waves-effect btn-close"
+              node="button"
+            >
+              <Icon>close</Icon>
+            </button>
+            <span>Ingin keluar dari akun kamu ?</span>
+            <div className="modal-action">
+              <button
+                className="waves-effect waves-light btn-logout"
+                onClick={() => handleLogout()}
+                node="button"
+              >
+                Ya, Keluar
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </>
   )
 }
