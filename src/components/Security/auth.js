@@ -39,7 +39,8 @@ export const auth = (ctx, guard) => {
       Location: ctx
         && ctx.pathname
         && ctx.pathname !== '/auth/login'
-        ? `/auth/login?path=${ctx.req.url}`
+        // ? `/auth/login?path=${ctx.req.url}`
+        ? '/auth/login?path=/home'
         : '/auth/login'
     })
     ctx.res.end()
@@ -50,7 +51,8 @@ export const auth = (ctx, guard) => {
   console.log('MASUK !TOKEN ')
   if (!token) {
     if (ctx && ctx.pathname && ctx.pathname !== '/auth/login') {
-      Router.push(`/auth/login?path=${ctx.req.url}`)
+      // Router.push(`/auth/login?path=${ctx.req.url}`)
+      Router.push('/auth/login?path=/home')
     } else {
       Router.push('/auth/login')
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
@@ -25,11 +25,9 @@ const Manual = ({
   submitting,
   handleSubmit
 }) => {
-  const router = useRouter()
-
   const onSubmit = async (values) => {
     console.log(values)
-    router.push('/home')
+    Router.push('/home')
   }
 
   return (
