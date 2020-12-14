@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { connect } from 'react-redux'
 import CustomHelmet from 'components/CustomHelmet'
 import { Field, reduxForm, getFormValues } from 'redux-form'
+import { loggedChecked } from 'components/Security/auth'
 import { toastify } from '../../../components/Toast/Toastify'
 import Header from '../../../components/Header'
 import TextInput from '../../../components/Form/Input'
@@ -177,7 +178,14 @@ Register.defaultProps = {
   title: 'Register'
 }
 
-export default (reduxForm({
+// initial props authenticated using guard users
+Register.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default loggedChecked(reduxForm({
   form: 'FormRegisterUser',
   validate
 })(connect(mapStateToProps, mapDispatchToProps)(Register)))

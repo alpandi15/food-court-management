@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Header from 'components/Header'
 import { Icon } from 'react-materialize'
+import { withAuthSync } from 'components/Security/auth'
 
 import Input from 'components/Form/Input'
 import color from 'theme/color'
@@ -232,4 +233,15 @@ const MenuDetail = () => {
   )
 }
 
-export default MenuDetail
+MenuDetail.defaultProps = {
+  title: 'Product'
+}
+
+// initial props authenticated using guard users
+MenuDetail.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default withAuthSync(MenuDetail)

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import Router, { withRouter } from 'next/router'
 import CustomHelmet from 'components/CustomHelmet'
-import { logout } from 'components/Security/auth'
+import { logout, loggedChecked } from 'components/Security/auth'
 import { loginUser, getUserData } from 'actions/auth/authAction'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
@@ -167,7 +167,16 @@ Auth.defaultProps = {
   guard: GUARD
 }
 
-export default reduxForm({
-  form: 'FormLogin',
-  validate
-})(connect(mapStateToProps, mapDispatchToProps)(withRouter(Auth)))
+// initial props authenticated using guard users
+Auth.getInitialProps = () => {
+  return {
+    guard: 'user'
+  }
+}
+
+export default loggedChecked(
+  reduxForm({
+    form: 'FormLogin',
+    validate
+  })(connect(mapStateToProps, mapDispatchToProps)(withRouter(Auth)))
+)

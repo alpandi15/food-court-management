@@ -32,12 +32,14 @@ export const auth = (ctx, guard) => {
    * rendered on server. If we are on server and token is not available,
    * means user is not logged in.
    */
+
+  console.log('MASUK KONTEKT ')
   if (ctx.req && !token) {
     ctx.res.writeHead(302, {
       Location: ctx
         && ctx.pathname
         && ctx.pathname !== '/auth/login'
-        ? `/auth/login?path=${ctx.pathname}`
+        ? `/auth/login?path=${ctx.req.url}`
         : '/auth/login'
     })
     ctx.res.end()
@@ -45,9 +47,10 @@ export const auth = (ctx, guard) => {
   }
 
   // We already checked for server. This should only happen on client.
+  console.log('MASUK !TOKEN ')
   if (!token) {
     if (ctx && ctx.pathname && ctx.pathname !== '/auth/login') {
-      Router.push(`/auth/login?path=${ctx.pathname}`)
+      Router.push(`/auth/login?path=${ctx.req.url}`)
     } else {
       Router.push('/auth/login')
     }
@@ -64,6 +67,67 @@ export const withAuthSync = WrappedComponent => class extends Component {
     && (await WrappedComponent.getInitialProps(ctx))
 
     const token = auth(ctx, componentProps.guard)
+    return { ...componentProps, token }
+  }
+
+  constructor (props) {
+    super(props)
+
+    this.syncLogout = this.syncLogout.bind(this)
+  }
+
+  componentDidMount () {
+    window.addEventListener('storage', this.syncLogout)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('storage', this.syncLogout)
+    window.localStorage.removeItem('logout')
+  }
+
+  syncLogout = (event) => {
+    if (event.key === 'logout') {
+      Router.push('/auth/login')
+    }
+  }
+
+  render () {
+    return <WrappedComponent {...this.props} />
+  }
+}
+
+export const isLogged = (ctx, guard) => {
+  const tokenData = nextCookie(ctx)
+  const token = tokenData[`access_token_${guard}`]
+  /*
+   * This happens on server only, ctx.req is available means it's being
+   * rendered on server. If we are on server and token is not available,
+   * means user is not logged in.
+   */
+  if (ctx.req && token) {
+    ctx.res.writeHead(302, {
+      Location: '/main'
+    })
+    ctx.res.end()
+    return
+  }
+
+  // We already checked for server. This should only happen on client.
+  if (token) {
+    Router.push('/main')
+  }
+
+  return token
+}
+
+export const loggedChecked = WrappedComponent => class extends Component {
+  static displayName = `loggedChecked(${getDisplayName(WrappedComponent)})`
+
+  static async getInitialProps (ctx) {
+    const componentProps = WrappedComponent.getInitialProps
+    && (await WrappedComponent.getInitialProps(ctx))
+
+    const token = isLogged(ctx, componentProps.guard)
     return { ...componentProps, token }
   }
 
