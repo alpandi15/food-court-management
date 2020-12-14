@@ -1,18 +1,19 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-// import QrReader from 'react-qr-reader'
-// import { Link } from 'react-router-dom'
 import { Button } from 'react-materialize'
 
 import Header from 'components/Header'
-// import Modal from 'components/Modal'
+
+const Modal = dynamic(() => import('components/Modal'), {
+  ssr: false
+})
 
 const QrReader = dynamic(() => import('react-qr-reader'), {
   ssr: false
 })
 
-const image = 'static/Image/Camera.png'
+const image = '/static/Image/Camera.png'
 
 const styles = {
   cameraLoading: {
@@ -61,7 +62,6 @@ const ScanQr = () => {
   const handleError = (err) => {
     // alert('Error ', err)
     console.error('Ini Error', err)
-    alert('Camera Error')
     handleModal(true)
     setLoadCamera({
       success: false,
@@ -124,7 +124,7 @@ const ScanQr = () => {
           </div>
         </div>
       </div>
-      {/* <Modal
+      <Modal
         open={modal}
         onCloseStart={handleModal}
         id="ModalInformasi"
@@ -151,7 +151,7 @@ const ScanQr = () => {
             silahkan masukkan ID Manual
           </div>
         </div>
-      </Modal> */}
+      </Modal>
     </>
   )
 }
