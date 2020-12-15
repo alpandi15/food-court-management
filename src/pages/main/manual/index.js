@@ -5,6 +5,8 @@ import { Field, reduxForm, getFormValues } from 'redux-form'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
 import { loginGuest } from 'actions/auth/authAction'
+import { getSessionTable } from 'actions/tableSession/tableSessionAction'
+import { toastify } from 'components/Toast/Toastify'
 
 const Background = '/static/Image/bg.svg'
 const image = '/static/Image/table.png'
@@ -20,17 +22,40 @@ const validate = ({ email }) => {
   return error
 }
 
+const GUARD = 'user'
+
 const Manual = ({
   invalid,
   loading,
   submitting,
   handleSubmit,
-  loginGuest
+  loginGuest,
+  getSessionTable
 }) => {
   const onSubmit = async (values) => {
-    await loginGuest()
-    console.log(values)
-    Router.push('/home')
+    const { table_id } = values
+    const resLogin = await loginGuest()
+    if (resLogin.success) {
+      const sessionTable = await getSessionTable({ number: table_id }, GUARD)
+
+      if (sessionTable.success) {
+        toastify({
+          type: 'success',
+          message: sessionTable.meta.message
+        })
+        Router.push('/home')
+      } else {
+        toastify({
+          type: 'error',
+          message: sessionTable.message
+        })
+      }
+    } else {
+      toastify({
+        type: 'error',
+        message: resLogin.message
+      })
+    }
   }
 
   return (
@@ -88,7 +113,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  loginGuest: () => dispatch(loginGuest())
+  loginGuest: () => dispatch(loginGuest()),
+  getSessionTable: (data, guard) => dispatch(getSessionTable(data, guard))
 })
 
 export default reduxForm({

@@ -12,6 +12,7 @@ import { reducer as formReducer } from 'redux-form'
 import accountStore from './reducer/accountStore'
 import forgotStore from './reducer/forgotPassword'
 import foodCourt from './reducer/foodCourt'
+import tableSessionStore from './reducer/tableSessionStore'
 
 // GENERATED REDUCER
 import userStore from './reducer/userStore'
@@ -25,6 +26,7 @@ const reducers = combineReducers({
   accountStore,
   forgotStore,
   foodCourt,
+  tableSessionStore,
 
   // GENERATED COMBINE
   userStore,

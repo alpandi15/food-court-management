@@ -3,11 +3,21 @@ import Router from 'next/router'
 import nextCookie from 'next-cookies'
 import cookie from 'js-cookie'
 
+export const loggedSessionTable = async ({
+  session_token
+}) => {
+  cookie.set('session_table', session_token, { expires: 1 })
+}
+
+export const removeSessionTable = async () => {
+  cookie.remove('session_table')
+}
+
 export const loggedin = async ({
   access_token, path, guard, ...data
 }) => {
   console.log('TOKEN ', access_token, data, path)
-  cookie.set(`access_token_${guard}`, access_token, { expires: 1 })
+  cookie.set(`access_token_${guard}`, access_token, { expires: 7 })
   // if (path) {
   //   Router.push(path)
   // } else {
