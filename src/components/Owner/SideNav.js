@@ -95,7 +95,7 @@ const SideNav = ({
           <div className="content-select">
             <Select
               options={list}
-              onChange={(e) => handleSelected(e.target.value)}
+              onChange={e => handleSelected(e.target.value)}
               defaultValue={selected || null}
               className="select-foodcourt"
             />
@@ -180,9 +180,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  logoutUser: (guard) => dispatch(logoutUser(guard)),
-  getMy: (data) => dispatch(getMy(data))
+const mapDispatchToProps = dispatch => ({
+  logoutUser: guard => dispatch(logoutUser(guard)),
+  getMy: data => dispatch(getMy(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideNav)

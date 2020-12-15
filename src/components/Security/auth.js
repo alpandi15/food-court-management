@@ -19,7 +19,7 @@ export const logout = (guard) => {
   cookie.remove(`access_token_${guard}`)
   // to support logging out from all windows
   window.localStorage.setItem(`logout_${guard}`, Date.now())
-  Router.push('/auth/login')
+  Router.push('/main')
 }
 
 const getDisplayName = Component => Component.displayName || Component.name || 'Component'

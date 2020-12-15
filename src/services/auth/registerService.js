@@ -26,3 +26,11 @@ export async function apiGetProfile (guard) {
     guard
   })
 }
+
+export async function apiGetTokenGuest () {
+  return request({
+    url: 'auth/token-guest',
+    auth: false,
+    method: 'get'
+  })
+}

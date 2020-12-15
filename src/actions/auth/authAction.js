@@ -1,9 +1,10 @@
-import { set, remove } from 'services/utils/storage'
+import { remove } from 'services/utils/storage'
 import { loggedin } from 'components/Security/auth'
 import {
   apiRegister,
   apiLogin,
-  apiGetProfile
+  apiGetProfile,
+  apiGetTokenGuest
 } from '../../services/auth/registerService'
 import {
   FETCH_AUTH,
@@ -74,12 +75,9 @@ const loginUser = (data, guard = 'user', path) => async (dispatch) => {
   try {
     dispatch(fetch())
     const response = await apiLogin(data)
-    // console.log('Login Data ', response, path)
     if (response && response.success) {
       dispatch(receive(response.data, path, guard))
       if (response && response.data) {
-        // await set(`access_token_${guard}`, response.data.access_token)
-        // await set(`refresh_token_${guard}`, response.data.refresh_token)
         return response
       }
     } else {
@@ -91,6 +89,27 @@ const loginUser = (data, guard = 'user', path) => async (dispatch) => {
     return error
   }
 }
+
+// Login
+const loginGuest = (data, guard = 'user', path) => async (dispatch) => {
+  try {
+    dispatch(fetch())
+    const response = await apiGetTokenGuest()
+    if (response && response.success) {
+      dispatch(receive(response.data, path, guard))
+      if (response && response.data) {
+        return response
+      }
+    } else {
+      dispatch(failed(response))
+      return response
+    }
+  } catch (error) {
+    dispatch(failed(error))
+    return error
+  }
+}
+
 
 // Logout
 const logoutUser = guard => async (dispatch) => {
@@ -120,5 +139,6 @@ export {
   registerUser,
   loginUser,
   logoutUser,
-  getUserData
+  getUserData,
+  loginGuest
 }
