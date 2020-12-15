@@ -44,7 +44,7 @@ const apiGetAll = async (data, guard = 'user') => {
     auth: true,
     data,
     method: 'get',
-    sessionTable: true, // <-- untuk menggunakan session/token table
+    sessionTable: true, // <-- untuk menggunakan session/token table bukan user
     guard
   })
 }

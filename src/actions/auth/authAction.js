@@ -132,9 +132,9 @@ const logoutUser = guard => async (dispatch) => {
 }
 
 // Get user token
-const getUserData = guard => async (dispatch) => {
+const getUserData = (guard, sessionTable) => async (dispatch) => {
   console.log('USER TOKEN ', guard)
-  const response = await apiGetProfile(guard)
+  const response = await apiGetProfile(guard, sessionTable)
   if (response.success) {
     dispatch(receivedAuthMe(response.data))
     return response

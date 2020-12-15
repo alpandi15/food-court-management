@@ -31,6 +31,7 @@ export const logout = (guard) => {
   // to support logging out from all windows
   window.localStorage.setItem(`logout_${guard}`, Date.now())
   Router.push('/main')
+  // window.location.href('/main')
 }
 
 const getDisplayName = Component => Component.displayName || Component.name || 'Component'

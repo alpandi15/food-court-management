@@ -21,6 +21,7 @@ const defaultImgStand = '/static/Image/default-stand/192x192.png'
 const defaultImgProduct = '/static/Image/default-product/32x32.png'
 
 const GUARD = 'user'
+const SESSION_TABLE = true
 
 const WAIT_INTERVAL = 1000
 
@@ -42,12 +43,12 @@ const Home = ({
         relationship: 1
       })
 
-      await getUserData(GUARD)
+      await getUserData(GUARD, SESSION_TABLE)
       NProgress.done()
     }
 
     fetch()
-  }, [getAll, getUserData, GUARD, NProgress])
+  }, [getAll, getUserData, GUARD, NProgress, SESSION_TABLE])
 
   React.useEffect(() => {
     if (dataError && messageList) {
@@ -213,7 +214,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   getAll: data => dispatch(getAll(data)),
-  getUserData: guard => dispatch(getUserData(guard))
+  getUserData: (guard, sessionTable) => dispatch(getUserData(guard, sessionTable))
 })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Home)

@@ -18,11 +18,12 @@ export async function apiLogin (data) {
   })
 }
 
-export async function apiGetProfile (guard) {
+export async function apiGetProfile (guard, sessionTable = false) {
   return request({
     url: 'auth/me',
     auth: true,
     method: 'get',
+    sessionTable, // <-- untuk menggunakan session/token table
     guard
   })
 }
