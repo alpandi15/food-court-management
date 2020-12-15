@@ -145,7 +145,7 @@ const Home = ({
                     <div className="image">
                       {/* <img src={image} alt="" /> */}
                       <Image
-                        src={val.owner && val.owner.image && val.owner.image.url}
+                        src={val.image && val.image.url}
                         className="user-image"
                         alt="Profile"
                         defaultsrc={defaultImgStand}
@@ -169,7 +169,48 @@ const Home = ({
                         <img className="icon-14" src={discIcon} alt="" />
                         <span>Voucher potongan 20%</span>
                       </div>
-                      <div className="food-preview">
+                      <div style={{
+                        display: 'flex',
+                        flexDirection: 'column'
+                      }}
+                      >
+                        {
+                          val.menus && val.menus.map((menu, key) => (
+                            <div style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              borderBottom: '1px solid #ece9e9',
+                              padding: '3px 0'
+                            }}
+                            >
+                              <div
+                                key={key}
+                                style={{
+                                  width: '40px',
+                                  height: '40px',
+                                  overflow: 'hidden',
+                                  border: '3px solid #FFFFFF',
+                                  zIndex: 1
+                                }}
+                              >
+                                <Image
+                                  src={menu.image && menu.image.url}
+                                  className="user-image"
+                                  alt="Profile"
+                                  defaultsrc={defaultImgProduct}
+                                  style={{ width: '100%', height: '100%' }}
+                                />
+                              </div>
+
+                              <div>
+                                <div style={{ fontSize: '10px' }}>{menu.name}</div>
+                                <div style={{ fontWeight: '600' }}>20.000</div>
+                              </div>
+                            </div>
+                          ))
+                        }
+                      </div>
+                      {/* <div className="food-preview">
                         {
                           val.menus && val.menus.map((menu, key) => (
                             <div className="item" key={key}>
@@ -183,10 +224,7 @@ const Home = ({
                             </div>
                           ))
                         }
-                        {/* <div className="item-last">
-                          <span>+54 Menu</span>
-                        </div> */}
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </a>
