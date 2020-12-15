@@ -15,6 +15,8 @@ import { toastify } from 'components/Toast/Toastify'
 const GUARD = 'user'
 
 const editProfile = ({
+  invalid,
+  submitting,
   title,
   userData,
   initialize,
@@ -90,7 +92,7 @@ const editProfile = ({
               />
             </div>
             <div className="fixed-button">
-              <button className="waves-effect waves-light btn btn-app block">Simpan</button>
+              <button disabled={invalid || submitting} className="waves-effect waves-light btn btn-app block">Simpan</button>
             </div>
           </form>
         </div>
