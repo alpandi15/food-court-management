@@ -12,6 +12,7 @@ import { Icon } from 'react-materialize'
 import SearchInput from 'components/Form/SearchInput'
 import { toastify } from 'components/Toast/Toastify'
 import color from '../../theme/color'
+import { convertToRupiah } from '../../services/utils/numbering'
 
 const loveIcon = '/static/Icon/Heart.svg'
 const docIcon = '/static/Icon/Document.svg'
@@ -176,12 +177,13 @@ const Home = ({
                       >
                         {
                           val.menus && val.menus.map((menu, key) => (
-                            <div style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              borderBottom: '1px solid #ece9e9',
-                              padding: '3px 0'
-                            }}
+                            <div key={key}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                borderBottom: '1px solid #ece9e9',
+                                padding: '3px 0'
+                              }}
                             >
                               <div
                                 key={key}
@@ -204,7 +206,11 @@ const Home = ({
 
                               <div>
                                 <div style={{ fontSize: '10px' }}>{menu.name}</div>
-                                <div style={{ fontWeight: '600' }}>20.000</div>
+                                <div style={{ fontWeight: '600' }}>
+                                  {
+                                    (menu.price && convertToRupiah(menu.price.price)) || 0
+                                  }
+                                </div>
                               </div>
                             </div>
                           ))
