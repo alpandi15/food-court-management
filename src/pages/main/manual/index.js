@@ -4,6 +4,7 @@ import Router from 'next/router'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
+import { loginGuest } from 'actions/auth/authAction'
 
 const Background = '/static/Image/bg.svg'
 const image = '/static/Image/table.png'
@@ -23,9 +24,11 @@ const Manual = ({
   invalid,
   loading,
   submitting,
-  handleSubmit
+  handleSubmit,
+  loginGuest
 }) => {
   const onSubmit = async (values) => {
+    await loginGuest()
     console.log(values)
     Router.push('/home')
   }
@@ -84,10 +87,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-// })
+const mapDispatchToProps = dispatch => ({
+  loginGuest: () => dispatch(loginGuest())
+})
 
 export default reduxForm({
-  form: 'FormForgotPassword',
+  form: 'FormManualScan',
   validate
-})(connect(mapStateToProps, null)(Manual))
+})(connect(mapStateToProps, mapDispatchToProps)(Manual))

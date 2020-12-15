@@ -52,7 +52,10 @@ const Home = ({
                 <a>
                   Halo,
                   {' '}
-                  {userData && userData.name}
+                  {
+                    userData && userData.isGuest ? 'Pengunjung'
+                    : userData.name
+                  }
                   <Icon>chevron_right</Icon>
                 </a>
               </Link>

@@ -3,7 +3,6 @@ import { Icon } from 'react-materialize'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
-import { withRouter } from 'next/router'
 import { logout } from 'components/Security/auth'
 import { getUserData } from 'actions/auth/authAction'
 
@@ -40,6 +39,7 @@ const Main = ({
   const handleLogout = async () => {
     await logout(GUARD)
     setModal(false)
+    window.location.reload()
   }
 
   return (
@@ -67,9 +67,9 @@ const Main = ({
               {
                 userData && userData.id ? (
                   <span style={{ fontWeight: '700' }}>{` ${userData.name}`}</span>
-                ) : (
-                  <span />
-                )
+                ) : userData && userData.isGuest ? (
+                  <span style={{ fontWeight: '700' }}> Pengunjung </span>
+                ) : <span />
               }
               ,
               <span> silahkan pindai kode QR yang ada di meja kamu untuk mulai memesan, atau login dengan akun kamu untuk mendapatkan fitur lainnya</span>
@@ -88,7 +88,7 @@ const Main = ({
           </div>
           <div>
             {
-              userData && userData.id ? (
+              (userData && userData.id) || userData.isGuest ? (
                 <div />
               ) : (
                 <Link href="/auth/login">
@@ -112,7 +112,7 @@ const Main = ({
               </div>
               <div className="register-button">
                 {
-                  userData && !userData.id ? (
+                  userData && !userData.id && !userData.isGuest ? (
                     <Link href="/auth/register">
                       <a className="waves-effect">
                         Daftar Sekarang
@@ -186,9 +186,7 @@ Main.getInitialProps = () => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  withRouter(Main)
-)
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
 
 // export default withAuthSync(
 //   connect(mapStateToProps, mapDispatchToProps)(
