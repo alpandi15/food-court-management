@@ -32,7 +32,6 @@ const Home = ({
     console.log('DATA PROPS ', datas)
     const fetch = async () => {
       await getAll({
-        foodCourtId: 6,
         relationship: 1
       })
 
@@ -65,7 +64,7 @@ const Home = ({
                 Lokasi, Medan Night Market
               </div>
               <div className="table">
-                Meja #14
+                {userData && userData.tableNumber}
               </div>
             </div>
           </div>
@@ -118,9 +117,9 @@ const Home = ({
                             <div className="product-name">{val.name}</div>
                             <div className="product-category">{val.category && val.category.name}</div>
                           </div>
-                          <div className="info-stand">
+                          {/* <div className="info-stand">
                             <div className="stand-number">Stand #10</div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                       <div className="voucher-stand">
@@ -141,9 +140,9 @@ const Home = ({
                             </div>
                           ))
                         }
-                        <div className="item-last">
+                        {/* <div className="item-last">
                           <span>+54 Menu</span>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

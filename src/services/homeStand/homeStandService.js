@@ -41,7 +41,7 @@ const apiDelete = async (id, guard = 'user') => {
 const apiGetAll = async (data, guard = 'user') => {
   return request({
     url: 'home/stand',
-    auth: false,
+    auth: true,
     data,
     method: 'get',
     guard

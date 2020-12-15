@@ -3,8 +3,13 @@ import Cookies from 'js-cookie'
 const getAccessToken = (guard) => {
   // let data = localStorage.getItem(`access_token_${guard}`)
   const data = Cookies.get(`access_token_${guard}`)
-  const parsed = data || null
-  return parsed
+  const sessionTable = Cookies.get('session_table')
+  if (guard === 'user') {
+    const parsed = sessionTable || (data || null)
+    console.log('SESSION ', parsed)
+    return parsed
+  }
+  return data || null
 }
 
 const getRefreshToken = (guard) => {
