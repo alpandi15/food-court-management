@@ -1,12 +1,14 @@
 import React from 'react'
-// import dynamic from 'next/dynamic'
+import Router from 'next/router'
 import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import { getUserData } from 'actions/auth/authAction'
+import { updateProfile } from 'actions/account/accountAction'
 import CustomHelmet from 'components/CustomHelmet'
 import TextInput from 'components/Form/Input'
 import Header from 'components/Header'
 import { withAuthSync } from 'components/Security/auth'
+import { toastify } from 'components/Toast/Toastify'
 
 // const TextInput = dynamic(() => import('components/Form/Input'), { ssr: false })
 
@@ -17,7 +19,8 @@ const editProfile = ({
   userData,
   initialize,
   getUserData,
-  handleSubmit
+  handleSubmit,
+  updateProfile
 }) => {
   React.useEffect(() => {
     const fetch = async () => {
@@ -31,14 +34,30 @@ const editProfile = ({
     if (userData && userData.id) {
       initialize({
         name: userData.name,
-        email: userData.email,
         phone: userData.phone
       })
     }
   }, [userData, initialize])
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     console.log(values)
+    const resUpdate = await updateProfile({
+      name: values.name,
+      phone: values.phone
+    }, GUARD)
+
+    if (resUpdate.success) {
+      toastify({
+        type: 'success',
+        message: resUpdate.meta.message || resUpdate.detail
+      })
+      Router.back()
+    } else {
+      toastify({
+        type: 'error',
+        message: resUpdate.message
+      })
+    }
   }
 
   return (
@@ -60,13 +79,6 @@ const editProfile = ({
                 name="name"
                 label="Nama"
                 type="text"
-                component={TextInput}
-              />
-              <Field
-                id="email"
-                name="email"
-                label="Email"
-                type="email"
                 component={TextInput}
               />
               <Field
@@ -97,7 +109,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getUserData: guard => dispatch(getUserData(guard))
+  getUserData: guard => dispatch(getUserData(guard)),
+  updateProfile: (data, guard) => dispatch(updateProfile(data, guard))
 })
 
 editProfile.defaultProps = {
