@@ -63,52 +63,66 @@ const Profile = ({
                 />
               </div>
               <div className="user-desc">
-                <div className="user-name">{userData && userData.name}</div>
-                <div className="user-email">{userData && userData.email}</div>
+                {
+                  userData && userData.isGuest ? (
+                    <div className="user-name">Guest</div>
+                  ) : (
+                    <>
+                      <div className="user-name">{userData && userData.name}</div>
+                      <div className="user-email">{userData && userData.email}</div>
+                    </>
+                  )
+                }
               </div>
             </div>
           </div>
         </div>
         <div className="content profile">
-          <Link href="/profile/edit">
-            <a>
-              <div className="list-menu-wrapper waves-effect">
-                <div className="icon">
-                  <img src={profileIcon} alt="" />
-                </div>
-                <div className="menu-name">Edit Profil</div>
-                <div className="right-icon">
-                  <Icon>chevron_right</Icon>
-                </div>
-              </div>
-            </a>
-          </Link>
-          <Link href="/profile/change-password">
-            <a>
-              <div className="list-menu-wrapper waves-effect">
-                <div className="icon">
-                  <img src={lockIcon} alt="" />
-                </div>
-                <div className="menu-name">Ganti Kata Sandi</div>
-                <div className="right-icon">
-                  <Icon>chevron_right</Icon>
-                </div>
-              </div>
-            </a>
-          </Link>
-          <Link href="/home/favorite">
-            <a>
-              <div className="list-menu-wrapper waves-effect">
-                <div className="icon">
-                  <img src={heartIcon} alt="" />
-                </div>
-                <div className="menu-name">Stand Favorit</div>
-                <div className="right-icon">
-                  <Icon>chevron_right</Icon>
-                </div>
-              </div>
-            </a>
-          </Link>
+          {
+            userData && !userData.isGuest && (
+              <>
+                <Link href="/profile/edit">
+                  <a>
+                    <div className="list-menu-wrapper waves-effect">
+                      <div className="icon">
+                        <img src={profileIcon} alt="" />
+                      </div>
+                      <div className="menu-name">Edit Profil</div>
+                      <div className="right-icon">
+                        <Icon>chevron_right</Icon>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+                <Link href="/profile/change-password">
+                  <a>
+                    <div className="list-menu-wrapper waves-effect">
+                      <div className="icon">
+                        <img src={lockIcon} alt="" />
+                      </div>
+                      <div className="menu-name">Ganti Kata Sandi</div>
+                      <div className="right-icon">
+                        <Icon>chevron_right</Icon>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+                <Link href="/home/favorite">
+                  <a>
+                    <div className="list-menu-wrapper waves-effect">
+                      <div className="icon">
+                        <img src={heartIcon} alt="" />
+                      </div>
+                      <div className="menu-name">Stand Favorit</div>
+                      <div className="right-icon">
+                        <Icon>chevron_right</Icon>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              </>
+            )
+          }
           <Link href="/home/order/history">
             <a>
               <div className="list-menu-wrapper waves-effect">

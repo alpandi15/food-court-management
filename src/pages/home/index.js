@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router'
 import { withAuthSync } from 'components/Security/auth'
+import NProgress from 'nprogress'
 
 import { getAll } from 'actions/homeStand/homeStandAction'
 import { getUserData } from 'actions/auth/authAction'
 import Image from 'components/Image'
 import { Icon } from 'react-materialize'
 import SearchInput from 'components/Form/SearchInput'
+import { toastify } from 'components/Toast/Toastify'
 import color from '../../theme/color'
 
 const loveIcon = '/static/Icon/Heart.svg'
@@ -20,26 +22,62 @@ const defaultImgProduct = '/static/Image/default-product/32x32.png'
 
 const GUARD = 'user'
 
+const WAIT_INTERVAL = 1000
+
 const Home = ({
   // loadingData,
   userData,
   listData,
   getAll,
   getUserData,
+  dataError,
+  messageList,
   ...datas
 }) => {
   React.useEffect(() => {
     console.log('DATA PROPS ', datas)
     const fetch = async () => {
+      NProgress.start()
       await getAll({
         relationship: 1
       })
 
       await getUserData(GUARD)
+      NProgress.done()
     }
 
     fetch()
-  }, [getAll, getUserData, GUARD])
+  }, [getAll, getUserData, GUARD, NProgress])
+
+  React.useEffect(() => {
+    if (dataError && messageList) {
+      toastify({
+        type: 'error',
+        message: messageList
+      })
+    }
+  }, [dataError, messageList])
+
+  const debounce = (func, delay) => {
+    let debounceTimer
+    return function () {
+      const context = this
+      const args = arguments
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => func.apply(context, args), delay)
+    }
+  }
+  let handleChange = async (event) => {
+    NProgress.start()
+    event.persist()
+    await getAll({
+      keyword: event.target.value,
+      relationship: 1
+    })
+    NProgress.done()
+    console.log('Ini Value ', event.target.value)
+  }
+  let onSearch = debounce(handleChange, WAIT_INTERVAL)
 
   return (
     <>
@@ -82,7 +120,11 @@ const Home = ({
           </div>
         </div>
         <div className="header-search-bar">
-          <SearchInput autoComplete="off" id="search" placeholder="Mau makan apa?" />
+          <SearchInput autoComplete="off"
+            id="search"
+            placeholder="Mau makan apa?"
+            onChange={onSearch}
+          />
         </div>
 
         <div className="product-filter">
@@ -162,6 +204,8 @@ const mapStateToProps = (state) => {
     loadingData: homeStandStore.loading,
     listData: homeStandStore.list,
     meta: homeStandStore.meta,
+    dataError: homeStandStore.error,
+    messageList: homeStandStore.message,
     loadingUser: accountStore.loading,
     userData: accountStore.currentItem
   }

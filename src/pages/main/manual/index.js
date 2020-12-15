@@ -35,6 +35,7 @@ const Manual = ({
   const onSubmit = async (values) => {
     const { table_id } = values
     const resLogin = await loginGuest()
+    console.log('Guard ', resLogin)
     if (resLogin.success) {
       const sessionTable = await getSessionTable({ number: table_id }, GUARD)
 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getAccessToken } from 'services/utils/storage'
+import { getAccessToken, getSessionTable } from 'services/utils/storage'
 import {
   APIURL
 } from './url'
@@ -9,6 +9,7 @@ export async function request ({
   url,
   data,
   auth = false,
+  sessionTable = false,
   requiredToken = false,
   responseHtml = false,
   headers = {
@@ -20,7 +21,7 @@ export async function request ({
   guard = 'user'
 }) {
   const useUrl = (fullUrl ? url : `${APIURL}${url}`)
-  const token = getAccessToken(guard)
+  const token = sessionTable ? getSessionTable() : getAccessToken(guard)
 
   switch (type) {
     case 'json': {

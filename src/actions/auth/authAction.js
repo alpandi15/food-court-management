@@ -1,4 +1,4 @@
-import { remove } from 'services/utils/storage'
+import { remove, getAccessToken } from 'services/utils/storage'
 import { loggedin } from 'components/Security/auth'
 import {
   apiRegister,
@@ -94,6 +94,16 @@ const loginUser = (data, guard = 'user', path) => async (dispatch) => {
 const loginGuest = (data, guard = 'user', path) => async (dispatch) => {
   try {
     dispatch(fetch())
+    const userToken = await getAccessToken(guard)
+    if (userToken) {
+      const response = await apiGetProfile(guard)
+      if (response.success) {
+        dispatch(receivedAuthMe(response.data))
+        return response
+      }
+      dispatch(failed(response))
+      return response
+    }
     const response = await apiGetTokenGuest()
     if (response && response.success) {
       dispatch(receive(response.data, path, guard))
