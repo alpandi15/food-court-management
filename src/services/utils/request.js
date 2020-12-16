@@ -21,7 +21,9 @@ export async function request ({
   guard = 'user'
 }) {
   const useUrl = (fullUrl ? url : `${APIURL}${url}`)
-  const token = sessionTable ? getSessionTable() : getAccessToken(guard)
+  const sessionToken = await getSessionTable()
+  const userToken = await getAccessToken(guard)
+  const token = sessionTable ? sessionToken : userToken
 
   switch (type) {
     case 'json': {
@@ -37,6 +39,13 @@ export async function request ({
       break
     }
     default:
+  }
+
+  if (sessionTable && !sessionToken) {
+    return {
+      success: false,
+      message: 'Mohon scan QR dahulu'
+    }
   }
 
   if ((!token && auth && !requiredToken) || (typeof token === 'object' && auth && !requiredToken)) {

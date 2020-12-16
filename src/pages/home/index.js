@@ -7,6 +7,7 @@ import NProgress from 'nprogress'
 
 import { getAll } from 'actions/homeStand/homeStandAction'
 import { getUserData } from 'actions/auth/authAction'
+import { getOne as getFoodcourt } from 'actions/foodcourt/foodCourtAction'
 import Image from 'components/Image'
 import { Icon } from 'react-materialize'
 import SearchInput from 'components/Form/SearchInput'
@@ -34,6 +35,9 @@ const Home = ({
   getUserData,
   dataError,
   messageList,
+  getFoodcourt,
+  loadingFoodcourt,
+  foodCourtData,
   ...datas
 }) => {
   React.useEffect(() => {
@@ -60,6 +64,16 @@ const Home = ({
     }
   }, [dataError, messageList])
 
+  React.useEffect(() => {
+    if (userData && userData.foodCourtId) {
+      const fetchFoodcourt = async () => {
+        await getFoodcourt(userData.foodCourtId, GUARD)
+      }
+
+      fetchFoodcourt()
+    }
+  }, [userData, getFoodcourt, GUARD])
+
   const debounce = (func, delay) => {
     let debounceTimer
     return function () {
@@ -81,6 +95,7 @@ const Home = ({
   }
   let onSearch = debounce(handleChange, WAIT_INTERVAL)
 
+  console.log('FOOD ', foodCourtData)
   return (
     <>
       <div className="mobile-layout-content" style={{ backgroundColor: color.white, padding: '15px' }}>
@@ -101,7 +116,11 @@ const Home = ({
             </div>
             <div className="location-content d-flex">
               <div className="location">
-                Lokasi, Medan Night Market
+                Lokasi,
+                {' '}
+                {
+                  !loadingFoodcourt && foodCourtData && foodCourtData.name
+                }
               </div>
               <div className="table">
                 {userData && userData.tableNumber}
@@ -137,6 +156,25 @@ const Home = ({
             </button>
           </div>
         </div>
+        {
+          userData && !userData.foodCourtId && (
+            <div
+              className="container-stand-list"
+              style={{
+                height: '100%',
+                justifyContent: 'center',
+                alignItems: 'center',
+                display: 'flex'
+              }}
+            >
+              <Link href="/main/scan">
+                <a className="btn btn-app waves-effect waves-light">
+                  Pindai Kode QR
+                </a>
+              </Link>
+            </div>
+          )
+        }
         <div className="container-stand-list">
           {
             listData && listData.length !== 0 && listData.map((val, index) => (
@@ -244,7 +282,11 @@ const Home = ({
 }
 
 const mapStateToProps = (state) => {
-  const { homeStandStore, accountStore } = state
+  const {
+    homeStandStore,
+    accountStore,
+    foodCourt
+  } = state
   return {
     loadingData: homeStandStore.loading,
     listData: homeStandStore.list,
@@ -252,13 +294,16 @@ const mapStateToProps = (state) => {
     dataError: homeStandStore.error,
     messageList: homeStandStore.message,
     loadingUser: accountStore.loading,
-    userData: accountStore.currentItem
+    userData: accountStore.currentItem,
+    loadingFoodcourt: foodCourt.loading,
+    foodCourtData: foodCourt.currentItem
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   getAll: data => dispatch(getAll(data)),
-  getUserData: (guard, sessionTable) => dispatch(getUserData(guard, sessionTable))
+  getUserData: (guard, sessionTable) => dispatch(getUserData(guard, sessionTable)),
+  getFoodcourt: (id, guard) => dispatch(getFoodcourt(id, guard))
 })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Home)
