@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import SelectionDefault from 'components/Form/Selection'
@@ -33,7 +33,7 @@ const SelectFoodCourt = ({
   list
   // initialize
 }) => {
-  const history = useHistory()
+  const history = useRouter()
   const [listFoodcourt, setList] = React.useState(null)
 
   React.useEffect(() => {
@@ -61,7 +61,7 @@ const SelectFoodCourt = ({
     console.log(values)
     if (values && values.id) {
       set(FOODCOURT_SELECTED, values.id)
-      history.push('/owner')
+      history.push('/owner/home')
     } else {
       toastify({
         type: 'error',
