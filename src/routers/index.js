@@ -3,13 +3,14 @@ import mainRouter from './main'
 import homeRouter from './home'
 import orderRouter from './order'
 import profileRouter from './profile'
-import sessionStandHome from './stand-pages/home'
 
 // owner routing
-import sessionOwnerHome from './owner-pages/auth'
+import sessionOwnerAuth from './owner-pages/auth'
+import sessionOwnerHome from './owner-pages/home'
 
 // stand routing
 import standAuth from './stand-pages/auth'
+import sessionStandHome from './stand-pages/home'
 
 const routes = (server, app) => {
   server.use(authRouter(app))
@@ -19,6 +20,7 @@ const routes = (server, app) => {
   server.use(profileRouter(app))
   server.use(sessionStandHome(app))
   server.use(standAuth(app))
+  server.use(sessionOwnerAuth(app))
   server.use(sessionOwnerHome(app))
 }
 

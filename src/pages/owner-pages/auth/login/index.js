@@ -49,9 +49,9 @@ const Register = ({
           })
 
           if (resFood.success && resFood.data && resFood.data.length > 0) {
-            history.push('/owner/select-foodcourt')
+            history.push('/owner/home/selection')
           } else {
-            history.push('/owner/register-foodcourt')
+            history.push('/owner/auth/register')
           }
         } else {
           logout(GUARD_OWNER)
