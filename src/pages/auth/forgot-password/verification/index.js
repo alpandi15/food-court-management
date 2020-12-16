@@ -8,6 +8,7 @@ import { TYPE_CODE_FORGOT, TYPE_ACCOUNT_EMAIL } from 'constants'
 
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
+import CountDown from './countdownTimer'
 
 const Background = '/static/Image/bg.svg'
 const image = '/static/Image/mail_sent.png'
@@ -94,6 +95,7 @@ const VerificationCode = ({
                 component={TextInput}
               />
             </div>
+            <CountDown />
             <div className="fixed-button">
               <button disabled={invalid || submitting || loading} className="waves-effect waves-light btn btn-app bg-grey">Kirim</button>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Router from 'next/router'
 import { connect } from 'react-redux'
 import CustomHelmet from 'components/CustomHelmet'
 import { Field, reduxForm, getFormValues } from 'redux-form'
@@ -73,6 +74,7 @@ const Register = ({
         type: 'success',
         message: result.meta.message
       })
+      Router.push('/auth/login')
     } else {
       toastify({
         type: 'error',

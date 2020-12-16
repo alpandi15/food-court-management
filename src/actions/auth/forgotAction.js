@@ -1,6 +1,7 @@
 import {
   apiForgotPassword
 } from 'services/auth/forgotService'
+import { set } from 'services/utils/storage'
 
 import {
   FETCH_FORGOT_PASSWORD,
@@ -33,12 +34,13 @@ const failed = (error) => {
   }
 }
 
-const forgotPassword = value => async (dispatch) => {
+const forgotPassword = (value, guard = 'user') => async (dispatch) => {
   try {
     dispatch(fetch())
     const response = await apiForgotPassword('email', value)
     if (response && response.success) {
       dispatch(receiveItem(response, response.meta))
+      set(`varification_expired_${guard}`, response.data.expired)
       return response
     }
     dispatch(failed(response))

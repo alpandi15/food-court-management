@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import { forgotPassword } from 'actions/auth/forgotAction'
 import { toastify } from 'components/Toast/Toastify'
+import { GUARD_USER } from 'constants'
 
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
@@ -31,9 +32,7 @@ const ForgotPassword = ({
 }) => {
   const onSubmit = async (values) => {
     console.log(values)
-    const result = await forgotPassword({
-      account: values.email
-    })
+    const result = await forgotPassword({ account: values.email }, GUARD_USER)
     if (result.success) {
       toastify({
         type: 'success',
@@ -48,7 +47,10 @@ const ForgotPassword = ({
         type: 'info',
         message: result.message
       })
-      Router.push('/auth/forgot-password/verification')
+      Router.push({
+        pathname: '/auth/forgot-password/verification',
+        query: { email: values.email }
+      })
     } else {
       toastify({
         type: 'error',
@@ -116,7 +118,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  forgotPassword: email => dispatch(forgotPassword(email))
+  forgotPassword: (email, gaurd) => dispatch(forgotPassword(email, gaurd))
 })
 
 export default reduxForm({

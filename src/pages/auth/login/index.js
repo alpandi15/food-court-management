@@ -119,7 +119,7 @@ const Auth = ({
                 id="email"
                 name="email"
                 label="Email"
-                type="email"
+                type="text"
                 placeholder="Email atau Username"
                 component={TextInput}
               />

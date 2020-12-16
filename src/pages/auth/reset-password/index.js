@@ -7,16 +7,15 @@ import TextInput from 'components/Form/Input'
 const Background = '/static/Image/bg.svg'
 const image = '/static/Image/reset_password.png'
 
-const validate = ({ password, confirmPassword }) => {
+const validate = ({ password, confirm_password }) => {
   const error = {
     password: !password ? '*Required'
-    : password.length < 10 ? 'Min 10 Character'
+    : password.length < 6 ? 'Password Min 6 Character'
     : password.length > 50 ? 'Password Max 50 Character'
     : undefined,
-    confirmPassword: !confirmPassword ? '*Required'
-    : confirmPassword === '0' ? 'Not be 0 Min 1'
-    : confirmPassword.length < 1 ? 'confirmPassword Min 1 Character'
-    : confirmPassword.length > 3 ? 'confirmPassword Max 3 Character'
+    confirm_password: !confirm_password ? '*Required'
+    : confirm_password !== password ? 'Password tidak sama'
+    : confirm_password.length > 50 ? 'Password Max 50 Character'
     : undefined
   }
 
@@ -67,8 +66,8 @@ const ResetPassword = ({
                 component={TextInput}
               />
               <Field
-                name="confirmPassword"
-                id="confirmPassword"
+                name="confirm_password"
+                id="confirm_password"
                 label="Konfirmasi Kata Sandi Baru"
                 type="password"
                 component={TextInput}
