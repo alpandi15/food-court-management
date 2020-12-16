@@ -5,6 +5,9 @@ import orderRouter from './order'
 import profileRouter from './profile'
 import sessionStandHome from './stand-pages/home'
 
+// owner routing
+import sessionOwnerHome from './owner-pages/auth'
+
 // stand routing
 import standAuth from './stand-pages/auth'
 
@@ -16,6 +19,7 @@ const routes = (server, app) => {
   server.use(profileRouter(app))
   server.use(sessionStandHome(app))
   server.use(standAuth(app))
+  server.use(sessionOwnerHome(app))
 }
 
 export default routes

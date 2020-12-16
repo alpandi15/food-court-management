@@ -26,12 +26,19 @@ export const loggedin = async ({
 }
 
 export const logout = (guard) => {
+  // to support logging out from all windows
   cookie.remove(`access_token_${guard}`)
   cookie.remove('session_table')
-  // to support logging out from all windows
   window.localStorage.setItem(`logout_${guard}`, Date.now())
-  Router.push('/main')
-  // window.location.href('/main')
+  if (guard === 'user') {
+    Router.push('/main')
+  }
+  if (guard === 'stand') {
+    Router.push('/stand/auth/login')
+  }
+  if (guard === 'owner') {
+    Router.push('/owner/auth/login')
+  }
 }
 
 const getDisplayName = Component => Component.displayName || Component.name || 'Component'
