@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-const homeIcon = 'static/Icon/Menu_Home.svg'
-const menuIcon = 'static/Icon/Menu_Category.svg'
-const orderIcon = 'static/Icon/Menu_Document.svg'
-const profileIcon = 'static/Icon/Menu_Profile.svg'
+const homeIcon = '/static/Icon/Menu_Home.svg'
+const menuIcon = '/static/Icon/Menu_Category.svg'
+const orderIcon = '/static/Icon/Menu_Document.svg'
+const profileIcon = '/static/Icon/Menu_Profile.svg'
 
 class standMenu extends Component {
   render () {

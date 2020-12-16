@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDrag } from 'react-use-gesture'
-import { Link } from 'react-router-dom'
-// import Link from 'next/link'
+// import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { useSpring, a, config } from 'react-spring'
 
 const width = -270
@@ -68,11 +68,13 @@ const SideNav = () => {
     <>
       <div className="main-stand-header">
         <div className="menu-burger waves-effect" onClick={callOpen}>
-          <img src="static/Icon/Menu.svg" alt="" />
+          <img src="/static/Icon/Menu.svg" alt="" />
         </div>
         <div className="notification has-notif">
-          <Link to="#">
-            <img src="static/Icon/Notif.svg" alt="" />
+          <Link href="#">
+            <a>
+              <img src="static/Icon/Notif.svg" alt="" />
+            </a>
           </Link>
         </div>
       </div>
