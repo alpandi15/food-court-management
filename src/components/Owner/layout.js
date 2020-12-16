@@ -1,11 +1,7 @@
 import React from 'react'
 import CustomHelmet from 'components/CustomHelmet'
-
-const SideNav = React.lazy(() => import('./SideNav'))
-const Container = React.lazy(() => import('./Container'))
-
-const MemoSizeNav = React.memo(SideNav)
-const MemoContainer = React.memo(Container)
+import SideNav from './SideNav'
+import Container from './Container'
 
 const Layout = ({
   children
@@ -18,10 +14,10 @@ const Layout = ({
       </CustomHelmet>
 
       <div className="row admin-container">
-        <MemoSizeNav />
-        <MemoContainer>
+        <SideNav />
+        <Container>
           {children}
-        </MemoContainer>
+        </Container>
       </div>
     </>
   )

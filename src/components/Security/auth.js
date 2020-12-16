@@ -54,26 +54,59 @@ export const auth = (ctx, guard) => {
 
   console.log('MASUK KONTEKT ')
   if (ctx.req && !token) {
-    ctx.res.writeHead(302, {
-      Location: ctx
-        && ctx.pathname
-        && ctx.pathname !== '/auth/login'
-        // ? `/auth/login?path=${ctx.req.url}`
+    let redirect
+    if (guard === 'user') {
+      redirect = ctx
+      && ctx.pathname
+      && ctx.pathname !== '/auth/login'
         ? '/auth/login?path=/home'
         : '/auth/login'
+    }
+    if (guard === 'owner') {
+      redirect = ctx
+      && ctx.pathname
+      && ctx.pathname !== '/owner/auth/login'
+        ? '/owner/auth/login?path=/owner/home/selection'
+        : '/owner/auth/login'
+    }
+    if (guard === 'stand') {
+      redirect = ctx
+      && ctx.pathname
+      && ctx.pathname !== '/stand/auth/login'
+        ? '/stand/auth/login?path=/stand/home'
+        : '/stand/auth/login'
+    }
+
+    ctx.res.writeHead(302, {
+      Location: redirect
     })
     ctx.res.end()
     return
   }
 
   // We already checked for server. This should only happen on client.
-  console.log('MASUK !TOKEN ')
   if (!token) {
-    if (ctx && ctx.pathname && ctx.pathname !== '/auth/login') {
-      // Router.push(`/auth/login?path=${ctx.req.url}`)
-      Router.push('/auth/login?path=/home')
-    } else {
-      Router.push('/auth/login')
+    if (guard === 'user') {
+      if (ctx && ctx.pathname && ctx.pathname !== '/auth/login') {
+        // Router.push(`/auth/login?path=${ctx.req.url}`)
+        Router.push('/auth/login?path=/home')
+      } else {
+        Router.push('/auth/login')
+      }
+    }
+    if (guard === 'owner') {
+      if (ctx && ctx.pathname && ctx.pathname !== '/owner/auth/login') {
+        Router.push('/owner/auth/login?path=/home')
+      } else {
+        Router.push('/owner/auth/login')
+      }
+    }
+    if (guard === 'stand') {
+      if (ctx && ctx.pathname && ctx.pathname !== '/stand/auth/login') {
+        Router.push('/stand/auth/login?path=/home')
+      } else {
+        Router.push('/stand/auth/login')
+      }
     }
   }
 

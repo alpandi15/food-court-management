@@ -6,10 +6,10 @@ import SelectionDefault from 'components/Form/Selection'
 import { set } from 'services/utils/storage'
 import { toastify } from 'components/Toast/Toastify'
 import { getMy } from 'actions/foodcourt/foodCourtAction'
+import { withAuthSync } from 'components/Security/auth'
 import { FOODCOURT_SELECTED } from 'constants'
 
 const cover = '/static/Image/fcm-cover.jpg'
-// import generateOption from '../../actions/utils/generateOption'
 
 const generateOption = (datas) => {
   let options = []
@@ -115,6 +115,19 @@ const mapDispatchToProps = dispatch => ({
   getMy: data => dispatch(getMy(data))
 })
 
-export default reduxForm({
+SelectFoodCourt.defaultProps = {
+  title: 'Select Your Foodcourt'
+}
+
+// initial props authenticated using guard users
+SelectFoodCourt.getInitialProps = () => {
+  return {
+    guard: 'owner'
+  }
+}
+
+export default withAuthSync(reduxForm({
   form: 'FormSelectionFoodcourt'
-})(connect(mapStateToProps, mapDispatchToProps)(SelectFoodCourt))
+})(
+  connect(mapStateToProps, mapDispatchToProps)(SelectFoodCourt)
+))

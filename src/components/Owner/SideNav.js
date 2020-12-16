@@ -1,15 +1,16 @@
 import React from 'react'
-// import { useHistory } from 'react-router-dom'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Button } from 'react-materialize'
 import { connect } from 'react-redux'
 import Select from 'components/Form/SelectionDefault'
-import Modal from 'components/Modal'
 import { logoutUser } from 'actions/auth/authAction'
 import { getMy } from 'actions/foodcourt/foodCourtAction'
 import { get, set } from 'services/utils/storage'
 import Image from 'components/Image'
-import { GUARD_OWNER, FOODCOURT_SELECTED } from '../../constants'
+import { GUARD_OWNER, FOODCOURT_SELECTED } from 'constants'
+
+const Modal = dynamic(() => import('components/Modal'), { ssr: false })
 
 const generateOption = (datas) => {
   let options = []
@@ -23,8 +24,6 @@ const generateOption = (datas) => {
 
   return options
 }
-
-const MemoModal = React.memo(Modal)
 
 const SideNav = ({
   userData,
@@ -83,7 +82,7 @@ const SideNav = ({
               src={userData && userData.image && userData.image.url}
               className="user-image"
               alt="Profile"
-              defaultsrc="static/Image/default_image.png"
+              defaultsrc="/static/Image/default_image.png"
               style={{ width: '100%' }}
             />
           </div>
@@ -102,25 +101,35 @@ const SideNav = ({
           </div>
         </div>
         <div className="nav-menu">
-          <Link to="/owner" className="menu-item waves-effect">
-            <i className="material-icons">dashboard</i>
-            Dashboard
+          <Link href="/owner">
+            <a className="menu-item waves-effect">
+              <i className="material-icons">dashboard</i>
+              Dashboard
+            </a>
           </Link>
-          <Link to="/owner/stand" className="menu-item waves-effect">
-            <i className="material-icons">device_hub</i>
-            Stand
+          <Link href="/owner/stand">
+            <a className="menu-item waves-effect">
+              <i className="material-icons">device_hub</i>
+              Stand
+            </a>
           </Link>
-          <Link to="/owner/register" className="menu-item waves-effect">
-            <i className="material-icons">table_chart</i>
-            Management Meja
+          <Link href="/owner/register">
+            <a className="menu-item waves-effect">
+              <i className="material-icons">table_chart</i>
+              Management Meja
+            </a>
           </Link>
-          <Link to="/owner/register" className="menu-item waves-effect">
-            <i className="material-icons">book</i>
-            Laporan
+          <Link href="/owner/register">
+            <a className="menu-item waves-effect">
+              <i className="material-icons">book</i>
+              Laporan
+            </a>
           </Link>
-          <Link to="/owner/settings" className="menu-item waves-effect">
-            <i className="material-icons">settings</i>
-            Pengaturan
+          <Link href="/owner/settings">
+            <a className="menu-item waves-effect">
+              <i className="material-icons">settings</i>
+              Pengaturan
+            </a>
           </Link>
         </div>
 
@@ -132,7 +141,7 @@ const SideNav = ({
         </div>
       </div>
 
-      <MemoModal
+      <Modal
         open={modal}
         onCloseStart={handleModal}
         id="ModalInformasi"
@@ -166,7 +175,7 @@ const SideNav = ({
             </button>
           </div>
         </>
-      </MemoModal>
+      </Modal>
     </>
   )
 }
