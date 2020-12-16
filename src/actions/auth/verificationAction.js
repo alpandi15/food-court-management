@@ -19,7 +19,8 @@ const success = (data, meta) => {
     payload: {
       data,
       meta
-    }
+    },
+    message: data.message
   }
 }
 

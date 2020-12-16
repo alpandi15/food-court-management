@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { get } from 'services/utils/storage'
 import { GUARD_USER } from 'constants'
 
@@ -64,9 +65,12 @@ class Example extends React.Component {
     const { time } = this.state
     if (time.m < 0 || time.s < 0) {
       return (
-        <>
-          Kirim ulang kode verifikasi
-        </>
+        <div>
+          <span>Kirim ulang kode verifikasi</span>
+          <Link href="/auth/forgot-password">
+            <a style={{ color: 'rgb(251 119 13)', margin: '0 5px' }}>Resend Code</a>
+          </Link>
+        </div>
       )
     }
     return (

@@ -1,8 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { useRouter } from 'next/router'
 import { Field, reduxForm, getFormValues } from 'redux-form'
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
+import { toastify } from 'components/Toast/Toastify'
+import { resetPassword } from 'actions/auth/resetPasswordAction'
 
 const Background = '/static/Image/bg.svg'
 const image = '/static/Image/reset_password.png'
@@ -26,10 +29,40 @@ const ResetPassword = ({
   invalid,
   loading,
   submitting,
-  handleSubmit
+  handleSubmit,
+  resetPassword,
+  error,
+  message
 }) => {
+  const router = useRouter()
+  React.useEffect(() => {
+    if (error && message) {
+      toastify({
+        type: 'error',
+        message
+      })
+    }
+    if (!error && message) {
+      toastify({
+        type: 'success',
+        message
+      })
+    }
+  }, [error, message, toastify])
+
   const onSubmit = async (values) => {
-    console.log('VALUE ', values)
+    const { query } = router
+    if (query.email) {
+      await resetPassword({
+        account: query.email,
+        password: values.password
+      })
+    } else {
+      toastify({
+        type: 'error',
+        message: 'Mohon request verifikasi kode ulang'
+      })
+    }
   }
 
   return (
@@ -84,17 +117,22 @@ const ResetPassword = ({
 }
 
 const mapStateToProps = (state) => {
+  const { resetPasswordStore } = state
   return {
-    values: getFormValues('FormResetPassword')(state)
+    values: getFormValues('FormResetPassword')(state),
+    loading: resetPasswordStore.loading,
+    error: resetPasswordStore.error,
+    message: resetPasswordStore.message
   }
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-// })
+const mapDispatchToProps = dispatch => ({
+  resetPassword: (type, data) => dispatch(resetPassword(type, data))
+})
 
 export default reduxForm({
   form: 'FormResetPassword',
   validate
 })(
-  connect(mapStateToProps, null)(ResetPassword)
+  connect(mapStateToProps, mapDispatchToProps)(ResetPassword)
 )
