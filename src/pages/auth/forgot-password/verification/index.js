@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { useRouter } from 'next/router'
 import { Field, reduxForm, getFormValues } from 'redux-form'
-import { forgotPassword } from 'actions/auth/forgotAction'
+import { verification } from 'actions/auth/verificationAction'
 import { toastify } from 'components/Toast/Toastify'
+import { TYPE_CODE_FORGOT, TYPE_ACCOUNT_EMAIL } from 'constants'
 
 import Header from 'components/Header'
 import TextInput from 'components/Form/Input'
@@ -21,32 +23,38 @@ const validate = ({ email }) => {
   return error
 }
 
-const ForgotPassword = ({
+const VerificationCode = ({
   invalid,
   loading,
   submitting,
   handleSubmit,
-  forgotPassword
+  verification,
+  error,
+  message
 }) => {
-  const onSubmit = async (values) => {
-    const result = await forgotPassword({
-      account: values.email
-    })
-    console.log('Ini Response', result)
-    if (result.success) {
+  const router = useRouter()
+  React.useEffect(() => {
+    if (error && message) {
       toastify({
-        type: 'success',
-        message: result.meta.message
+        type: 'error',
+        message
       })
-    } else if (typeof result.detail === 'object') {
-      toastify({
-        type: 'info',
-        message: result.message
+    }
+  }, [error, message, toastify])
+
+  const onSubmit = async (values) => {
+    const { query } = router
+    if (query.email) {
+      await verification({
+        account: query.email,
+        typeCode: TYPE_CODE_FORGOT,
+        typeAccount: TYPE_ACCOUNT_EMAIL,
+        code: values.code
       })
     } else {
       toastify({
         type: 'error',
-        message: result.message
+        message: 'Mohon request verifikasi kode ulang'
       })
     }
   }
@@ -98,18 +106,22 @@ const ForgotPassword = ({
 }
 
 const mapStateToProps = (state) => {
+  const { verificationStore } = state
   return {
-    values: getFormValues('FormVerificationCode')(state)
+    values: getFormValues('FormVerificationCode')(state),
+    loading: verificationStore.loading,
+    error: verificationStore.error,
+    message: verificationStore.message
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  forgotPassword: email => dispatch(forgotPassword(email))
+  verification: data => dispatch(verification(data))
 })
 
 export default reduxForm({
   form: 'FormVerificationCode',
   validate
 })(
-  connect(mapStateToProps, mapDispatchToProps)(ForgotPassword)
+  connect(mapStateToProps, mapDispatchToProps)(VerificationCode)
 )

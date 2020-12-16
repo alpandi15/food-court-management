@@ -39,13 +39,16 @@ const ForgotPassword = ({
         type: 'success',
         message: result.meta.message
       })
-      Router.push('/forgot-password/verification')
+      Router.push({
+        pathname: '/auth/forgot-password/verification',
+        query: { email: values.email }
+      })
     } else if (typeof result.detail === 'object') {
       toastify({
         type: 'info',
         message: result.message
       })
-      Router.push('/forgot-password/verification')
+      Router.push('/auth/forgot-password/verification')
     } else {
       toastify({
         type: 'error',

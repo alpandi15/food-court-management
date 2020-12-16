@@ -13,6 +13,7 @@ import accountStore from './reducer/accountStore'
 import forgotStore from './reducer/forgotPassword'
 import foodCourt from './reducer/foodCourt'
 import tableSessionStore from './reducer/tableSessionStore'
+import verificationStore from './reducer/verificationStore'
 
 // GENERATED REDUCER
 import userStore from './reducer/userStore'
@@ -27,6 +28,7 @@ const reducers = combineReducers({
   forgotStore,
   foodCourt,
   tableSessionStore,
+  verificationStore,
 
   // GENERATED COMBINE
   userStore,

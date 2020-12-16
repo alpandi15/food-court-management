@@ -28,12 +28,12 @@ const failed = (error) => {
   return {
     type: FAILED_FORGOT_PASSWORD,
     payload: {
-      errorMessage: typeof error === 'object' ? error.message : error
+      error: typeof error === 'object' ? error.message : error
     }
   }
 }
 
-const forgotPassword = (value) => async (dispatch) => {
+const forgotPassword = value => async (dispatch) => {
   try {
     dispatch(fetch())
     const response = await apiForgotPassword('email', value)
